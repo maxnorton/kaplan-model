@@ -27,6 +27,9 @@ MISCELLANEOUS
 ------------------------------ */
 /* MAIN LAYOUT
 ------------------------------ */
+fieldset {
+  margin: 30px 0; }
+
 /* $logo */
 x.class-with-hyphens-separating-words {
   property: rule;
@@ -40,5 +43,9 @@ x.class-with-hyphens-separating-words {
 ------------------------------ */
 /* FORM ELEMENTS
 ------------------------------ */
+input,
+select {
+  display: block; }
+
 /* MISCELLANEOUS
 ------------------------------ */
