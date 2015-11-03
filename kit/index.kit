@@ -48,9 +48,9 @@
 		<h4>(2/2) Specify management scenario</h4>
 
 		<h5>Select the management practices to consider:</h5>
-			<label><input type="radio" name="practicefig" value="delayedpruning" />Delayed pruning</label>
-			<label><input type="radio" name="practicefig" value="topsin" />Hand-painted TopsinM</label>
-			<label><input type="radio" name="practicefig" value="doublepruning" />Double pruning</label>
+			<label><input type="radio" name="practicefig" value="dp" />Delayed pruning</label>
+			<label><input type="radio" name="practicefig" value="hp" />Hand-painted TopsinM</label>
+			<label><input type="radio" name="practicefig" value="dbp" />Double pruning</label>
 
 		<h5>Select anticipated efficacy:</h5>
 			<label><input type="radio" name="efficacyfig" value="25" />25%</label>
@@ -137,7 +137,20 @@ $(document).ready(function() {
 	
 	$('#theform').submit(function(e) {
 		e.preventDefault();
-		var results = '<img src="images/figures/' + $('select[name=region]').val() + '-yield' + $('input[name=efficacyfig]:checked').val() + '.png" alt="Graphical result" />';
+		var figoutput;
+		console.log($('input[name=figuredisplay]:checked').val());
+		switch ( $('input[name=figuredisplay]:checked').val() ) {
+			case 'yield':
+				console.log('case: yield.');
+				figoutput = 'yield';
+				break;
+			case 'netreturns':
+				console.log('case: netreturns.');
+				console.log($('input[name=practicefig]:checked').val());
+				figoutput = $('input[name=practicefig]:checked').val();
+				break;
+		};
+		var results = '<img src="images/figures/' + $('select[name=region]').val() + '-' + figoutput + $('input[name=efficacyfig]:checked').val() + '.png" alt="Graphical result" />';
 		console.log(results);
 		$('.results').html(results);
 	});
