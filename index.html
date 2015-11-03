@@ -111,11 +111,15 @@ $(document).ready(function() {
 			console.log('netreturns');
 			$('input[name=aggregatefig]').each(function() {
 				$(this).prop('disabled', false).prop('checked', false);
-			})	
+			});
+			$('input[name=aggregatefig][value=cumulatively]').prop('checked', true);
+			$('input[name=practicefig]').each(function() {
+				$(this).prop('disabled', false);
+			});
 		}
 		else if (this.value == 'yield') {
 			console.log('yield');
-			$('input[name=practice]').each(function() {
+			$('input[name=practicefig]').each(function() {
 				$(this).prop('disabled', true);
 			});
 			$('input[name=aggregatefig][value=annually]').prop('checked', true).prop('disabled', true);
