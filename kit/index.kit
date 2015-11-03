@@ -19,11 +19,11 @@
 <form action="" id="theform">
 
 	<select name="region">
-		<option value="centralcoast">Central Coast</option>
-		<option value="napasonoma">Napa Sonoma</option>
-		<option value="northerncalifornia">Northern California</option>
-		<option value="northernsanjoaquin">Northern San Joaquin</option>
-		<option value="southernsanjoaquin">Southern San Joaquin</option>
+		<option value="cc">Central Coast</option>
+		<option value="ns">Napa Sonoma</option>
+		<option value="nc">Northern California</option>
+		<option value="nsj">Northern San Joaquin</option>
+		<option value="ssj">Southern San Joaquin</option>
 	</select>
 
 	<h3>Figure parameters</h3>
@@ -34,12 +34,12 @@
 		<h4>(1/2) Specify output options</h5>
 
 		<h5>Display output as:</h5>
-			<label><input type="radio" name="displayas" value="netreturns" checked />Net returns <span class="show-for-medium-up">(thousands of $ per acre)</span></label>
-			<label><input type="radio" name="displayas" value="yield" />Yield <span class="show-for-medium-up">(tons per acre)</span></label>
+			<label><input type="radio" name="figuredisplay" value="netreturns" checked />Net returns <span class="show-for-medium-up">(thousands of $ per acre)</span></label>
+			<label><input type="radio" name="figuredisplay" value="yield" />Yield <span class="show-for-medium-up">(tons per acre)</span></label>
 
 		<h5>Aggregate output:</h5>
-			<label><input type="radio" name="aggregate" value="cumulatively" checked="checked" />Cumulatively</label>
-			<label><input type="radio" name="aggregate" value="annually" />Annually</label>
+			<label><input type="radio" name="aggregatefig" value="cumulatively" checked="checked" />Cumulatively</label>
+			<label><input type="radio" name="aggregatefig" value="annually" />Annually</label>
 
 	</fieldset>
 
@@ -48,14 +48,14 @@
 		<h4>(2/2) Specify management scenario</h4>
 
 		<h5>Select the management practices to consider:</h5>
-			<label><input type="radio" name="practice" value="delayedpruning" />Delayed pruning</label>
-			<label><input type="radio" name="practice" value="topsin" />Hand-painted TopsinM</label>
-			<label><input type="radio" name="practice" value="doublepruning" />Double pruning</label>
+			<label><input type="radio" name="practicefig" value="delayedpruning" />Delayed pruning</label>
+			<label><input type="radio" name="practicefig" value="topsin" />Hand-painted TopsinM</label>
+			<label><input type="radio" name="practicefig" value="doublepruning" />Double pruning</label>
 
 		<h5>Select anticipated efficacy:</h5>
-			<label><input type="radio" name="efficacy" value="25" />25%</label>
-			<label><input type="radio" name="efficacy" value="50" />50%</label>
-			<label><input type="radio" name="efficacy" value="75" />75%</label>
+			<label><input type="radio" name="efficacyfig" value="25" />25%</label>
+			<label><input type="radio" name="efficacyfig" value="50" />50%</label>
+			<label><input type="radio" name="efficacyfig" value="75" />75%</label>
 
 	</fieldset>
 
@@ -67,8 +67,8 @@
 		<h4>(1/2) Specify output options (not functional yet)</h5>
 
 		<h5>Display output as:</h5>
-			<label><input type="radio" name="displayas" value="netreturns" checked />Net returns <span class="show-for-medium-up">(thousands of $ per acre)</span></label>
-			<label><input type="radio" name="displayas" value="yield" />Yield <span class="show-for-medium-up">(tons per acre)</span></label>
+			<label><input type="radio" name="tabledisplay" value="netreturns" checked />Net returns <span class="show-for-medium-up">(thousands of $ per acre)</span></label>
+			<label><input type="radio" name="tabledisplay" value="yield" />Yield <span class="show-for-medium-up">(tons per acre)</span></label>
 
 		<h5>Aggregate output:</h5>
 			<label><input type="radio" name="aggregate" value="cumulatively" checked="checked" />Cumulatively</label>
@@ -81,9 +81,9 @@
 		<h4>(2/2) Specify management scenario (not functional yet)</h4>
 
 		<h5>Select the management practices to consider:</h5>
-			<label><input type="radio" name="practice" value="delayedpruning" />Delayed pruning</label>
-			<label><input type="radio" name="practice" value="topsin" />Hand-painted TopsinM</label>
-			<label><input type="radio" name="practice" value="doublepruning" />Double pruning</label>
+			<label><input type="radio" name="practice" value="dbp" />Delayed pruning</label>
+			<label><input type="radio" name="practice" value="hp" />Hand-painted TopsinM</label>
+			<label><input type="radio" name="practice" value="dp" />Double pruning</label>
 
 		<h5>Select anticipated efficacy:</h5>
 			<label><input type="radio" name="efficacy" value="25" />25%</label>
@@ -96,33 +96,26 @@
 
 </form>
 
+<section class="results"></section>
+
 <script type="text/javascript">
 $(document).ready(function() {
 	console.log('ready');
-	$('input[name=displayas]').change(function() {
+	$('input[name=figuredisplay]').change(function() {
 		console.log('change');
 		if (this.value == 'netreturns') {
 			console.log('netreturns');
-			$('fieldset.management').prop('disabled', false);
-			$('input[name=aggregate]').each(function() {
+			$('input[name=aggregatefig]').each(function() {
 				$(this).prop('disabled', false).prop('checked', false);
 			})	
-			$('input[name=efficacy]').each(function() {
-				$(this).attr('type', 'radio').prop('checked', false);
-			});
 		}
 		else if (this.value == 'yield') {
 			console.log('yield');
 			$('input[name=practice]').each(function() {
-				$(this).prop('checked', false);
-			})
-			$('input[name=aggregate][value=annually]').prop('checked',true).prop('disabled', true);
-			$('input[name=aggregate][value=cumulatively').prop('disabled', true);
-			$('input[name=efficacy]').each(function() {
-				$(this).attr('type', 'checkbox').prop('checked', true);
+				$(this).prop('disabled', true);
 			});
-			$('fieldset.management').prop('disabled', true);
-
+			$('input[name=aggregatefig][value=annually]').prop('checked', true).prop('disabled', true);
+			$('input[name=aggregatefig][value=cumulatively').prop('disabled', true);
 		}
 	});
 	$('input[name=genfigure]').change(function() {
@@ -137,7 +130,13 @@ $(document).ready(function() {
 			$(this).prop('disabled', !figurestate);
 		});
 	});*/
-
+	
+	$('#theform').submit(function(e) {
+		e.preventDefault();
+		var results = '<img src="images/' + $('select[name=region]').val() + '-yield' + $('input[name=efficacyfig]:checked').val() + 'dce.png" alt="Graphical result" />';
+		console.log(results);
+		$('.results').html(results);
+	});
 })
 </script>
 
