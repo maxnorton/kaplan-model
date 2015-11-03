@@ -11,35 +11,134 @@
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
 		},
-	"\/images\/nsj-yield25dce.png": {
+	"\/images\/figures\/NSJ-DBP25.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 52861,
+		"inputAbbreviatedPath": "\/images\/figures\/NSJ-DBP25.png",
+		"outputAbbreviatedPath": "\/images\/figures\/NSJ-DBP25.png",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/images\/figures\/NSJ-DBP50.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 52702,
+		"inputAbbreviatedPath": "\/images\/figures\/NSJ-DBP50.png",
+		"outputAbbreviatedPath": "\/images\/figures\/NSJ-DBP50.png",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/images\/figures\/NSJ-DBP75.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 51344,
+		"inputAbbreviatedPath": "\/images\/figures\/NSJ-DBP75.png",
+		"outputAbbreviatedPath": "\/images\/figures\/NSJ-DBP75.png",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/images\/figures\/NSJ-DP25.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 52897,
+		"inputAbbreviatedPath": "\/images\/figures\/NSJ-DP25.png",
+		"outputAbbreviatedPath": "\/images\/figures\/NSJ-DP25.png",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/images\/figures\/NSJ-DP50.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 53009,
+		"inputAbbreviatedPath": "\/images\/figures\/NSJ-DP50.png",
+		"outputAbbreviatedPath": "\/images\/figures\/NSJ-DP50.png",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/images\/figures\/NSJ-DP75.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 52318,
+		"inputAbbreviatedPath": "\/images\/figures\/NSJ-DP75.png",
+		"outputAbbreviatedPath": "\/images\/figures\/NSJ-DP75.png",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/images\/figures\/NSJ-HP25.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 52960,
+		"inputAbbreviatedPath": "\/images\/figures\/NSJ-HP25.png",
+		"outputAbbreviatedPath": "\/images\/figures\/NSJ-HP25.png",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/images\/figures\/NSJ-HP50.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 0,
+		"inputAbbreviatedPath": "\/images\/figures\/NSJ-HP50.png",
+		"outputAbbreviatedPath": "\/images\/figures\/NSJ-HP50.png",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/images\/figures\/NSJ-HP75.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 0,
+		"inputAbbreviatedPath": "\/images\/figures\/NSJ-HP75.png",
+		"outputAbbreviatedPath": "\/images\/figures\/NSJ-HP75.png",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/images\/figures\/nsj-yield25dce.png": {
 		"fileType": 32768,
 		"ignore": 0,
 		"ignoreWasSetByUser": 0,
 		"initialSize": 106003,
-		"inputAbbreviatedPath": "\/images\/nsj-yield25dce.png",
-		"outputAbbreviatedPath": "\/images\/nsj-yield25dce.png",
+		"inputAbbreviatedPath": "\/images\/figures\/nsj-yield25dce.png",
+		"outputAbbreviatedPath": "\/images\/figures\/nsj-yield25dce.png",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
-	"\/images\/nsj-yield50dce.png": {
+	"\/images\/figures\/nsj-yield50dce.png": {
 		"fileType": 32768,
 		"ignore": 0,
 		"ignoreWasSetByUser": 0,
 		"initialSize": 0,
-		"inputAbbreviatedPath": "\/images\/nsj-yield50dce.png",
-		"outputAbbreviatedPath": "\/images\/nsj-yield50dce.png",
+		"inputAbbreviatedPath": "\/images\/figures\/nsj-yield50dce.png",
+		"outputAbbreviatedPath": "\/images\/figures\/nsj-yield50dce.png",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
-	"\/images\/nsj-yield75dce.png": {
+	"\/images\/figures\/nsj-yield75dce.png": {
 		"fileType": 32768,
 		"ignore": 0,
 		"ignoreWasSetByUser": 0,
 		"initialSize": 0,
-		"inputAbbreviatedPath": "\/images\/nsj-yield75dce.png",
-		"outputAbbreviatedPath": "\/images\/nsj-yield75dce.png",
+		"inputAbbreviatedPath": "\/images\/figures\/nsj-yield75dce.png",
+		"outputAbbreviatedPath": "\/images\/figures\/nsj-yield75dce.png",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
