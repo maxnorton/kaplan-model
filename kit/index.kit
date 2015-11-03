@@ -5,7 +5,7 @@
 <title>Canker disease management options decision tool</title>
 <meta name=viewport content="width=device-width, initial-scale=1">
 <link rel="stylesheet" type="text/css" href="css/all.css" />
-<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
+<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
 </head>
 
 <body>
@@ -26,9 +26,120 @@
 		<option value="southernsanjoaquin">Southern San Joaquin</option>
 	</select>
 
+	<h3>Figure parameters</h3>
+	<label><input type="checkbox" name="genfigure" checked="checked" />Generate figure</label>
+
+	<fieldset class="figure">
+
+		<h4>(1/2) Specify output options</h5>
+
+		<h5>Display output as:</h5>
+			<label><input type="radio" name="displayas" value="netreturns" checked />Net returns <span class="show-for-medium-up">(thousands of $ per acre)</span></label>
+			<label><input type="radio" name="displayas" value="yield" />Yield <span class="show-for-medium-up">(tons per acre)</span></label>
+
+		<h5>Aggregate output:</h5>
+			<label><input type="radio" name="aggregate" value="cumulatively" checked="checked" />Cumulatively</label>
+			<label><input type="radio" name="aggregate" value="annually" />Annually</label>
+
+	</fieldset>
+
+	<fieldset class="figure management">
+		
+		<h4>(2/2) Specify management scenario</h4>
+
+		<h5>Select the management practices to consider:</h5>
+			<label><input type="radio" name="practice" value="delayedpruning" />Delayed pruning</label>
+			<label><input type="radio" name="practice" value="topsin" />Hand-painted TopsinM</label>
+			<label><input type="radio" name="practice" value="doublepruning" />Double pruning</label>
+
+		<h5>Select anticipated efficacy:</h5>
+			<label><input type="radio" name="efficacy" value="25" />25%</label>
+			<label><input type="radio" name="efficacy" value="50" />50%</label>
+			<label><input type="radio" name="efficacy" value="75" />75%</label>
+
+	</fieldset>
+
+	<h3>Table parameters</h3>
+	<label><input type="checkbox" name="gentable" />Generate table (disabled)</label>
+
+	<fieldset class="table" disabled="disabled">
+
+		<h4>(1/2) Specify output options (not functional yet)</h5>
+
+		<h5>Display output as:</h5>
+			<label><input type="radio" name="displayas" value="netreturns" checked />Net returns <span class="show-for-medium-up">(thousands of $ per acre)</span></label>
+			<label><input type="radio" name="displayas" value="yield" />Yield <span class="show-for-medium-up">(tons per acre)</span></label>
+
+		<h5>Aggregate output:</h5>
+			<label><input type="radio" name="aggregate" value="cumulatively" checked="checked" />Cumulatively</label>
+			<label><input type="radio" name="aggregate" value="annually" />Annually</label>
+
+	</fieldset>
+
+	<fieldset class="table management" disabled="disabled">
+		
+		<h4>(2/2) Specify management scenario (not functional yet)</h4>
+
+		<h5>Select the management practices to consider:</h5>
+			<label><input type="radio" name="practice" value="delayedpruning" />Delayed pruning</label>
+			<label><input type="radio" name="practice" value="topsin" />Hand-painted TopsinM</label>
+			<label><input type="radio" name="practice" value="doublepruning" />Double pruning</label>
+
+		<h5>Select anticipated efficacy:</h5>
+			<label><input type="radio" name="efficacy" value="25" />25%</label>
+			<label><input type="radio" name="efficacy" value="50" />50%</label>
+			<label><input type="radio" name="efficacy" value="75" />75%</label>
+
+	</fieldset>
+
 	<input type="submit" value="Display returns to this practice" />
 
 </form>
+
+<script type="text/javascript">
+$(document).ready(function() {
+	console.log('ready');
+	$('input[name=displayas]').change(function() {
+		console.log('change');
+		if (this.value == 'netreturns') {
+			console.log('netreturns');
+			$('fieldset.management').prop('disabled', false);
+			$('input[name=aggregate]').each(function() {
+				$(this).prop('disabled', false).prop('checked', false);
+			})	
+			$('input[name=efficacy]').each(function() {
+				$(this).attr('type', 'radio').prop('checked', false);
+			});
+		}
+		else if (this.value == 'yield') {
+			console.log('yield');
+			$('input[name=practice]').each(function() {
+				$(this).prop('checked', false);
+			})
+			$('input[name=aggregate][value=annually]').prop('checked',true).prop('disabled', true);
+			$('input[name=aggregate][value=cumulatively').prop('disabled', true);
+			$('input[name=efficacy]').each(function() {
+				$(this).attr('type', 'checkbox').prop('checked', true);
+			});
+			$('fieldset.management').prop('disabled', true);
+
+		}
+	});
+	$('input[name=genfigure]').change(function() {
+		var figurestate = $(this).prop('checked');
+		$('fieldset.figure').each(function() {
+			$(this).prop('disabled', !figurestate);
+		});
+	});
+	/*$('input[name=gentable]').change(function() {
+		var figurestate = $(this).prop('checked');
+		$('fieldset.table').each(function() {
+			$(this).prop('disabled', !figurestate);
+		});
+	});*/
+
+})
+</script>
 
 </body>
 </html>
