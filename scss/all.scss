@@ -1,0 +1,64 @@
+@charset "UTF-8"; /* only necessary if doc contains unicode chars */
+/* stylesheet information for kaplan-tool
+File created date: 11.02.2015
+Last modified date: 11.02.2015
+By: Max Norton maxbnorton@csus.edu
+*/
+
+/* Table of Contents
+FONT AND COLOR PALETTE
+RESETS AND OVERRIDES
+LINKS AND TYPE
+MAIN LAYOUT
+$logo
+$top-nav
+$nav-bar
+$etc
+SECONDARY LAYOUT
+$etc
+FORM ELEMENTS
+MISCELLANEOUS
+*/
+
+/* FONT AND COLOR PALETTE: 
+------------------------------ */
+	$sans-stack: Arial,Helvetica,sans-serif;
+	$color: #hexcode;
+
+
+/* RESETS AND OVERRIDES
+------------------------------ */
+/*@import ();*/
+
+
+/* LINKS AND TYPE
+------------------------------ */
+
+
+/* MAIN LAYOUT
+------------------------------ */
+
+/* $logo */
+x.class-with-hyphens-separating-words {
+	property: rule;
+	x-property: disabled;
+		property: testing;
+	/* alphabetize properties, comment when necessary */
+	
+	.sub-selector {
+		property: rule;
+	}
+	
+}
+
+
+/* SECONDARY LAYOUT
+------------------------------ */
+
+
+/* FORM ELEMENTS
+------------------------------ */
+
+
+/* MISCELLANEOUS
+------------------------------ */
