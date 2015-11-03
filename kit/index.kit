@@ -137,7 +137,7 @@ $(document).ready(function() {
 	
 	$('#theform').submit(function(e) {
 		e.preventDefault();
-		var results = '<img src="images/' + $('select[name=region]').val() + '-yield' + $('input[name=efficacyfig]:checked').val() + 'dce.png" alt="Graphical result" />';
+		var results = '<img src="images/figures/' + $('select[name=region]').val() + '-yield' + $('input[name=efficacyfig]:checked').val() + '.png" alt="Graphical result" />';
 		console.log(results);
 		$('.results').html(results);
 	});
