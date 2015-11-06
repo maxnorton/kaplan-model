@@ -150,7 +150,9 @@ $(document).ready(function() {
 				figoutput = $('input[name=practicefig]:checked').val();
 				break;
 		};
-		var results = '<img src="images/figures/' + $('select[name=region]').val() + '-' + figoutput + $('input[name=efficacyfig]:checked').val() + '.png" alt="Graphical result" />';
+		var fig = '<img src="images/figures/' + $('select[name=region]').val() + '-' + figoutput + $('input[name=efficacyfig]:checked').val() + '.png" alt="Graphical result" />';
+		var assumptions = '<h3>Parameter Values Used in Calculations</h3><table><tr><td>Vineyard Lifespan</td><td>25 years</td></tr><tr><td>Discount Rate</td><td>5%</td></tr><tr><td>Base Dollar</td><td>2013</td></tr><tr><td>Yield per acre</td><td>Shown in figure</td></tr><tr><td>5-year Average Price per ton</td><td>$XXX</td></tr><tr><td>Cultivar</td><td>Cabernet Sauvignon (?)</td></tr><tr><td>Additional Cost from Delayed Pruning per acre</td><td>$0</td></tr><tr><td>Additional Cost from Double Pruning per acre</td><td>$XX</td></tr><tr><td>Additional Cost from Handpainting TopsinM per acre</td><td>$XXX</td></tr><tr><td>Cultural Cost - Year 0 - Establishing Vineyard</td><td>$XX,XXX</td></tr><tr><td>Cultural Cost - Year 1 - Establishing Vineyard</td><td>$XX,XXX</td></tr><tr><td>Cultural Cost - Year 2 - Establishing Vineyard</td><td>$XX,XXX</td></tr><tr><td>Cultural Cost - Year 3+ Established Vineyard</td><td>$XX,XXX</td></tr></table>';
+		var results = fig + assumptions;
 		console.log(results);
 		$('.results').html(results);
 	});
