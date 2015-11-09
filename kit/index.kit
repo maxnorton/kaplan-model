@@ -59,35 +59,31 @@
 	</fieldset>
 
 	<h3>Table parameters</h3>
-	<label><input type="checkbox" name="gentable" />Generate table (disabled)</label>
+	<label><input type="checkbox" name="gentable" />Generate table (work in progress, mostly nonfunctional)</label>
 
-	<fieldset class="table" disabled="disabled">
-
-		<h4>(1/2) Specify output options (not functional yet)</h5>
-
-		<h5>Display output as:</h5>
-			<label><input type="radio" name="tabledisplay" value="netreturns" checked />Net returns <span class="show-for-medium-up">(thousands of $ per acre)</span></label>
-			<label><input type="radio" name="tabledisplay" value="yield" />Yield <span class="show-for-medium-up">(tons per acre)</span></label>
-
-		<h5>Aggregate output:</h5>
-			<label><input type="radio" name="aggregate" value="cumulatively" checked="checked" />Cumulatively</label>
-			<label><input type="radio" name="aggregate" value="annually" />Annually</label>
-
-	</fieldset>
-
-	<fieldset class="table management" disabled="disabled">
+	<fieldset class="table management">
 		
-		<h4>(2/2) Specify management scenario (not functional yet)</h4>
+		<h4>(1/2) Specify management scenario </h4>
 
 		<h5>Select the management practices to consider:</h5>
-			<label><input type="radio" name="practice" value="dbp" />Delayed pruning</label>
-			<label><input type="radio" name="practice" value="hp" />Hand-painted TopsinM</label>
-			<label><input type="radio" name="practice" value="dp" />Double pruning</label>
+			<label><input type="checkbox" name="practicetable" value="dbp" disabled="disabled" />Delayed pruning</label>
+			<label><input type="checkbox" name="practicetable" value="hp" disabled="disabled" />Hand-painted TopsinM</label>
+			<label><input type="checkbox" name="practicetable" value="dp" />Double pruning</label>
+		<h5>Select anticipated efficacy (select multiple to compare):</h5>
+			<label><input type="checkbox" name="efficacytable" value="25" />25%</label>
+			<label><input type="checkbox" name="efficacytable" value="50" disabled="disabled" />50%</label>
+			<label><input type="checkbox" name="efficacytable" value="75" disabled="disabled" />75%</label>
 
-		<h5>Select anticipated efficacy:</h5>
-			<label><input type="radio" name="efficacy" value="25" />25%</label>
-			<label><input type="radio" name="efficacy" value="50" />50%</label>
-			<label><input type="radio" name="efficacy" value="75" />75%</label>
+		<h5>Select year of practice adoption (select multiple to compare):</h5>
+			<label><input type="checkbox" name="adoptiontable" value="y3" />Year 3</label>
+			<label><input type="checkbox" name="adoptiontable" value="y5" />Year 5</label>
+			<label><input type="checkbox" name="adoptiontable" value="y10" />Year 10</label>
+
+		<h5>Choose output parameters</h5>
+			<label><input type="checkbox" name="outputtable" value="dcnr" />Discounted cumulative net returns</label><br />
+			<label><input type="checkbox" name="outputtable" value="annual-avg-net-returns" />Annual average net returns</label><br />
+			<label><input type="checkbox" name="outputtable" value="last-profitable-year" />Last profitable year</label><br />
+			<label><input type="checkbox" name="outputtable" value="breakeven-age" />Breakeven age</label><br />
 
 	</fieldset>
 
@@ -127,12 +123,12 @@ $(document).ready(function() {
 			$(this).prop('disabled', !figurestate);
 		});
 	});
-	/*$('input[name=gentable]').change(function() {
-		var figurestate = $(this).prop('checked');
+	$('input[name=gentable]').change(function() {
+		var tablestate = $(this).prop('checked');
 		$('fieldset.table').each(function() {
-			$(this).prop('disabled', !figurestate);
+			$(this).prop('disabled', !tablestate);
 		});
-	});*/
+	});
 	
 	$('#theform').submit(function(e) {
 		e.preventDefault();
@@ -150,6 +146,26 @@ $(document).ready(function() {
 				break;
 		};
 		var fig = '<img src="images/figures/' + $('select[name=region]').val() + '-' + figoutput + $('input[name=efficacyfig]:checked').val() + '.png" alt="Graphical result" />';
+		var tableparams = [{
+			"dbp": false,
+			"hp": false,
+			"dp": false,
+			"25": false,
+			"50": false,
+			"75": false,
+			"y3": false,
+			"y5": false,
+			"y10": false,
+			"dcnr": false,
+			"annual-avg-net-returns": false,
+			"last-profitable-year": false,
+			"breakeven-age": false
+		}];
+		$('input[name$=table]:checked').each(function() {
+			var element = $(this).attr('value');
+			tableparams[0][element] = true;
+		});
+		console.log(tableparams);
 		var assumptions = '<h3>Parameter Values Used in Calculations</h3><table><tr><td>Vineyard Lifespan</td><td>25 years</td></tr><tr><td>Discount Rate</td><td>5%</td></tr><tr><td>Base Dollar</td><td>2013</td></tr><tr><td>Yield per acre</td><td>Shown in figure</td></tr><tr><td>5-year Average Price per ton</td><td>$XXX</td></tr><tr><td>Cultivar</td><td>Cabernet Sauvignon (?)</td></tr><tr><td>Additional Cost from Delayed Pruning per acre</td><td>$0</td></tr><tr><td>Additional Cost from Double Pruning per acre</td><td>$XX</td></tr><tr><td>Additional Cost from Handpainting TopsinM per acre</td><td>$XXX</td></tr><tr><td>Cultural Cost - Year 0 - Establishing Vineyard</td><td>$XX,XXX</td></tr><tr><td>Cultural Cost - Year 1 - Establishing Vineyard</td><td>$XX,XXX</td></tr><tr><td>Cultural Cost - Year 2 - Establishing Vineyard</td><td>$XX,XXX</td></tr><tr><td>Cultural Cost - Year 3+ Established Vineyard</td><td>$XX,XXX</td></tr></table>';
 		var results = fig + assumptions;
 		console.log(results);

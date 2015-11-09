@@ -77,6 +77,17 @@
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
+	"\/images\/figures\/nsj-hp25.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 87601,
+		"inputAbbreviatedPath": "\/images\/figures\/nsj-hp25.png",
+		"outputAbbreviatedPath": "\/images\/figures\/nsj-hp25.png",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
 	"\/images\/figures\/nsj-hp50.png": {
 		"fileType": 32768,
 		"ignore": 0,
@@ -140,6 +151,17 @@
 		"outputAbbreviatedPath": "No Output Path",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
+		},
+	"\/json\/nsj-dp25.json": {
+		"fileType": 524288,
+		"ignore": 1,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/json\/nsj-dp25.json",
+		"orderOutput": 0,
+		"outputAbbreviatedPath": "\/json\/nsj-dp25-min.json",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"outputStyle": 1
 		},
 	"\/kit\/_header.kit": {
 		"fileType": 2048,
