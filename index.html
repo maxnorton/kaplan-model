@@ -63,7 +63,7 @@
 	</fieldset>
 
 	<h3>Table parameters</h3>
-	<label><input type="checkbox" name="gentable" />Generate table (work in progress, mostly nonfunctional)</label>
+	<label><input type="checkbox" name="tablegen" />Generate table (work in progress, mostly nonfunctional)</label>
 
 	<fieldset class="table management">
 		
@@ -127,7 +127,7 @@ $(document).ready(function() {
 			$(this).prop('disabled', !figurestate);
 		});
 	});
-	$('input[name=gentable]').change(function() {
+	$('input[name=tablegen]').change(function() {
 		var tablestate = $(this).prop('checked');
 		$('fieldset.table').each(function() {
 			$(this).prop('disabled', !tablestate);
@@ -150,26 +150,59 @@ $(document).ready(function() {
 				break;
 		};
 		var fig = '<img src="images/figures/' + $('select[name=region]').val() + '-' + figoutput + $('input[name=efficacyfig]:checked').val() + '.png" alt="Graphical result" />';
+		var nsjdp25 = {
+			"Northern San Joaquin": [{
+				"dp25-3": [{
+					"dcnr": "13,797.00",
+					"annual-avg-net-returns": "551.88",
+					"last-profitable-year": "14",
+					"breakeven-age": "3"
+				}],
+				"dp25-5": [{
+					"dcnr": "11,187.00",
+					"annual-avg-net-returns": "447.48",
+					"last-profitable-year": "14", 
+					"breakeven-age": "5"
+				}],
+				"dp25-10": [{
+					"dcnr": "4,772.00",
+					"annual-avg-net-returns": "190.88",
+					"last-profitable-year": "12",
+					"breakeven-age": "10"
+				}]
+			}]
+		};
 		var tableparams = [{
-			"dbp": false,
-			"hp": false,
-			"dp": false,
-			"25": false,
-			"50": false,
-			"75": false,
-			"y3": false,
-			"y5": false,
-			"y10": false,
-			"dcnr": false,
-			"annual-avg-net-returns": false,
-			"last-profitable-year": false,
-			"breakeven-age": false
+			"inputs": {
+				"dbp": false,
+				"hp": false,
+				"dp": false,
+				"25": false,
+				"50": false,
+				"75": false,
+				"y3": false,
+				"y5": false,
+				"y10": false
+			},
+			"outputs": {
+				"dcnr": false,
+				"annual-avg-net-returns": false,
+				"last-profitable-year": false,
+				"breakeven-age": false
+			}
 		}];
 		$('input[name$=table]:checked').each(function() {
 			var element = $(this).attr('value');
-			tableparams[0][element] = true;
+			if ( $(this).attr('name') == 'outputtable' )
+				tableparams[0].outputs[element] = true;
+			else
+				tableparams[0].inputs[element] = true;
 		});
 		console.log(tableparams);
+		var tablelabels;
+		/*for (i=0; i < tableparams[0].length; i++) {
+
+		}*/
 		var assumptions = '<h3>Parameter Values Used in Calculations</h3><table><tr><td>Vineyard Lifespan</td><td>25 years</td></tr><tr><td>Discount Rate</td><td>5%</td></tr><tr><td>Base Dollar</td><td>2013</td></tr><tr><td>Yield per acre</td><td>Shown in figure</td></tr><tr><td>5-year Average Price per ton</td><td>$XXX</td></tr><tr><td>Cultivar</td><td>Cabernet Sauvignon (?)</td></tr><tr><td>Additional Cost from Delayed Pruning per acre</td><td>$0</td></tr><tr><td>Additional Cost from Double Pruning per acre</td><td>$XX</td></tr><tr><td>Additional Cost from Handpainting TopsinM per acre</td><td>$XXX</td></tr><tr><td>Cultural Cost - Year 0 - Establishing Vineyard</td><td>$XX,XXX</td></tr><tr><td>Cultural Cost - Year 1 - Establishing Vineyard</td><td>$XX,XXX</td></tr><tr><td>Cultural Cost - Year 2 - Establishing Vineyard</td><td>$XX,XXX</td></tr><tr><td>Cultural Cost - Year 3+ Established Vineyard</td><td>$XX,XXX</td></tr></table>';
 		var results = fig + assumptions;
 		console.log(results);
