@@ -38,8 +38,15 @@ MISCELLANEOUS
 /* MAIN LAYOUT
 ------------------------------ */
 
-fieldset {
-	margin: 30px 0;
+fieldset, .results {
+	display: block;
+	margin: 1em auto;
+	max-width: 90%;
+
+	img {
+		max-width: 100%;
+	}
+
 }
 
 /* $logo */
@@ -58,6 +65,22 @@ x.class-with-hyphens-separating-words {
 
 /* SECONDARY LAYOUT
 ------------------------------ */
+
+table {
+	border-spacing: 0;
+
+	td {
+		height: 1.5em;
+	}
+
+	tr:first-of-type {
+		font-weight: bold;
+	}
+
+	tr:nth-of-type(even) {
+		background-color: #eee;
+	}
+}
 
 
 /* FORM ELEMENTS

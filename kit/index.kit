@@ -19,7 +19,7 @@
 
 <form action="" id="theform">
 
-	<select name="region">
+	<label><strong>Vineyard region: </strong><select name="region">
 		<option value="cc">Central Coast</option>
 		<option value="ns">Napa Sonoma</option>
 		<option value="nc">Northern California</option>
@@ -197,7 +197,7 @@ $(document).ready(function() {
 			}
 			i++;
 		};
-		tablelabels = '<tr><td></td>' + tablelabels + '</tr>';
+		tablelabels = '<tr><td>Region</td>' + tablelabels + '</tr>';
 		tablerow = '<tr><td>Northern San Joaquin</td>' + tablerowvalues + '</tr>';
 		var table = '<h3>Output table</h3><table>' + tablelabels + tablerow + '</table>';
 		var assumptions = '<h3>Parameter Values Used in Calculations</h3><table><tr><td>Vineyard Lifespan</td><td>25 years</td></tr><tr><td>Discount Rate</td><td>5%</td></tr><tr><td>Base Dollar</td><td>2013</td></tr><tr><td>Yield per acre</td><td>Shown in figure</td></tr><tr><td>5-year Average Price per ton</td><td>$XXX</td></tr><tr><td>Cultivar</td><td>Cabernet Sauvignon (?)</td></tr><tr><td>Additional Cost from Delayed Pruning per acre</td><td>$0</td></tr><tr><td>Additional Cost from Double Pruning per acre</td><td>$XX</td></tr><tr><td>Additional Cost from Handpainting TopsinM per acre</td><td>$XXX</td></tr><tr><td>Cultural Cost - Year 0 - Establishing Vineyard</td><td>$XX,XXX</td></tr><tr><td>Cultural Cost - Year 1 - Establishing Vineyard</td><td>$XX,XXX</td></tr><tr><td>Cultural Cost - Year 2 - Establishing Vineyard</td><td>$XX,XXX</td></tr><tr><td>Cultural Cost - Year 3+ Established Vineyard</td><td>$XX,XXX</td></tr></table>';

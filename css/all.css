@@ -27,8 +27,12 @@ MISCELLANEOUS
 ------------------------------ */
 /* MAIN LAYOUT
 ------------------------------ */
-fieldset {
-  margin: 30px 0; }
+fieldset, .results {
+  display: block;
+  margin: 1em auto;
+  max-width: 90%; }
+  fieldset img, .results img {
+    max-width: 100%; }
 
 /* $logo */
 x.class-with-hyphens-separating-words {
@@ -41,6 +45,15 @@ x.class-with-hyphens-separating-words {
 
 /* SECONDARY LAYOUT
 ------------------------------ */
+table {
+  border-spacing: 0; }
+  table td {
+    height: 1.5em; }
+  table tr:first-of-type {
+    font-weight: bold; }
+  table tr:nth-of-type(even) {
+    background-color: #eee; }
+
 /* FORM ELEMENTS
 ------------------------------ */
 x-input,
