@@ -27,6 +27,17 @@ MISCELLANEOUS
 ------------------------------ */
 /* MAIN LAYOUT
 ------------------------------ */
+header {
+  background-color: white;
+  border-bottom: 1px solid #bbb;
+  padding: 0 5%;
+  position: fixed;
+  top: 0;
+  width: 90%; }
+
+.content-wrap {
+  padding-top: 100px; }
+
 fieldset, .results {
   display: block;
   margin: 1em auto;
