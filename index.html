@@ -32,7 +32,7 @@
 	</select>
 
 	<h3>Figure parameters</h3>
-	<label><input type="checkbox" name="genfigure" checked="checked" />Generate figure</label>
+	<label><input type="checkbox" name="figuregen" checked="checked" />Generate figure</label>
 
 	<fieldset class="figure">
 
@@ -63,7 +63,7 @@
 	</fieldset>
 
 	<h3>Table parameters</h3>
-	<label><input type="checkbox" name="tablegen" />Generate table (work in progress, mostly nonfunctional)</label>
+	<label><input type="checkbox" name="tablegen" checked="checked" />Generate table (currently functional only for double pruning, 25%, year 3 adoption, assumes NSJ region)</label>
 
 	<fieldset class="table management">
 		
@@ -72,22 +72,22 @@
 		<h5>Select the management practices to consider:</h5>
 			<label><input type="checkbox" name="practicetable" value="dbp" disabled="disabled" />Delayed pruning</label>
 			<label><input type="checkbox" name="practicetable" value="hp" disabled="disabled" />Hand-painted TopsinM</label>
-			<label><input type="checkbox" name="practicetable" value="dp" />Double pruning</label>
+			<label><input type="checkbox" name="practicetable" value="dp" checked="checked" />Double pruning</label>
 		<h5>Select anticipated efficacy (select multiple to compare):</h5>
-			<label><input type="checkbox" name="efficacytable" value="25" />25%</label>
+			<label><input type="checkbox" name="efficacytable" value="25" checked="checked" />25%</label>
 			<label><input type="checkbox" name="efficacytable" value="50" disabled="disabled" />50%</label>
 			<label><input type="checkbox" name="efficacytable" value="75" disabled="disabled" />75%</label>
 
 		<h5>Select year of practice adoption (select multiple to compare):</h5>
-			<label><input type="checkbox" name="adoptiontable" value="y3" />Year 3</label>
+			<label><input type="checkbox" name="adoptiontable" value="y3" checked="checked" />Year 3</label>
 			<label><input type="checkbox" name="adoptiontable" value="y5" />Year 5</label>
 			<label><input type="checkbox" name="adoptiontable" value="y10" />Year 10</label>
 
 		<h5>Choose output parameters</h5>
 			<label><input type="checkbox" name="outputtable" value="dcnr" />Discounted cumulative net returns</label><br />
-			<label><input type="checkbox" name="outputtable" value="annual-avg-net-returns" />Annual average net returns</label><br />
-			<label><input type="checkbox" name="outputtable" value="last-profitable-year" />Last profitable year</label><br />
-			<label><input type="checkbox" name="outputtable" value="breakeven-age" />Breakeven age</label><br />
+			<label><input type="checkbox" name="outputtable" value="aanr" />Annual average net returns</label><br />
+			<label><input type="checkbox" name="outputtable" value="lpy" />Last profitable year</label><br />
+			<label><input type="checkbox" name="outputtable" value="bea" />Breakeven age</label><br />
 
 	</fieldset>
 
@@ -99,11 +99,8 @@
 
 <script type="text/javascript">
 $(document).ready(function() {
-	console.log('ready');
 	$('input[name=figuredisplay]').change(function() {
-		console.log('change');
 		if (this.value == 'netreturns') {
-			console.log('netreturns');
 			$('input[name=aggregatefig]').each(function() {
 				$(this).prop('disabled', false).prop('checked', false);
 			});
@@ -113,7 +110,6 @@ $(document).ready(function() {
 			});
 		}
 		else if (this.value == 'yield') {
-			console.log('yield');
 			$('input[name=practicefig]').each(function() {
 				$(this).prop('disabled', true);
 			});
@@ -121,14 +117,18 @@ $(document).ready(function() {
 			$('input[name=aggregatefig][value=cumulatively').prop('disabled', true);
 		}
 	});
-	$('input[name=genfigure]').change(function() {
-		var figurestate = $(this).prop('checked');
+
+	var figurestate = new Boolean(true);
+	var tablestate = new Boolean(true);
+
+	$('input[name=figuregen]').change(function() {
+		figurestate = $(this).prop('checked');
 		$('fieldset.figure').each(function() {
 			$(this).prop('disabled', !figurestate);
 		});
 	});
 	$('input[name=tablegen]').change(function() {
-		var tablestate = $(this).prop('checked');
+		tablestate = $(this).prop('checked');
 		$('fieldset.table').each(function() {
 			$(this).prop('disabled', !tablestate);
 		});
@@ -137,75 +137,79 @@ $(document).ready(function() {
 	$('#theform').submit(function(e) {
 		e.preventDefault();
 		var figoutput;
-		console.log($('input[name=figuredisplay]:checked').val());
 		switch ( $('input[name=figuredisplay]:checked').val() ) {
 			case 'yield':
-				console.log('case: yield.');
 				figoutput = 'yield';
 				break;
 			case 'netreturns':
-				console.log('case: netreturns.');
-				console.log($('input[name=practicefig]:checked').val());
 				figoutput = $('input[name=practicefig]:checked').val();
 				break;
 		};
 		var fig = '<img src="images/figures/' + $('select[name=region]').val() + '-' + figoutput + $('input[name=efficacyfig]:checked').val() + '.png" alt="Graphical result" />';
-		var nsjdp25 = {
-			"Northern San Joaquin": [{
-				"dp25-3": [{
-					"dcnr": "13,797.00",
-					"annual-avg-net-returns": "551.88",
-					"last-profitable-year": "14",
-					"breakeven-age": "3"
-				}],
-				"dp25-5": [{
-					"dcnr": "11,187.00",
-					"annual-avg-net-returns": "447.48",
-					"last-profitable-year": "14", 
-					"breakeven-age": "5"
-				}],
-				"dp25-10": [{
-					"dcnr": "4,772.00",
-					"annual-avg-net-returns": "190.88",
-					"last-profitable-year": "12",
-					"breakeven-age": "10"
-				}]
-			}]
+		var nsj = [];
+		var nsjdp25y3 = [];
+		nsjdp25y3['dcnr'] = '13,797.00';
+		nsjdp25y3['aanr'] = '551.88';
+		nsjdp25y3['lpy'] = '14';
+		nsjdp25y3['bea'] = '3';
+		var tableparams = [];
+		var inputs = [];
+		var outputs = [];
+		var inputkeys = [];
+		inputkeys = ['dbp', 'hp', 'dp', '25', '50', '75', 'y3', 'y5', 'y10'];
+		for (var inputindex in inputkeys) {
+			inputs[inputkeys[inputindex]] = false;
 		};
-		var tableparams = [{
-			"inputs": {
-				"dbp": false,
-				"hp": false,
-				"dp": false,
-				"25": false,
-				"50": false,
-				"75": false,
-				"y3": false,
-				"y5": false,
-				"y10": false
-			},
-			"outputs": {
-				"dcnr": false,
-				"annual-avg-net-returns": false,
-				"last-profitable-year": false,
-				"breakeven-age": false
-			}
-		}];
+		var outputkeys = [];
+		outputkeys = ['dcnr', 'aanr', 'lpy', 'bea'];
+		for (var outputindex in outputkeys) {
+			outputs[outputkeys[outputindex]] = false;
+		};
+		tableparams['inputs'] = inputs;
+		tableparams['outputs'] = outputs;
 		$('input[name$=table]:checked').each(function() {
 			var element = $(this).attr('value');
 			if ( $(this).attr('name') == 'outputtable' )
-				tableparams[0].outputs[element] = true;
+				tableparams.outputs[element] = true;
 			else
-				tableparams[0].inputs[element] = true;
+				tableparams.inputs[element] = true;
 		});
-		console.log(tableparams);
-		var tablelabels;
-		/*for (i=0; i < tableparams[0].length; i++) {
-
-		}*/
+		var tablelabels = '';
+		var tablerowvalues = '';
+		var i=0;
+		var the_output_keys = Object.keys(tableparams.outputs);
+		for ( var param in tableparams.outputs ) {
+			var the_key = the_output_keys[i];
+			if ( tableparams.outputs[the_key] == true ) {
+				var fullLabel = '';
+				switch (the_key) {
+					case 'dcnr':
+						fullLabel = 'DCNR';
+						break;
+					case 'aanr':
+						fullLabel = 'Annual average net returns';
+						break;
+					case 'lpy':
+						fullLabel = 'Last profitable year';
+						break;
+					case 'bea':
+						fullLabel = 'Breakeven age';
+						break;
+				};
+				tablelabels += '<td>' + fullLabel + '</td>'
+				tablerowvalues += '<td>' + nsjdp25y3[the_key] + '</td>';
+			}
+			i++;
+		};
+		tablelabels = '<tr><td></td>' + tablelabels + '</tr>';
+		tablerow = '<tr><td>Northern San Joaquin</td>' + tablerowvalues + '</tr>';
+		var table = '<h3>Output table</h3><table>' + tablelabels + tablerow + '</table>';
 		var assumptions = '<h3>Parameter Values Used in Calculations</h3><table><tr><td>Vineyard Lifespan</td><td>25 years</td></tr><tr><td>Discount Rate</td><td>5%</td></tr><tr><td>Base Dollar</td><td>2013</td></tr><tr><td>Yield per acre</td><td>Shown in figure</td></tr><tr><td>5-year Average Price per ton</td><td>$XXX</td></tr><tr><td>Cultivar</td><td>Cabernet Sauvignon (?)</td></tr><tr><td>Additional Cost from Delayed Pruning per acre</td><td>$0</td></tr><tr><td>Additional Cost from Double Pruning per acre</td><td>$XX</td></tr><tr><td>Additional Cost from Handpainting TopsinM per acre</td><td>$XXX</td></tr><tr><td>Cultural Cost - Year 0 - Establishing Vineyard</td><td>$XX,XXX</td></tr><tr><td>Cultural Cost - Year 1 - Establishing Vineyard</td><td>$XX,XXX</td></tr><tr><td>Cultural Cost - Year 2 - Establishing Vineyard</td><td>$XX,XXX</td></tr><tr><td>Cultural Cost - Year 3+ Established Vineyard</td><td>$XX,XXX</td></tr></table>';
-		var results = fig + assumptions;
-		console.log(results);
+		var results = assumptions;
+		if (tablestate == true)
+			results = table + results;
+		if (figurestate == true)
+			results = fig + results;
 		$('.results').html(results);
 	});
 })
