@@ -9,7 +9,7 @@
 <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
 </head>
 
-<body>
+<body id="page">
 
 <header>
 	<div class="header-wrap">
@@ -71,25 +71,25 @@
 	</fieldset>
 
 	<h3>Table parameters</h3>
-	<label><input type="checkbox" name="tablegen" checked="checked" />Generate table (currently functional only for double pruning, 25%, year 3 adoption, assumes NSJ region)</label>
+	<label><input type="checkbox" name="tablegen" checked="checked" />Generate table (functional for delayed pruning, 25% efficac, assumes NSJ region)</label>
 
 	<fieldset class="table management">
 		
 		<h4>(1/2) Specify management scenario </h4>
 
-		<h5>Select the management practices to consider:</h5>
-			<label><input type="checkbox" name="practicetable" value="dbp" disabled="disabled" />Delayed pruning</label>
+		<h5>Select the management practices to consider (restricted to delayed pruning right now):</h5>
+			<label><input type="checkbox" name="practicetable" value="dp" checked="checked" />Delayed pruning</label>
 			<label><input type="checkbox" name="practicetable" value="hp" disabled="disabled" />Hand-painted TopsinM</label>
-			<label><input type="checkbox" name="practicetable" value="dp" checked="checked" />Double pruning</label>
-		<h5>Select anticipated efficacy (select multiple to compare):</h5>
+			<label><input type="checkbox" name="practicetable" value="dbp" disabled="disabled" />Double pruning</label>
+		<h5>Select anticipated efficacy (restricted to 25% so far):</h5>
 			<label><input type="checkbox" name="efficacytable" value="25" checked="checked" />25%</label>
 			<label><input type="checkbox" name="efficacytable" value="50" disabled="disabled" />50%</label>
 			<label><input type="checkbox" name="efficacytable" value="75" disabled="disabled" />75%</label>
 
 		<h5>Select year of practice adoption (select multiple to compare):</h5>
-			<label><input type="checkbox" name="adoptiontable" value="y3" checked="checked" />Year 3</label>
-			<label><input type="checkbox" name="adoptiontable" value="y5" />Year 5</label>
-			<label><input type="checkbox" name="adoptiontable" value="y10" />Year 10</label>
+			<label><input type="checkbox" name="adoptiontable" value="3" />Year 3</label>
+			<label><input type="checkbox" name="adoptiontable" value="5" />Year 5</label>
+			<label><input type="checkbox" name="adoptiontable" value="10" />Year 10</label>
 
 		<h5>Choose output parameters</h5>
 			<label><input type="checkbox" name="outputtable" value="dcnr" />Discounted cumulative net returns</label><br />
@@ -157,16 +157,27 @@ $(document).ready(function() {
 		};
 		var fig = '<img src="images/figures/' + $('select[name=region]').val() + '-' + figoutput + $('input[name=efficacyfig]:checked').val() + '.png" alt="Graphical result" />';
 		var nsj = [];
-		var nsjdp25y3 = [];
-		nsjdp25y3['dcnr'] = '13,797.00';
-		nsjdp25y3['aanr'] = '551.88';
-		nsjdp25y3['lpy'] = '14';
-		nsjdp25y3['bea'] = '3';
+		var nsjdp253 = [];
+		nsjdp253['dcnr'] = '13,797.00';
+		nsjdp253['aanr'] = '551.88';
+		nsjdp253['lpy'] = '14';
+		nsjdp253['bea'] = '3';
+		var nsjdp255 = [];
+		nsjdp255['dcnr'] = '11,187.00';
+		nsjdp255['aanr'] = '447.48';
+		nsjdp255['lpy'] = '14';
+		nsjdp255['bea'] = '5';
+		var nsjdp2510 = [];
+		nsjdp2510['dcnr'] = '4,772.00';
+		nsjdp2510['aanr'] = '190.88';
+		nsjdp2510['lpy'] = '12';
+		nsjdp2510['bea'] = '10';
+		nsj = [nsjdp253, nsjdp255, nsjdp2510];
 		var tableparams = [];
 		var inputs = [];
 		var outputs = [];
 		var inputkeys = [];
-		inputkeys = ['dbp', 'hp', 'dp', '25', '50', '75', 'y3', 'y5', 'y10'];
+		inputkeys = ['dbp', 'hp', 'dp', '25', '50', '75', '3', '5', '10'];
 		for (var inputindex in inputkeys) {
 			inputs[inputkeys[inputindex]] = false;
 		};
@@ -185,9 +196,45 @@ $(document).ready(function() {
 				tableparams.inputs[element] = true;
 		});
 		var tablelabels = '';
-		var tablerowvalues = '';
-		var i=0;
+		var tablerowsdefined = [];
+		var k=0;
+		var n=0;
+		var the_input_keys = Object.keys(tableparams.inputs);
+		for (var rowcount in tableparams.inputs ) {
+			var the_key = the_input_keys[k];
+			console.log(the_key);
+			if ( the_key == '3' || the_key == '5' || the_key == '10' && tableparams.inputs[the_key] == true ) {
+				tablerowsdefined[n] = the_key;
+				console.log('tablerowsdefined: ' + n);
+				n++;
+			}
+			k++;
+		}
+		var tablerowvalues = [];
+
+		var j=0;
 		var the_output_keys = Object.keys(tableparams.outputs);
+		console.log(the_output_keys);
+		for (var rowcount in tablerowsdefined) {
+			var i=0;
+			console.log('rowcount: ' + j);
+			var the_year = tablerowsdefined[j];
+			tablerowvalues[j]='';
+			console.log('the_year = ' + the_year);
+			if (tableparams.inputs[the_year] == true) {
+				tablerowvalues[j] = '<td>' + tablerowsdefined[j] + '</td>';
+				console.log(tablerowvalues[j]);
+				for (var param in tableparams.outputs) {
+					var the_key = the_output_keys[i];
+					if (tableparams.outputs[the_key] == true ) {
+						tablerowvalues[j] += '<td>' + nsj[j][the_key] + '</td>';
+					}
+					i++;
+				}
+			}
+			j++;
+		};
+		var i=0;
 		for ( var param in tableparams.outputs ) {
 			var the_key = the_output_keys[i];
 			if ( tableparams.outputs[the_key] == true ) {
@@ -207,15 +254,25 @@ $(document).ready(function() {
 						break;
 				};
 				tablelabels += '<td>' + fullLabel + '</td>'
-				tablerowvalues += '<td>' + nsjdp25y3[the_key] + '</td>';
 			}
 			i++;
 		};
-		tablelabels = '<tr><td>Region</td>' + tablelabels + '</tr>';
-		tablerow = '<tr><td>Northern San Joaquin</td>' + tablerowvalues + '</tr>';
-		var table = '<h3>Output table</h3><table>' + tablelabels + tablerow + '</table>';
+		tablelabels = '<tr><td>Region</td><td>Efficacy</td><td>Year of adoption</td>' + tablelabels + '</tr>';
+		
+		var tablerows = '';
+		var m=0;
+		for (var rowcount in tablerowvalues) {
+			var the_year = tablerowsdefined[m];
+			if (tableparams.inputs[the_year] == true) {
+				tablerows += '<tr><td>Northern San Joaquin</td><td>25%</td>' + tablerowvalues[m] + '</tr>';
+			}
+			console.log('tablerowvalues: ' + m + ': ' + tablerowvalues[m]);
+			m++;
+		}
+
+		var table = '<h3>Output table</h3><table>' + tablelabels + tablerows + '</table>';
 		var assumptions = '<h3>Parameter Values Used in Calculations</h3><table><tr><td>Vineyard Lifespan</td><td>25 years</td></tr><tr><td>Discount Rate</td><td>5%</td></tr><tr><td>Base Dollar</td><td>2013</td></tr><tr><td>Yield per acre</td><td>Shown in figure</td></tr><tr><td>5-year Average Price per ton</td><td>$XXX</td></tr><tr><td>Cultivar</td><td>Cabernet Sauvignon (?)</td></tr><tr><td>Additional Cost from Delayed Pruning per acre</td><td>$0</td></tr><tr><td>Additional Cost from Double Pruning per acre</td><td>$XX</td></tr><tr><td>Additional Cost from Handpainting TopsinM per acre</td><td>$XXX</td></tr><tr><td>Cultural Cost - Year 0 - Establishing Vineyard</td><td>$XX,XXX</td></tr><tr><td>Cultural Cost - Year 1 - Establishing Vineyard</td><td>$XX,XXX</td></tr><tr><td>Cultural Cost - Year 2 - Establishing Vineyard</td><td>$XX,XXX</td></tr><tr><td>Cultural Cost - Year 3+ Established Vineyard</td><td>$XX,XXX</td></tr></table>';
-		var results = assumptions;
+		var results = assumptions + '<p><a href="#page">Adjust parameters</a></p>';
 		if (tablestate == true)
 			results = table + results;
 		if (figurestate == true)

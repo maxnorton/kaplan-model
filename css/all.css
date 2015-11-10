@@ -99,7 +99,7 @@ header {
     padding-top: 150px; } }
 fieldset, .results {
   display: block;
-  margin: 1em auto;
+  margin: 1em 0;
   max-width: 90%; }
   fieldset img, .results img {
     max-width: 100%; }
