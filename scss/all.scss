@@ -30,6 +30,36 @@ MISCELLANEOUS
 ------------------------------ */
 /*@import ();*/
 
+h1 {
+	font-size: .75em;
+}
+
+h1.images img:nth-of-type(1) {
+	display: none;
+}
+
+
+/* Smartphones (landscape) and up ----------- */
+@media only screen and (min-width : 321px) {
+	h1.images img:nth-of-type(1) {
+		display: inline;
+	}
+}
+
+/* Tablets (portrait and landscape) ----------- */
+@media only screen and (min-width : 768px) and (max-width : 1024px) {
+	h1 {
+		font-size: 1.5em;
+	}
+}
+
+/* Desktops and laptops ----------- */
+@media only screen and (min-width: 1024px) {
+	h1 {
+		font-size: 2em;
+	}
+}
+
 
 /* LINKS AND TYPE
 ------------------------------ */
@@ -39,16 +69,84 @@ MISCELLANEOUS
 ------------------------------ */
 
 header {
-	background-color: white;	
+	background-color: white;
 	border-bottom: 1px solid #bbb;
-	padding: 0 5%;
+	display: block;
+	padding: 0;
 	position: fixed;
 	top: 0;
-	width: 90%;
+	width: 100%;
+
+	.header-wrap {
+		margin: .25em ;
+		max-width: 1050px;
+		width: 90%;
+	}
+
+	h1.title {
+		color: white;
+		background-color: #555;
+		display: inline-block;
+		font-family: 'Arial Black', san-serif;
+		height: 4em;
+		margin: 0;
+		padding: .25em 1% .25em 1%;
+		vertical-align: top;
+		width: 45%; 
+	}
+
+	h1.images {
+		background-color: white;
+		display: inline-block;
+		height: 4.5em;
+		margin: 0;
+		overflow: hidden;
+		padding: 0 1%;
+		width: 41%;
+
+		img {
+			width: 96%;
+		}
+
+	}
+
+}
+
+/* Smartphones (landscape) and up ----------- */
+@media only screen and (min-width : 321px) {
+	header {
+		h1.images img {
+			width: 48%;
+		}
+	}
+}
+
+
+/* Tablets and up ----------- */
+@media only screen and (min-width: 768px) {
+	header {
+		h1.title {
+			padding-right: 10%;
+		}
+	}
 }
 
 .content-wrap {
-	padding-top: 100px;
+	padding-top: 80px;
+}
+
+/* Tablets and up ----------- */
+@media only screen and (min-width: 768px) {
+	.content-wrap {
+		padding-top: 124px;
+	}
+}
+
+/* Desktops and laptops ----------- */
+@media only screen and (min-width: 1024px) {
+	.content-wrap {
+		padding-top: 150px;		
+	}
 }
 
 fieldset, .results {
