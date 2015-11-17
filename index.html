@@ -399,13 +399,25 @@ $(document).ready(function() {
 			outputs[outputkeys[outputindex]] = false;
 		};
 
-		var theFormDrivenOutputVarName = $('select[name=region]').val() + $('input[name=practicetable]:checked').val().toUpperCase() + $('input[name=efficacytable]:checked').val() + 'y' + $('input[name=adoptiontable]:checked').val();
-		console.log('the var name:');
-		console.log(theFormDrivenOutputVarName);
-		var theFormDrivenOutputVar = eval(theFormDrivenOutputVarName);
-		console.log('the values:')
-		console.log(theFormDrivenOutputVar);
+		var theFormDrivenOutputVarsArray = [];
+		var a=0;
 
+		$('input[name=practicetable]:checked').each(function() {
+			var thisPractice = $(this).val().toUpperCase();
+			$('input[name=efficacytable]:checked').each(function() {
+				var thisEfficacy = $(this).val();
+				$('input[name=adoptiontable]:checked').each(function() {
+					var thisYear = 'y' + $(this).val();
+					var theFormDrivenOutputVarName = $('select[name=region]').val() + thisPractice + thisEfficacy + thisYear;
+					theFormDrivenOutputVarsArray[a] = eval(theFormDrivenOutputVarName);
+					a++;
+				});
+			});
+		});
+
+		console.log('the values:')
+		console.log(theFormDrivenOutputVarsArray);
+		console.log('the length of the array: ' + theFormDrivenOutputVarsArray.length);
 		tableparams['inputs'] = inputs;
 		tableparams['outputs'] = outputs;
 		$('input[name$=table]:checked').each(function() {
@@ -417,7 +429,7 @@ $(document).ready(function() {
 		});
 		var tablelabels = '';
 		var tablerowsdefined = [];
-		var tablerows = '';
+		var tablerows = [];
 
 		var k=0;
 		var n=0;
@@ -452,16 +464,25 @@ $(document).ready(function() {
 			j++;
 		};
 
-		tablerows = '<td>' + theFormDrivenOutputVar[0] + '</td><td>' + theFormDrivenOutputVar[1] + '</td><td>' + theFormDrivenOutputVar[2] + '</td><td>' + theFormDrivenOutputVar[3] + '</td>';
+		for (var j=0; j<theFormDrivenOutputVarsArray.length; j++) {
+			tablerows[j] = '<tr><td>' + theFormDrivenOutputVarsArray[j][0] + '</td><td>' + theFormDrivenOutputVarsArray[j][1] + '</td><td>' + theFormDrivenOutputVarsArray[j][2] + '</td><td>' + theFormDrivenOutputVarsArray[j][3] + '</td>';
+		}
 		var i=0;
 		for ( var param in tableparams.outputs ) {
 			var the_key = the_output_keys[i];
 			if ( tableparams.outputs[the_key] == true ) {
 				tablelabels += '<td>' + tableHeaders[4+i] + '</td>';
-				tablerows += '<td>' + theFormDrivenOutputVar[4+i] + '</td>';				
+				for (var j=0; j<theFormDrivenOutputVarsArray.length; j++) {
+					tablerows[j] += '<td>' + theFormDrivenOutputVarsArray[j][4+i] + '</td>';
+				}				
 			}
 			i++;
 		};
+		for (var j=0; j<theFormDrivenOutputVarsArray.length; j++) {
+			tablerows[j] += '</tr>';
+		}
+		console.log('the rows: ');
+		console.log(tablerows);
 
 		tablelabels = '<tr><td>' + tableHeaders[0] + '</td><td>' + tableHeaders[1] + '</td><td>' + tableHeaders[2] + '</td><td>' + tableHeaders[3] + '</td>' + tablelabels + '</tr>';
 		
@@ -478,7 +499,11 @@ $(document).ready(function() {
 
 		var table = '<h3>Output table</h3><table>' + tablelabels + tablerows + '</table>';*/
 
-		var table = '<h3>Output table</h3><table>' + tablelabels + tablerows + '</table>';
+		var table = '<h3>Output table</h3><table>' + tablelabels;
+		for (var row=0; row<tablerows.length; row++) {
+			table += tablerows[row];
+		}
+		table += '</table>';
 
 		var assumptionsHeaders = ['Region', 'Price', 'Cultivar', 'Additional Cost from Delayed Pruning per acre', 'Additional Cost from Double Pruning per acre', 'Additional Cost from Handpainting TopsinM per acre', 'Cultural Cost &#8211; Year 0 &#8211; Establishing Vineyard', 'Cultural Cost &#8211; Year 1 &#8211; Establishing Vineyard', 'Cultural Cost &#8211; Year 2 &#8211; Establishing Vineyard', 'Cultural Cost &#8211; Year 3+ &#8211; Established Vineyard'];
 		var assumptionsNS = ['Napa Sonoma', '$2,431', 'Cabernet Sauvignon', '0', '$335', '$59', '$27,583.54', '$4,330.57', '$5,342.09', '$6,468.06'];
