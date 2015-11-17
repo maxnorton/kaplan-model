@@ -59,14 +59,14 @@
 		<h4>Specify management scenario</h4>
 
 		<h5>Select the management practices to consider:</h5>
-			<label><input type="radio" name="practicefig" value="dp" />Delayed pruning</label>
-			<label><input type="radio" name="practicefig" value="hp" />Hand-painted TopsinM</label>
-			<label><input type="radio" name="practicefig" value="dbp" />Double pruning</label>
-
+			<label><input type="checkbox" name="practicefig" value="dp" />Delayed pruning</label>
+			<label><input type="checkbox" name="practicefig" value="hp" />Hand-painted TopsinM</label>
+			<label><input type="checkbox" name="practicefig" value="dbp" />Double pruning</label>
+checkbox
 		<h5>Select anticipated efficacy:</h5>
-			<label><input type="radio" name="efficacyfig" value="25" />25%</label>
-			<label><input type="radio" name="efficacyfig" value="50" />50%</label>
-			<label><input type="radio" name="efficacyfig" value="75" />75%</label>
+			<label><input type="checkbox" name="efficacyfig" value="25" />25%</label>
+			<label><input type="checkbox" name="efficacyfig" value="50" />50%</label>
+			<label><input type="checkbox" name="efficacyfig" value="75" />75%</label>
 
 	</fieldset>
 
@@ -156,7 +156,18 @@ $(document).ready(function() {
 				figoutput = $('input[name=practicefig]:checked').val();
 				break;
 		};
-		var fig = '<img src="images/figures/' + $('select[name=region]').val() + '-' + figoutput + $('input[name=efficacyfig]:checked').val() + '.png" alt="Graphical result" />';
+		var efficacyfig = [];
+		var practicefig = [];
+		var fig = [];
+		var fullfig = '';
+		for (var i=0; i<$('input[name=practicefig]:checked').length; i++) {
+			practicefig[i] = $('input[name=practicefig]:checked:eq('+i+')').val();
+			for (var j=0; j<$('input[name=efficacyfig]:checked').length; j++) {
+				efficacyfig[j] = $('input[name=efficacyfig]:checked:eq('+j+')').val();
+				fig[i*$('input[name=practicefig]:checked').length+j] =  '<img src="images/figures/' + $('select[name=region]').val() + '-' + practicefig[i] + efficacyfig[j] + '.png" alt="Graphical result" />'
+				fullfig += fig[i*$('input[name=practicefig]:checked').length+j];
+			}
+		}
 		var nsj = [];
 		var nsjdp253 = [];
 		nsjdp253['dcnr'] = '13,797.00';
@@ -277,7 +288,7 @@ $(document).ready(function() {
 		if (tablestate == true)
 			results = table + results;
 		if (figurestate == true)
-			results = fig + results;
+			results = fullfig + results;
 		$('.results').html(results);
 	});
 })
