@@ -206,6 +206,13 @@ table {
 	}
 }
 
+.assumptionstable {
+	tr td:first-of-type {
+		font-weight: bold;
+		border-right: 1px solid #ccc;
+	}
+}
+
 
 /* FORM ELEMENTS
 ------------------------------ */

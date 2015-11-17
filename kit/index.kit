@@ -389,7 +389,7 @@ $(document).ready(function() {
 			var ssjHP = [ssjHP25, ssjHP50, ssjHP75];
 			var ssjDBP = [ssjDBP25, ssjDBP50, ssjDBP75];
 			var ssj = [ssjDP, ssjHP, ssjDBP];
-			
+
 			var regions = [cc, ns, nc, nsj, ssj];
 			// /table data declaration
 
@@ -475,16 +475,11 @@ $(document).ready(function() {
 		var assumptionsSSJ = ['Southern San Joaquin', '$300', 'Cabernet Sauvignon', '0', '$261', '$38', '$11,887.23', '$3,280.55', '$3,449.47', '$4,402.22'];
 		var assumptionsArray = [{ns: assumptionsNS, nsj: assumptionsNSJ, cc: assumptionsCC, nc: assumptionsNC, ssj: assumptionsSSJ}];
 		
-		var assumptionstable = '<h3>Parameter Values Used in Calculations</h3><table><tr>';
-
+		var assumptionstable = '<h3>Parameter Values Used in Calculations</h3><table class="assumptionstable">';
 		for (var i=0; i<assumptionsHeaders.length; i++) {
-			assumptionstable += '<td>' + assumptionsHeaders[i] + '</td>';
+			assumptionstable += '<tr><td>' + assumptionsHeaders[i] + '</td><td>' + assumptionsArray[0][$('select[name=region]').val()][i] + '</td></tr>';
 		};
-		assumptionstable += '</tr><tr>';
-		for (var i=0; i<assumptionsHeaders.length; i++) {
-			assumptionstable += '<td>' + assumptionsArray[0][$('select[name=region]').val()][i] + '</td>';
-		};
-		assumptionstable += '</tr></table>';
+		assumptionstable += '</table>';
 
 		/***** Collate results
 		------------------------------------ */
