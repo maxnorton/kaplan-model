@@ -178,14 +178,20 @@ x.class-with-hyphens-separating-words {
 ------------------------------ */
 
 table {
+	border: 1px solid #ccc;
 	border-spacing: 0;
 
 	td {
 		height: 1.5em;
+		padding: .5em;
 	}
 
 	tr:first-of-type {
 		font-weight: bold;
+
+		td {
+			border-bottom: 1px solid #ccc;
+		}
 	}
 
 	tr:nth-of-type(even) {

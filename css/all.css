@@ -116,11 +116,15 @@ x.class-with-hyphens-separating-words {
 /* SECONDARY LAYOUT
 ------------------------------ */
 table {
+  border: 1px solid #ccc;
   border-spacing: 0; }
   table td {
-    height: 1.5em; }
+    height: 1.5em;
+    padding: .5em; }
   table tr:first-of-type {
     font-weight: bold; }
+    table tr:first-of-type td {
+      border-bottom: 1px solid #ccc; }
   table tr:nth-of-type(even) {
     background-color: #eee; }
 
