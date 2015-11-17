@@ -286,8 +286,28 @@ $(document).ready(function() {
 		}
 
 		var table = '<h3>Output table</h3><table>' + tablelabels + tablerows + '</table>';
-		var assumptions = '<h3>Parameter Values Used in Calculations</h3><table><tr><td>Vineyard Lifespan</td><td>25 years</td></tr><tr><td>Discount Rate</td><td>5%</td></tr><tr><td>Base Dollar</td><td>2013</td></tr><tr><td>Yield per acre</td><td>Shown in figure</td></tr><tr><td>5-year Average Price per ton</td><td>$XXX</td></tr><tr><td>Cultivar</td><td>Cabernet Sauvignon (?)</td></tr><tr><td>Additional Cost from Delayed Pruning per acre</td><td>$0</td></tr><tr><td>Additional Cost from Double Pruning per acre</td><td>$XX</td></tr><tr><td>Additional Cost from Handpainting TopsinM per acre</td><td>$XXX</td></tr><tr><td>Cultural Cost - Year 0 - Establishing Vineyard</td><td>$XX,XXX</td></tr><tr><td>Cultural Cost - Year 1 - Establishing Vineyard</td><td>$XX,XXX</td></tr><tr><td>Cultural Cost - Year 2 - Establishing Vineyard</td><td>$XX,XXX</td></tr><tr><td>Cultural Cost - Year 3+ Established Vineyard</td><td>$XX,XXX</td></tr></table>';
-		var results = assumptions + '<p><a href="#page">Adjust parameters</a></p>';
+
+		var assumptionsHeaders = ['Region', 'Price', 'Cultivar', 'Additional Cost from Delayed Pruning per acre', 'Additional Cost from Double Pruning per acre', 'Additional Cost from Handpainting TopsinM per acre', 'Cultural Cost &#8211; Year 0 &#8211; Establishing Vineyard', 'Cultural Cost &#8211; Year 1 &#8211; Establishing Vineyard', 'Cultural Cost &#8211; Year 2 &#8211; Establishing Vineyard', 'Cultural Cost &#8211; Year 3+ &#8211; Established Vineyard'];
+		var assumptionsNS = ['Napa Sonoma', '$2,431', 'Cabernet Sauvignon', '0', '$335', '$59', '$27,583.54', '$4,330.57', '$5,342.09', '$6,468.06'];
+		var assumptionsNSJ = ['Northern San Joaquin', '$690', 'Cabernet Sauvignon', '0', '$273', '$88.5', '$11,887.23', '$3,280.55', '$3,449.47', '$4,402.22'];
+		var assumptionsCC = ['Central Coast', '$1,140', 'Cabernet Sauvignon', '0', '$359', '$72', '$11,887.23', '$3,280.55', '$3,449.47', '$4,402.22'];
+		var assumptionsNC = ['Northern California', '$750', 'Cabernet Sauvignon', '0', '$191', '$56', '$11,887.23', '$3,280.55', '$3,449.47', '$4,402.22'];
+		var assumptionsSSJ = ['Southern San Joaquin', '$300', 'Cabernet Sauvignon', '0', '$261', '$38', '$11,887.23', '$3,280.55', '$3,449.47', '$4,402.22'];
+		var assumptionsArray = [{ns: assumptionsNS, nsj: assumptionsNSJ, cc: assumptionsCC, nc: assumptionsNC, ssj: assumptionsSSJ}];
+		console.log(assumptionsArray);
+		
+		var assumptionstable = '<h3>Parameter Values Used in Calculations</h3><table><tr>' //<td>Vineyard Lifespan</td><td>25 years</td></tr><tr><td>Discount Rate</td><td>5%</td></tr><tr><td>Base Dollar</td><td>2013</td></tr><tr><td>Yield per acre</td><td>Shown in figure</td></tr><tr><td>5-year Average Price per ton</td><td>$XXX</td></tr><tr><td>Cultivar</td><td>Cabernet Sauvignon (?)</td></tr><tr><td>Additional Cost from Delayed Pruning per acre</td><td>$0</td></tr><tr><td>Additional Cost from Double Pruning per acre</td><td>$XX</td></tr><tr><td>Additional Cost from Handpainting TopsinM per acre</td><td>$XXX</td></tr><tr><td>Cultural Cost - Year 0 - Establishing Vineyard</td><td>$XX,XXX</td></tr><tr><td>Cultural Cost - Year 1 - Establishing Vineyard</td><td>$XX,XXX</td></tr><tr><td>Cultural Cost - Year 2 - Establishing Vineyard</td><td>$XX,XXX</td></tr><tr><td>Cultural Cost - Year 3+ Established Vineyard</td><td>$XX,XXX</td></tr></table>';
+
+		for (var i=0; i<assumptionsHeaders.length; i++) {
+			assumptionstable += '<td>' + assumptionsHeaders[i] + '</td>';
+		};
+		assumptionstable += '</tr><tr>';
+		for (var i=0; i<assumptionsHeaders.length; i++) {
+			assumptionstable += '<td>' + assumptionsArray[0][$('select[name=region]').val()][i] + '</td>';
+		};
+		assumptionstable += '</tr></table>';
+
+		var results = assumptionstable + '<p><a href="#page">Adjust parameters</a></p>';
 		if (tablestate == true)
 			results = table + results;
 		if (figurestate == true)
