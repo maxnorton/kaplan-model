@@ -30,6 +30,10 @@ MISCELLANEOUS
 ------------------------------ */
 /*@import ();*/
 
+body {
+	margin: 0;
+}
+
 h1 {
 	font-size: .75em;
 }
@@ -78,7 +82,7 @@ header {
 	width: 100%;
 
 	.header-wrap {
-		margin: .25em ;
+		margin: .25em 0 ;
 		max-height: 60px;
 		overflow: hidden;
 	}
@@ -135,6 +139,7 @@ header {
 
 .content-wrap {
 	padding-top: 80px;
+	margin: 0 8px;
 }
 
 /* Tablets and up ----------- */
