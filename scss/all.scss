@@ -206,6 +206,11 @@ table {
 	td {
 		height: 1.5em;
 		padding: .5em;
+		text-align: center;
+	}
+
+	td:first-of-type {
+		text-align: left;
 	}
 
 	tr:first-of-type {

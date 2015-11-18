@@ -135,7 +135,10 @@ table {
   border-spacing: 0; }
   table td {
     height: 1.5em;
-    padding: .5em; }
+    padding: .5em;
+    text-align: center; }
+  table td:first-of-type {
+    text-align: left; }
   table tr:first-of-type {
     font-weight: bold; }
     table tr:first-of-type td {
