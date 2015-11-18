@@ -480,12 +480,12 @@ $(document).ready(function() {
 		/***** Generate assumptions table
 		------------------------------------ */
 
-		var assumptionsHeaders = ['Region', 'Price', 'Cultivar', 'Additional Cost from Delayed Pruning per acre', 'Additional Cost from Double Pruning per acre', 'Additional Cost from Handpainting TopsinM per acre', 'Cultural Cost &#8211; Year 0 &#8211; Establishing Vineyard', 'Cultural Cost &#8211; Year 1 &#8211; Establishing Vineyard', 'Cultural Cost &#8211; Year 2 &#8211; Establishing Vineyard', 'Cultural Cost &#8211; Year 3+ &#8211; Established Vineyard'];
-		var assumptionsNS = ['Napa Sonoma', '$2,431', 'Cabernet Sauvignon', '0', '$335', '$59', '$27,583.54', '$4,330.57', '$5,342.09', '$6,468.06'];
-		var assumptionsNSJ = ['Northern San Joaquin', '$690', 'Cabernet Sauvignon', '0', '$273', '$88.5', '$11,887.23', '$3,280.55', '$3,449.47', '$4,402.22'];
-		var assumptionsCC = ['Central Coast', '$1,140', 'Cabernet Sauvignon', '0', '$359', '$72', '$11,887.23', '$3,280.55', '$3,449.47', '$4,402.22'];
-		var assumptionsNC = ['Northern California', '$750', 'Cabernet Sauvignon', '0', '$191', '$56', '$11,887.23', '$3,280.55', '$3,449.47', '$4,402.22'];
-		var assumptionsSSJ = ['Southern San Joaquin', '$300', 'Cabernet Sauvignon', '0', '$261', '$38', '$11,887.23', '$3,280.55', '$3,449.47', '$4,402.22'];
+		var assumptionsHeaders = ['Region', 'Vineyard Lifespan', 'Discount Rate', 'Price', 'Cultivar', 'Additional Cost from Delayed Pruning per acre', 'Additional Cost from Double Pruning per acre', 'Additional Cost from Handpainting TopsinM per acre', 'Cultural Cost &#8211; Year 0 &#8211; Establishing Vineyard', 'Cultural Cost &#8211; Year 1 &#8211; Establishing Vineyard', 'Cultural Cost &#8211; Year 2 &#8211; Establishing Vineyard', 'Cultural Cost &#8211; Year 3+ &#8211; Established Vineyard'];
+		var assumptionsNS = ['Napa Sonoma', '25 years', '3%', '$2,431', 'Cabernet Sauvignon', '0', '$335', '$59', '$27,583.54', '$4,330.57', '$5,342.09', '$6,468.06'];
+		var assumptionsNSJ = ['Northern San Joaquin', '25 years', '3%', '$690', 'Cabernet Sauvignon', '0', '$273', '$88.5', '$11,887.23', '$3,280.55', '$3,449.47', '$4,402.22'];
+		var assumptionsCC = ['Central Coast', '25 years', '3%', '$1,140', 'Cabernet Sauvignon', '0', '$359', '$72', '$11,887.23', '$3,280.55', '$3,449.47', '$4,402.22'];
+		var assumptionsNC = ['Northern California', '25 years', '3%', '$750', 'Cabernet Sauvignon', '0', '$191', '$56', '$11,887.23', '$3,280.55', '$3,449.47', '$4,402.22'];
+		var assumptionsSSJ = ['Southern San Joaquin', '25 years', '3%', '$300', 'Cabernet Sauvignon', '0', '$261', '$38', '$11,887.23', '$3,280.55', '$3,449.47', '$4,402.22'];
 		var assumptionsArray = [{ns: assumptionsNS, nsj: assumptionsNSJ, cc: assumptionsCC, nc: assumptionsNC, ssj: assumptionsSSJ}];
 		
 		var assumptionstable = '<h3>Parameter Values Used in Calculations</h3><table class="assumptionstable">';
