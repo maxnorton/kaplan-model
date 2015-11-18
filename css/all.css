@@ -23,13 +23,102 @@ MISCELLANEOUS
 /* RESETS AND OVERRIDES
 ------------------------------ */
 /*@import ();*/
+body {
+  margin: 0; }
+
+h1 {
+  font-size: .75em; }
+
+h1.images img:nth-of-type(1) {
+  display: none; }
+
+/* Smartphones (landscape) and up ----------- */
+@media only screen and (min-width: 321px) {
+  h1.images img:nth-of-type(1) {
+    display: inline; } }
+/* Tablets (portrait and landscape) ----------- */
+@media only screen and (min-width: 768px) and (max-width: 1024px) {
+  h1 {
+    font-size: 1.5em; } }
+/* Desktops and laptops ----------- */
+@media only screen and (min-width: 1024px) {
+  h1 {
+    font-size: 2em; } }
 /* LINKS AND TYPE
 ------------------------------ */
 /* MAIN LAYOUT
 ------------------------------ */
-fieldset {
-  margin: 30px 0; }
+header {
+  background-color: white;
+  border-bottom: 1px solid #bbb;
+  display: block;
+  padding: 0;
+  position: fixed;
+  top: 0;
+  width: 100%; }
+  header .header-wrap {
+    margin: 0.25em 0;
+    max-height: 60px;
+    overflow: hidden; }
+  header h1.title {
+    color: white;
+    background-color: #555;
+    display: inline-block;
+    font-family: 'Arial Black', san-serif;
+    height: 4.5em;
+    margin: 0;
+    max-width: 12em;
+    padding: .25em 1% .5em 1%;
+    vertical-align: top; }
+  header h1.images {
+    background-color: white;
+    display: inline;
+    height: 60px;
+    margin: 0;
+    padding: 0;
+    overflow: hidden; }
+    header h1.images img {
+      height: 60px; }
 
+/* Tablets and up ----------- */
+@media only screen and (min-width: 768px) {
+  header .header-wrap {
+    max-height: 112px; }
+    header .header-wrap h1.images img {
+      height: 112px; } }
+/* Desktops and laptops ----------- */
+@media only screen and (min-width: 1024px) {
+  header .header-wrap {
+    max-height: 148px; }
+    header .header-wrap h1.images img {
+      height: 148px; } }
+.content-wrap {
+  padding-top: 80px;
+  margin: 0 8px; }
+
+/* Tablets and up ----------- */
+@media only screen and (min-width: 768px) {
+  .content-wrap {
+    padding-top: 124px; } }
+/* Desktops and laptops ----------- */
+@media only screen and (min-width: 1024px) {
+  .content-wrap {
+    padding-top: 150px; } }
+fieldset, .results {
+  display: block;
+  margin: 1em 0;
+  max-width: 90%; }
+  fieldset img, .results img {
+    max-width: 100%; }
+
+/* Smartphones (landscape) and down ----------- */
+@media only screen and (max-width: 767px) {
+  .results img {
+    width: 100% !important; } }
+/* Tablets and down ----------- */
+@media only screen and (max-width: 1023px) {
+  .results img {
+    min-width: 50% !important; } }
 /* $logo */
 x.class-with-hyphens-separating-words {
   property: rule;
@@ -41,6 +130,26 @@ x.class-with-hyphens-separating-words {
 
 /* SECONDARY LAYOUT
 ------------------------------ */
+table {
+  border: 1px solid #ccc;
+  border-spacing: 0; }
+  table td {
+    height: 1.5em;
+    padding: .5em;
+    text-align: center; }
+  table td:first-of-type {
+    text-align: left; }
+  table tr:first-of-type {
+    font-weight: bold; }
+    table tr:first-of-type td {
+      border-bottom: 1px solid #ccc; }
+  table tr:nth-of-type(even) {
+    background-color: #eee; }
+
+.assumptionstable tr td:first-of-type {
+  font-weight: bold;
+  border-right: 1px solid #ccc; }
+
 /* FORM ELEMENTS
 ------------------------------ */
 x-input,

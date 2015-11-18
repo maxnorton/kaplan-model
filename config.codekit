@@ -81,7 +81,7 @@
 		"fileType": 32768,
 		"ignore": 0,
 		"ignoreWasSetByUser": 0,
-		"initialSize": 52960,
+		"initialSize": 87601,
 		"inputAbbreviatedPath": "\/images\/figures\/nsj-hp25.png",
 		"outputAbbreviatedPath": "\/images\/figures\/nsj-hp25.png",
 		"outputPathIsOutsideProject": 0,
@@ -143,6 +143,61 @@
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
+	"\/images\/header-photo-center.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 12566,
+		"inputAbbreviatedPath": "\/images\/header-photo-center.jpg",
+		"outputAbbreviatedPath": "\/images\/header-photo-center.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/images\/header-photo-extended01.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 12774,
+		"inputAbbreviatedPath": "\/images\/header-photo-extended01.jpg",
+		"outputAbbreviatedPath": "\/images\/header-photo-extended01.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/images\/header-photo-extended02.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 12874,
+		"inputAbbreviatedPath": "\/images\/header-photo-extended02.jpg",
+		"outputAbbreviatedPath": "\/images\/header-photo-extended02.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/images\/header-photo-extended03.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 13870,
+		"inputAbbreviatedPath": "\/images\/header-photo-extended03.jpg",
+		"outputAbbreviatedPath": "\/images\/header-photo-extended03.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/images\/header-photo-right.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 11288,
+		"inputAbbreviatedPath": "\/images\/header-photo-right.jpg",
+		"outputAbbreviatedPath": "\/images\/header-photo-right.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
 	"\/index.html": {
 		"fileType": 8192,
 		"ignore": 1,
@@ -151,6 +206,17 @@
 		"outputAbbreviatedPath": "No Output Path",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
+		},
+	"\/json\/nsj-dp25.json": {
+		"fileType": 524288,
+		"ignore": 1,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/json\/nsj-dp25.json",
+		"orderOutput": 0,
+		"outputAbbreviatedPath": "\/json\/nsj-dp25-min.json",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"outputStyle": 1
 		},
 	"\/kit\/_header.kit": {
 		"fileType": 2048,
