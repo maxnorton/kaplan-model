@@ -167,6 +167,21 @@ fieldset, .results {
 
 }
 
+/* Smartphones (landscape) and down ----------- */
+@media only screen and (max-width : 767px) {
+	.results img {
+		width: 100% !important;
+	}
+}
+
+/* Tablets and down ----------- */
+@media only screen and (max-width : 1023px) {
+	.results img {
+		min-width: 50% !important;
+	}
+}
+
+
 /* $logo */
 x.class-with-hyphens-separating-words {
 	property: rule;

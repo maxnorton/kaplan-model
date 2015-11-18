@@ -94,7 +94,7 @@ checkbox
 
 </form>
 
-<section class="results"></section>
+<section id="results" class="results"></section>
 
 </section>
 
@@ -490,6 +490,19 @@ $(document).ready(function() {
 		if (figurestate == true)
 			results = fullfig + results;
 		$('.results').html(results); // Write results to page
+
+		/***** Style figure output width and jump to top of figs
+		------------------------------------ */
+		var figsAcross=1;
+		if ( $('input[name=efficacyfig]:checked').length > 1 ) {
+			figsAcross = $('input[name=efficacyfig]:checked').length;
+		} else if ( $('input[name=practicefig]:checked').length > 1 && $('input[name=figuredisplay]').val() == 'netreturns' ) {
+			figsAcross = $('input[name=practicefig]:checked').length;
+		}
+		$('.results img').each(function() {
+			$(this).css('width', 100/figsAcross - 1 + '%');
+		})
+		$(document).scrollTop( $('#results').offset().top - 150 );
 	});
 })
 </script>
