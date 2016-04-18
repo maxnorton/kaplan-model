@@ -23,7 +23,7 @@
 
 	<label><strong>Vineyard region: </strong><select name="region">
 		<option value="cc">Central Coast</option>
-		<option value="ns">Napa Sonoma</option>
+		<option value="sonoma">Napa Sonoma</option>
 		<option value="nc">Northern California</option>
 		<option value="nsj">Northern San Joaquin</option>
 		<option value="ssj">Southern San Joaquin</option>
@@ -54,10 +54,15 @@
 			<label><input type="checkbox" name="practicefig" value="dp" />Delayed pruning</label>
 			<label><input type="checkbox" name="practicefig" value="hp" />Hand-painted TopsinM</label>
 			<label><input type="checkbox" name="practicefig" value="dbp" />Double pruning</label>
-		<h5>Select anticipated efficacy:</h5>
+		<h5>Select (a) or (b).</h5>
+		<h5><label><input type="radio" name="efficacyOrYearfig" value="efficacy" /> (a) Indicate anticipated efficacy:</label></h5>
 			<label><input type="checkbox" name="efficacyfig" value="25" />25%</label>
 			<label><input type="checkbox" name="efficacyfig" value="50" />50%</label>
 			<label><input type="checkbox" name="efficacyfig" value="75" />75%</label>
+		<h5><label><input type="radio" name="efficacyOrYearfig" value="year" /> (b) Indicate first year of treatment:</label></h5>
+			<label><input type="checkbox" name="yearfig" value="Year3" />Year 3</label>
+			<label><input type="checkbox" name="yearfig" value="Year5" />Year 5</label>
+			<label><input type="checkbox" name="yearfig" value="Year10" />Year 10</label>
 
 	</fieldset>
 
@@ -145,7 +150,45 @@ $(document).ready(function() {
 			});
 		});
 
-	
+		/***** Toggle input options when choosing between efficacy and year vars for figure
+		------------------------------------ */
+
+		var efficacyOrYearchoice = '';
+		$('input[name=efficacyOrYearfig]').change(function() {
+			efficacyOrYearchoice = $(this).val() + 'fig';
+			var efficacyOrYeardisabledvar;
+			switch (efficacyOrYearchoice) {
+				case 'efficacyfig':
+					efficacyOrYeardisabledvar = 'yearfig';
+					break;
+				default:
+					efficacyOrYeardisabledvar = 'efficacyfig';
+			}
+			$('input[name=' + efficacyOrYearchoice + ']').each(function() {
+				$(this).prop('disabled', false);
+			});
+			$('input[name=' + efficacyOrYeardisabledvar + ']').each(function() {
+				$(this).prop('disabled', true);
+			});
+		});
+		var efficacyOrYearselected = new Boolean(false);
+		$('input[name=efficacyfig]').one('change', function() {
+			console.log('eff0');
+			if (efficacyOrYearselected==false) {
+				console.log('eff');
+				efficacyOrYearselected = true;
+				$('input[name=efficacyOrYearfig][value=efficacy]').attr('checked', true).change();
+			};
+		});
+		$('input[name=yearfig]').one('change', function() {
+			console.log('year0');
+			if (efficacyOrYearselected==false) {
+				console.log('year');
+				efficacyOrYearselected = true;
+				$('input[name=efficacyOrYearfig][value=year]').attr('checked', true).change();
+			}
+		});	
+
 	/***** FORM SUBMIT FUNCTION
 	------------------------------------ */
 	$('#theform').submit(function(e) {
@@ -154,25 +197,34 @@ $(document).ready(function() {
 		/***** Generate figure(s)
 		------------------------------------ */
 		var fullfig = '';
+		var efficacyOrYearlength;
+		switch (efficacyOrYearchoice) {
+			case 'efficacyfig':
+				efficacyOrYearlength=$('input[name=efficacyfig]:checked').length;
+				break;
+			default:
+				efficacyOrYearlength=$('input[name=yearfig]:checked').length;
+				break;			
+		};
 		switch ( $('input[name=figuredisplay]:checked').val() ) {
 			case 'yield':
-				var efficacyfig = [];
+				var efficacyOrYearfig = [];
 				var fig = [];
-				for (var j=0; j<$('input[name=efficacyfig]:checked').length; j++) {
-					efficacyfig[j] = $('input[name=efficacyfig]:checked:eq('+j+')').val();
-					fig[j] =  '<img src="images/figures/' + $('select[name=region]').val() + '-' + 'yield' + efficacyfig[j] + '.png" alt="Graphical result" />'
+				for (var j=0; j<efficacyOrYearlength; j++) {
+					efficacyOrYearfig[j] = $('input[name=' + efficacyOrYearchoice + ']:checked:eq('+j+')').val();
+					fig[j] =  '<img src="images/figures/' + $('select[name=region]').val().toUpperCase() + '-' + 'Yield' + efficacyOrYearfig[j] + '.png" alt="Graphical result" />'
 					fullfig += fig[j];
 				}
 				break;
 			case 'netreturns':
-				var efficacyfig = [];
+				var efficacyOrYearfig = [];
 				var practicefig = [];
 				var fig = [];
 				for (var i=0; i<$('input[name=practicefig]:checked').length; i++) {
 					practicefig[i] = $('input[name=practicefig]:checked:eq('+i+')').val();
-					for (var j=0; j<$('input[name=efficacyfig]:checked').length; j++) {
-						efficacyfig[j] = $('input[name=efficacyfig]:checked:eq('+j+')').val();
-						fig[i*$('input[name=practicefig]:checked').length+j] =  '<img src="images/figures/' + $('select[name=region]').val() + '-' + practicefig[i] + efficacyfig[j] + '.png" alt="Graphical result" />'
+					for (var j=0; j<efficacyOrYearlength; j++) {
+						efficacyOrYearfig[j] = $('input[name=' + efficacyOrYearchoice + ']:checked:eq('+j+')').val();
+						fig[i*$('input[name=practicefig]:checked').length+j] =  '<img src="images/figures/' + $('select[name=region]').val().toUpperCase() + '-' + practicefig[i].toUpperCase() + efficacyOrYearfig[j] + '.png" alt="Graphical result" />'
 						fullfig += fig[i*$('input[name=practicefig]:checked').length+j];
 					}
 				}
@@ -212,33 +264,33 @@ $(document).ready(function() {
 			var ccHP75y3 = ['Central Coast', 'Hand painted Topsin', '75.0', '3.0', '$41,574.00', '$1,662.96', '25','7'];
 			var ccHP75y5 = ['Central Coast', 'Hand painted Topsin', '75.0', '5.0', '$39,545.00', '$1,581.80', '25','7'];
 			var ccHP75y10 = ['Central Coast', 'Hand painted Topsin', '75.0', '10.0', '$24,019.00', '$960.76', '25','10'];
-			var nsDP25y3 = ['Napa Sonoma', 'Delayed Pruning', '25.0', '3.0', '$24,303.00', '$972.12', '16','3'];
-			var nsDP25y5 = ['Napa Sonoma', 'Delayed Pruning', '25.0', '5.0', '$19,706.00', '$788.24', '15','5'];
-			var nsDP25y10 = ['Napa Sonoma', 'Delayed Pruning', '25.0', '10.0', '$8,406.00', '$336.24', '13','10'];
-			var nsDP50y3 = ['Napa Sonoma', 'Delayed Pruning', '50.0', '3.0', '$59,655.00', '$2,386.20', '23','3'];
-			var nsDP50y5 = ['Napa Sonoma', 'Delayed Pruning', '50.0', '5.0', '$50,432.00', '$2,017.28', '21','5'];
-			var nsDP50y10 = ['Napa Sonoma', 'Delayed Pruning', '50.0', '10.0', '$22,996.00', '$919.84', '16','10'];
-			var nsDP75y3 = ['Napa Sonoma', 'Delayed Pruning', '75.0', '3.0', '$80,786.00', '$3,231.44', '25','3'];
-			var nsDP75y5 = ['Napa Sonoma', 'Delayed Pruning', '75.0', '5.0', '$76,674.00', '$3,066.96', '25','5'];
-			var nsDP75y10 = ['Napa Sonoma', 'Delayed Pruning', '75.0', '10.0', '$46,748.00', '$1,869.92', '23','10'];
-			var nsDBP25y3 = ['Napa Sonoma', 'Double Pruning', '25.0', '3.0', '$19,110.00', '$764.40', '15','10'];
-			var nsDBP25y5 = ['Napa Sonoma', 'Double Pruning', '25.0', '5.0', '$15,118.00', '$604.72', '15','10'];
-			var nsDBP25y10 = ['Napa Sonoma', 'Double Pruning', '25.0', '10.0', '$5,181.00', '$207.24', '13','11'];
-			var nsDBP50y3 = ['Napa Sonoma', 'Double Pruning', '50.0', '3.0', '$54,462.00', '$2,178.48', '22','9'];
-			var nsDBP50y5 = ['Napa Sonoma', 'Double Pruning', '50.0', '5.0', '$45,844.00', '$1,833.76', '20','9'];
-			var nsDBP50y10 = ['Napa Sonoma', 'Double Pruning', '50.0', '10.0', '$19,771.00', '$790.84', '15','10'];
-			var nsDBP75y3 = ['Napa Sonoma', 'Double Pruning', '75.0', '3.0', '$75,594.00', '$3,023.76', '25','9'];
-			var nsDBP75y5 = ['Napa Sonoma', 'Double Pruning', '75.0', '5.0', '$72,086.00', '$2,883.44', '25','9'];
-			var nsDBP75y10 = ['Napa Sonoma', 'Double Pruning', '75.0', '10.0', '$43,523.00', '$1,740.92', '22','10'];
-			var nsHP25y3 = ['Napa Sonoma', 'Hand painted Topsin', '25.0', '3.0', '$23,388.00', '$935.52', '15','6'];
-			var nsHP25y5 = ['Napa Sonoma', 'Hand painted Topsin', '25.0', '5.0', '$18,898.00', '$755.92', '15','6'];
-			var nsHP25y10 = ['Napa Sonoma', 'Hand painted Topsin', '25.0', '10.0', '$7,838.00', '$313.52', '13','10'];
-			var nsHP50y3 = ['Napa Sonoma', 'Hand painted Topsin', '50.0', '3.0', '$58,740.00', '$2,349.60', '22','6'];
-			var nsHP50y5 = ['Napa Sonoma', 'Hand painted Topsin', '50.0', '5.0', '$49,624.00', '$1,984.96', '20','6'];
-			var nsHP50y10 = ['Napa Sonoma', 'Hand painted Topsin', '50.0', '10.0', '$22,428.00', '$897.12', '15','10'];
-			var nsHP75y3 = ['Napa Sonoma', 'Hand painted Topsin', '75.0', '3.0', '$79,872.00', '$3,194.88', '25','5'];
-			var nsHP75y5 = ['Napa Sonoma', 'Hand painted Topsin', '75.0', '5.0', '$75,866.00', '$3,034.64', '25','5'];
-			var nsHP75y10 = ['Napa Sonoma', 'Hand painted Topsin', '75.0', '10.0', '$46,180.00', '$1,847.20', '22','10'];
+			var sonomaDP25y3 = ['Napa Sonoma', 'Delayed Pruning', '25.0', '3.0', '$24,303.00', '$972.12', '16','3'];
+			var sonomaDP25y5 = ['Napa Sonoma', 'Delayed Pruning', '25.0', '5.0', '$19,706.00', '$788.24', '15','5'];
+			var sonomaDP25y10 = ['Napa Sonoma', 'Delayed Pruning', '25.0', '10.0', '$8,406.00', '$336.24', '13','10'];
+			var sonomaDP50y3 = ['Napa Sonoma', 'Delayed Pruning', '50.0', '3.0', '$59,655.00', '$2,386.20', '23','3'];
+			var sonomaDP50y5 = ['Napa Sonoma', 'Delayed Pruning', '50.0', '5.0', '$50,432.00', '$2,017.28', '21','5'];
+			var sonomaDP50y10 = ['Napa Sonoma', 'Delayed Pruning', '50.0', '10.0', '$22,996.00', '$919.84', '16','10'];
+			var sonomaDP75y3 = ['Napa Sonoma', 'Delayed Pruning', '75.0', '3.0', '$80,786.00', '$3,231.44', '25','3'];
+			var sonomaDP75y5 = ['Napa Sonoma', 'Delayed Pruning', '75.0', '5.0', '$76,674.00', '$3,066.96', '25','5'];
+			var sonomaDP75y10 = ['Napa Sonoma', 'Delayed Pruning', '75.0', '10.0', '$46,748.00', '$1,869.92', '23','10'];
+			var sonomaDBP25y3 = ['Napa Sonoma', 'Double Pruning', '25.0', '3.0', '$19,110.00', '$764.40', '15','10'];
+			var sonomaDBP25y5 = ['Napa Sonoma', 'Double Pruning', '25.0', '5.0', '$15,118.00', '$604.72', '15','10'];
+			var sonomaDBP25y10 = ['Napa Sonoma', 'Double Pruning', '25.0', '10.0', '$5,181.00', '$207.24', '13','11'];
+			var sonomaDBP50y3 = ['Napa Sonoma', 'Double Pruning', '50.0', '3.0', '$54,462.00', '$2,178.48', '22','9'];
+			var sonomaDBP50y5 = ['Napa Sonoma', 'Double Pruning', '50.0', '5.0', '$45,844.00', '$1,833.76', '20','9'];
+			var sonomaDBP50y10 = ['Napa Sonoma', 'Double Pruning', '50.0', '10.0', '$19,771.00', '$790.84', '15','10'];
+			var sonomaDBP75y3 = ['Napa Sonoma', 'Double Pruning', '75.0', '3.0', '$75,594.00', '$3,023.76', '25','9'];
+			var sonomaDBP75y5 = ['Napa Sonoma', 'Double Pruning', '75.0', '5.0', '$72,086.00', '$2,883.44', '25','9'];
+			var sonomaDBP75y10 = ['Napa Sonoma', 'Double Pruning', '75.0', '10.0', '$43,523.00', '$1,740.92', '22','10'];
+			var sonomaHP25y3 = ['Napa Sonoma', 'Hand painted Topsin', '25.0', '3.0', '$23,388.00', '$935.52', '15','6'];
+			var sonomaHP25y5 = ['Napa Sonoma', 'Hand painted Topsin', '25.0', '5.0', '$18,898.00', '$755.92', '15','6'];
+			var sonomaHP25y10 = ['Napa Sonoma', 'Hand painted Topsin', '25.0', '10.0', '$7,838.00', '$313.52', '13','10'];
+			var sonomaHP50y3 = ['Napa Sonoma', 'Hand painted Topsin', '50.0', '3.0', '$58,740.00', '$2,349.60', '22','6'];
+			var sonomaHP50y5 = ['Napa Sonoma', 'Hand painted Topsin', '50.0', '5.0', '$49,624.00', '$1,984.96', '20','6'];
+			var sonomaHP50y10 = ['Napa Sonoma', 'Hand painted Topsin', '50.0', '10.0', '$22,428.00', '$897.12', '15','10'];
+			var sonomaHP75y3 = ['Napa Sonoma', 'Hand painted Topsin', '75.0', '3.0', '$79,872.00', '$3,194.88', '25','5'];
+			var sonomaHP75y5 = ['Napa Sonoma', 'Hand painted Topsin', '75.0', '5.0', '$75,866.00', '$3,034.64', '25','5'];
+			var sonomaHP75y10 = ['Napa Sonoma', 'Hand painted Topsin', '75.0', '10.0', '$46,180.00', '$1,847.20', '22','10'];
 			var ncDP25y3 = ['Northern California', 'Delayed Pruning', '25.0', '3.0', '$8,723.00', '$348.92', '15','3'];
 			var ncDP25y5 = ['Northern California', 'Delayed Pruning', '25.0', '5.0', '$7,077.00', '$283.08', '15','5'];
 			var ncDP25y10 = ['Northern California', 'Delayed Pruning', '25.0', '10.0', '$3,019.00', '$120.76', '13','10'];
@@ -335,19 +387,19 @@ $(document).ready(function() {
 			var ccDBP = [ccDBP25, ccDBP50, ccDBP75];
 			var cc = [ccDP, ccHP, ccDBP];
 
-			var nsDP25 = [nsDP25y3, nsDP25y5, nsDP25y10];
-			var nsDP50 = [nsDP50y3, nsDP50y5, nsDP50y10];
-			var nsDP75 = [nsDP75y3, nsDP75y5, nsDP75y10];
-			var nsHP25 = [nsHP25y3, nsHP25y5, nsHP25y10];
-			var nsHP50 = [nsHP50y3, nsHP50y5, nsHP50y10];
-			var nsHP75 = [nsHP75y3, nsHP75y5, nsHP75y10];
-			var nsDBP25 = [nsDBP25y3, nsDBP25y5, nsDBP25y10];
-			var nsDBP50 = [nsDBP50y3, nsDBP50y5, nsDBP50y10];
-			var nsDBP75 = [nsDBP75y3, nsDBP75y5, nsDBP75y10];
-			var nsDP = [nsDP25, nsDP50, nsDP75];
-			var nsHP = [nsHP25, nsHP50, nsHP75];
-			var nsDBP = [nsDBP25, nsDBP50, nsDBP75];
-			var ns = [nsDP, nsHP, nsDBP];
+			var sonomaDP25 = [sonomaDP25y3, sonomaDP25y5, sonomaDP25y10];
+			var sonomaDP50 = [sonomaDP50y3, sonomaDP50y5, sonomaDP50y10];
+			var sonomaDP75 = [sonomaDP75y3, sonomaDP75y5, sonomaDP75y10];
+			var sonomaHP25 = [sonomaHP25y3, sonomaHP25y5, sonomaHP25y10];
+			var sonomaHP50 = [sonomaHP50y3, sonomaHP50y5, sonomaHP50y10];
+			var sonomaHP75 = [sonomaHP75y3, sonomaHP75y5, sonomaHP75y10];
+			var sonomaDBP25 = [sonomaDBP25y3, sonomaDBP25y5, sonomaDBP25y10];
+			var sonomaDBP50 = [sonomaDBP50y3, sonomaDBP50y5, sonomaDBP50y10];
+			var sonomaDBP75 = [sonomaDBP75y3, sonomaDBP75y5, sonomaDBP75y10];
+			var sonomaDP = [sonomaDP25, sonomaDP50, sonomaDP75];
+			var sonomaHP = [sonomaHP25, sonomaHP50, sonomaHP75];
+			var sonomaDBP = [sonomaDBP25, sonomaDBP50, sonomaDBP75];
+			var sonoma = [sonomaDP, sonomaHP, sonomaDBP];
 
 			var ncDP25 = [ncDP25y3, ncDP25y5, ncDP25y10];
 			var ncDP50 = [ncDP50y3, ncDP50y5, ncDP50y10];
@@ -391,7 +443,7 @@ $(document).ready(function() {
 			var ssjDBP = [ssjDBP25, ssjDBP50, ssjDBP75];
 			var ssj = [ssjDP, ssjHP, ssjDBP];
 
-			var regions = [cc, ns, nc, nsj, ssj];
+			var regions = [cc, sonoma, nc, nsj, ssj];
 			// /table data declaration
 
 			var tableparams = [];
@@ -469,12 +521,12 @@ $(document).ready(function() {
 		------------------------------------ */
 
 		var assumptionsHeaders = ['Region', 'Vineyard Lifespan', 'Discount Rate', 'Price', 'Cultivar', 'Additional Cost from Delayed Pruning per acre', 'Additional Cost from Double Pruning per acre', 'Additional Cost from Handpainting TopsinM per acre', 'Cultural Cost &#8211; Year 0 &#8211; Establishing Vineyard', 'Cultural Cost &#8211; Year 1 &#8211; Establishing Vineyard', 'Cultural Cost &#8211; Year 2 &#8211; Establishing Vineyard', 'Cultural Cost &#8211; Year 3+ &#8211; Established Vineyard'];
-		var assumptionsNS = ['Napa Sonoma', '25 years', '3%', '$2,431', 'Cabernet Sauvignon', '0', '$335', '$59', '$27,583.54', '$4,330.57', '$5,342.09', '$6,468.06'];
+		var assumptionsSonoma = ['Napa Sonoma', '25 years', '3%', '$2,431', 'Cabernet Sauvignon', '0', '$335', '$59', '$27,583.54', '$4,330.57', '$5,342.09', '$6,468.06'];
 		var assumptionsNSJ = ['Northern San Joaquin', '25 years', '3%', '$690', 'Cabernet Sauvignon', '0', '$273', '$88.5', '$11,887.23', '$3,280.55', '$3,449.47', '$4,402.22'];
 		var assumptionsCC = ['Central Coast', '25 years', '3%', '$1,140', 'Cabernet Sauvignon', '0', '$359', '$72', '$11,887.23', '$3,280.55', '$3,449.47', '$4,402.22'];
 		var assumptionsNC = ['Northern California', '25 years', '3%', '$750', 'Cabernet Sauvignon', '0', '$191', '$56', '$11,887.23', '$3,280.55', '$3,449.47', '$4,402.22'];
 		var assumptionsSSJ = ['Southern San Joaquin', '25 years', '3%', '$300', 'Cabernet Sauvignon', '0', '$261', '$38', '$11,887.23', '$3,280.55', '$3,449.47', '$4,402.22'];
-		var assumptionsArray = [{ns: assumptionsNS, nsj: assumptionsNSJ, cc: assumptionsCC, nc: assumptionsNC, ssj: assumptionsSSJ}];
+		var assumptionsArray = [{sonoma: assumptionsSonoma, nsj: assumptionsNSJ, cc: assumptionsCC, nc: assumptionsNC, ssj: assumptionsSSJ}];
 		
 		var assumptionstable = '<h3>Parameter Values Used in Calculations</h3><table class="assumptionstable">';
 		for (var i=0; i<assumptionsHeaders.length; i++) {
