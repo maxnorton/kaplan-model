@@ -6,4 +6,8 @@ Trunk (or wood-canker) diseases are widespread throughout California. These dise
 
 In the following section of this page, you are prompted to select a winegrape growing region, figures of annually and cumulative net returns and yields, and tables containing annually average and cumulatively economic indicators taken from our economic analysis. You will also be prompted to select the preventative practices, disease control efficacy rates, and vineyard age when a preventative practice is first adopted. You will also find links to description of the preventative practices and disease control efficacy rates, definitions of the variables displayed in the figures and tables, and the form for you to enter your own data. All figure and table displays list the underlying region-specific assumptions used in the economic analysis.
 
-For inquiries about the page and economic analysis of trunk diseases in California winegrape vineyards, please contact [kaplanj@csus.edu](mailto:kaplanj@csus.edu).
+For inquiries about the page and economic analysis of trunk diseases in California winegrape vineyards, please contact [kaplanj@csus.edu](mailto:kaplanj@csus.edu).  
+
+* [Jump to references](#references)  
+* [SCRI Trunk Disease Project Page](http://treeandvinetrunkdiseases.org)  
+* [California Sustainable Winegrowing Alliance](http://sustainablewinegrowing.org)
