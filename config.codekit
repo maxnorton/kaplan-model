@@ -11,35 +11,44 @@
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
 		},
-	"\/images\/figures\/NSJ-DBP25.png": {
+	"\/efficacy-information.html": {
+		"fileType": 8192,
+		"ignore": 1,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/efficacy-information.html",
+		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0
+		},
+	"\/images\/figures\/nsj-dbp25.png": {
 		"fileType": 32768,
 		"ignore": 0,
 		"ignoreWasSetByUser": 0,
-		"initialSize": 87981,
-		"inputAbbreviatedPath": "\/images\/figures\/NSJ-DBP25.png",
-		"outputAbbreviatedPath": "\/images\/figures\/NSJ-DBP25.png",
+		"initialSize": 52861,
+		"inputAbbreviatedPath": "\/images\/figures\/nsj-dbp25.png",
+		"outputAbbreviatedPath": "\/images\/figures\/nsj-dbp25.png",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
-	"\/images\/figures\/NSJ-DBP50.png": {
+	"\/images\/figures\/nsj-dbp50.png": {
 		"fileType": 32768,
 		"ignore": 0,
 		"ignoreWasSetByUser": 0,
-		"initialSize": 85552,
-		"inputAbbreviatedPath": "\/images\/figures\/NSJ-DBP50.png",
-		"outputAbbreviatedPath": "\/images\/figures\/NSJ-DBP50.png",
+		"initialSize": 52702,
+		"inputAbbreviatedPath": "\/images\/figures\/nsj-dbp50.png",
+		"outputAbbreviatedPath": "\/images\/figures\/nsj-dbp50.png",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
-	"\/images\/figures\/NSJ-DBP75.png": {
+	"\/images\/figures\/nsj-dbp75.png": {
 		"fileType": 32768,
 		"ignore": 0,
 		"ignoreWasSetByUser": 0,
-		"initialSize": 84234,
-		"inputAbbreviatedPath": "\/images\/figures\/NSJ-DBP75.png",
-		"outputAbbreviatedPath": "\/images\/figures\/NSJ-DBP75.png",
+		"initialSize": 51344,
+		"inputAbbreviatedPath": "\/images\/figures\/nsj-dbp75.png",
+		"outputAbbreviatedPath": "\/images\/figures\/nsj-dbp75.png",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
@@ -77,35 +86,35 @@
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
-	"\/images\/figures\/NSJ-DP25.png": {
+	"\/images\/figures\/nsj-dp25.png": {
 		"fileType": 32768,
 		"ignore": 0,
 		"ignoreWasSetByUser": 0,
-		"initialSize": 89117,
-		"inputAbbreviatedPath": "\/images\/figures\/NSJ-DP25.png",
-		"outputAbbreviatedPath": "\/images\/figures\/NSJ-DP25.png",
+		"initialSize": 52897,
+		"inputAbbreviatedPath": "\/images\/figures\/nsj-dp25.png",
+		"outputAbbreviatedPath": "\/images\/figures\/nsj-dp25.png",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
-	"\/images\/figures\/NSJ-DP50.png": {
+	"\/images\/figures\/nsj-dp50.png": {
 		"fileType": 32768,
 		"ignore": 0,
 		"ignoreWasSetByUser": 0,
-		"initialSize": 85442,
-		"inputAbbreviatedPath": "\/images\/figures\/NSJ-DP50.png",
-		"outputAbbreviatedPath": "\/images\/figures\/NSJ-DP50.png",
+		"initialSize": 53009,
+		"inputAbbreviatedPath": "\/images\/figures\/nsj-dp50.png",
+		"outputAbbreviatedPath": "\/images\/figures\/nsj-dp50.png",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
-	"\/images\/figures\/NSJ-DP75.png": {
+	"\/images\/figures\/nsj-dp75.png": {
 		"fileType": 32768,
 		"ignore": 0,
 		"ignoreWasSetByUser": 0,
-		"initialSize": 87041,
-		"inputAbbreviatedPath": "\/images\/figures\/NSJ-DP75.png",
-		"outputAbbreviatedPath": "\/images\/figures\/NSJ-DP75.png",
+		"initialSize": 52318,
+		"inputAbbreviatedPath": "\/images\/figures\/nsj-dp75.png",
+		"outputAbbreviatedPath": "\/images\/figures\/nsj-dp75.png",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
@@ -154,24 +163,24 @@
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
-	"\/images\/figures\/NSJ-HP50.png": {
+	"\/images\/figures\/nsj-hp50.png": {
 		"fileType": 32768,
 		"ignore": 0,
 		"ignoreWasSetByUser": 0,
-		"initialSize": 86454,
-		"inputAbbreviatedPath": "\/images\/figures\/NSJ-HP50.png",
-		"outputAbbreviatedPath": "\/images\/figures\/NSJ-HP50.png",
+		"initialSize": 0,
+		"inputAbbreviatedPath": "\/images\/figures\/nsj-hp50.png",
+		"outputAbbreviatedPath": "\/images\/figures\/nsj-hp50.png",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
-	"\/images\/figures\/NSJ-HP75.png": {
+	"\/images\/figures\/nsj-hp75.png": {
 		"fileType": 32768,
 		"ignore": 0,
 		"ignoreWasSetByUser": 0,
-		"initialSize": 85415,
-		"inputAbbreviatedPath": "\/images\/figures\/NSJ-HP75.png",
-		"outputAbbreviatedPath": "\/images\/figures\/NSJ-HP75.png",
+		"initialSize": 0,
+		"inputAbbreviatedPath": "\/images\/figures\/nsj-hp75.png",
+		"outputAbbreviatedPath": "\/images\/figures\/nsj-hp75.png",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
@@ -623,6 +632,15 @@
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
 		},
+	"\/kit\/efficacy-information.kit": {
+		"fileType": 2048,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/kit\/efficacy-information.kit",
+		"outputAbbreviatedPath": "\/efficacy-information.html",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 1
+		},
 	"\/kit\/index.kit": {
 		"fileType": 2048,
 		"ignore": 0,
@@ -650,6 +668,15 @@
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 1
 		},
+	"\/markdown\/compiled\/efficacy-information.html": {
+		"fileType": 8192,
+		"ignore": 1,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/markdown\/compiled\/efficacy-information.html",
+		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0
+		},
 	"\/markdown\/compiled\/instructions.html": {
 		"fileType": 8192,
 		"ignore": 1,
@@ -676,6 +703,27 @@
 		"outputAbbreviatedPath": "No Output Path",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
+		},
+	"\/markdown\/efficacy-information.md": {
+		"criticStyle": 0,
+		"enableFootnotes": 1,
+		"enableLabels": 1,
+		"enableSmartQuotes": 1,
+		"escapeLineBreaks": 0,
+		"fileType": 4096,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/markdown\/efficacy-information.md",
+		"maskEmailAddresses": 1,
+		"outputAbbreviatedPath": "\/markdown\/compiled\/efficacy-information.html",
+		"outputFormat": 0,
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 1,
+		"outputStyle": 0,
+		"parseMetadata": 1,
+		"processHTML": 0,
+		"randomFootnoteNumbers": 0,
+		"useCompatibilityMode": 0
 		},
 	"\/markdown\/instructions.md": {
 		"criticStyle": 0,

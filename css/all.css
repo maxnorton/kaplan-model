@@ -130,25 +130,35 @@ x.class-with-hyphens-separating-words {
 
 /* SECONDARY LAYOUT
 ------------------------------ */
-table {
+.results table {
   border: 1px solid #ccc;
   border-spacing: 0; }
-  table td {
+  .results table td {
     height: 1.5em;
     padding: .5em;
     text-align: center; }
-  table td:first-of-type {
+  .results table td:first-of-type {
     text-align: left; }
-  table tr:first-of-type {
+  .results table tr:first-of-type {
     font-weight: bold; }
-    table tr:first-of-type td {
+    .results table tr:first-of-type td {
       border-bottom: 1px solid #ccc; }
-  table tr:nth-of-type(even) {
+  .results table tr:nth-of-type(even) {
     background-color: #eee; }
 
 .assumptionstable tr td:first-of-type {
   font-weight: bold;
   border-right: 1px solid #ccc; }
+
+.efficacy-info table {
+  border-top: 2px solid #000;
+  border-bottom: 2px solid #000; }
+  .efficacy-info table th {
+    font-weight: normal; }
+  .efficacy-info table thead tr:first-of-type th:nth-of-type(2) {
+    border-bottom: 1px solid #999; }
+  .efficacy-info table thead tr:nth-of-type(3) th:nth-of-type(2) {
+    border-top: 1px solid #000; }
 
 /* FORM ELEMENTS
 ------------------------------ */
