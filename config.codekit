@@ -20,39 +20,6 @@
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
 		},
-	"\/images\/figures\/nsj-dbp25.png": {
-		"fileType": 32768,
-		"ignore": 0,
-		"ignoreWasSetByUser": 0,
-		"initialSize": 52861,
-		"inputAbbreviatedPath": "\/images\/figures\/nsj-dbp25.png",
-		"outputAbbreviatedPath": "\/images\/figures\/nsj-dbp25.png",
-		"outputPathIsOutsideProject": 0,
-		"outputPathIsSetByUser": 0,
-		"processed": 0
-		},
-	"\/images\/figures\/nsj-dbp50.png": {
-		"fileType": 32768,
-		"ignore": 0,
-		"ignoreWasSetByUser": 0,
-		"initialSize": 52702,
-		"inputAbbreviatedPath": "\/images\/figures\/nsj-dbp50.png",
-		"outputAbbreviatedPath": "\/images\/figures\/nsj-dbp50.png",
-		"outputPathIsOutsideProject": 0,
-		"outputPathIsSetByUser": 0,
-		"processed": 0
-		},
-	"\/images\/figures\/nsj-dbp75.png": {
-		"fileType": 32768,
-		"ignore": 0,
-		"ignoreWasSetByUser": 0,
-		"initialSize": 51344,
-		"inputAbbreviatedPath": "\/images\/figures\/nsj-dbp75.png",
-		"outputAbbreviatedPath": "\/images\/figures\/nsj-dbp75.png",
-		"outputPathIsOutsideProject": 0,
-		"outputPathIsSetByUser": 0,
-		"processed": 0
-		},
 	"\/images\/figures\/NSJ-DBPYear10.png": {
 		"fileType": 32768,
 		"ignore": 0,
@@ -82,39 +49,6 @@
 		"initialSize": 42704,
 		"inputAbbreviatedPath": "\/images\/figures\/NSJ-DBPYear5.png",
 		"outputAbbreviatedPath": "\/images\/figures\/NSJ-DBPYear5.png",
-		"outputPathIsOutsideProject": 0,
-		"outputPathIsSetByUser": 0,
-		"processed": 0
-		},
-	"\/images\/figures\/nsj-dp25.png": {
-		"fileType": 32768,
-		"ignore": 0,
-		"ignoreWasSetByUser": 0,
-		"initialSize": 52897,
-		"inputAbbreviatedPath": "\/images\/figures\/nsj-dp25.png",
-		"outputAbbreviatedPath": "\/images\/figures\/nsj-dp25.png",
-		"outputPathIsOutsideProject": 0,
-		"outputPathIsSetByUser": 0,
-		"processed": 0
-		},
-	"\/images\/figures\/nsj-dp50.png": {
-		"fileType": 32768,
-		"ignore": 0,
-		"ignoreWasSetByUser": 0,
-		"initialSize": 53009,
-		"inputAbbreviatedPath": "\/images\/figures\/nsj-dp50.png",
-		"outputAbbreviatedPath": "\/images\/figures\/nsj-dp50.png",
-		"outputPathIsOutsideProject": 0,
-		"outputPathIsSetByUser": 0,
-		"processed": 0
-		},
-	"\/images\/figures\/nsj-dp75.png": {
-		"fileType": 32768,
-		"ignore": 0,
-		"ignoreWasSetByUser": 0,
-		"initialSize": 52318,
-		"inputAbbreviatedPath": "\/images\/figures\/nsj-dp75.png",
-		"outputAbbreviatedPath": "\/images\/figures\/nsj-dp75.png",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
@@ -159,28 +93,6 @@
 		"initialSize": 87601,
 		"inputAbbreviatedPath": "\/images\/figures\/NSJ-HP25.png",
 		"outputAbbreviatedPath": "\/images\/figures\/NSJ-HP25.png",
-		"outputPathIsOutsideProject": 0,
-		"outputPathIsSetByUser": 0,
-		"processed": 0
-		},
-	"\/images\/figures\/nsj-hp50.png": {
-		"fileType": 32768,
-		"ignore": 0,
-		"ignoreWasSetByUser": 0,
-		"initialSize": 0,
-		"inputAbbreviatedPath": "\/images\/figures\/nsj-hp50.png",
-		"outputAbbreviatedPath": "\/images\/figures\/nsj-hp50.png",
-		"outputPathIsOutsideProject": 0,
-		"outputPathIsSetByUser": 0,
-		"processed": 0
-		},
-	"\/images\/figures\/nsj-hp75.png": {
-		"fileType": 32768,
-		"ignore": 0,
-		"ignoreWasSetByUser": 0,
-		"initialSize": 0,
-		"inputAbbreviatedPath": "\/images\/figures\/nsj-hp75.png",
-		"outputAbbreviatedPath": "\/images\/figures\/nsj-hp75.png",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
