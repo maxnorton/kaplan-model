@@ -181,17 +181,13 @@ $(document).ready(function() {
 		});
 		var efficacyOrYearselected = new Boolean(false);
 		$('input[name=efficacyfig]').one('change', function() {
-			console.log('eff0');
 			if (efficacyOrYearselected==false) {
-				console.log('eff');
 				efficacyOrYearselected = true;
 				$('input[name=efficacyOrYearfig][value=efficacy]').attr('checked', true).change();
 			};
 		});
 		$('input[name=yearfig]').one('change', function() {
-			console.log('year0');
 			if (efficacyOrYearselected==false) {
-				console.log('year');
 				efficacyOrYearselected = true;
 				$('input[name=efficacyOrYearfig][value=year]').attr('checked', true).change();
 			}
@@ -560,7 +556,6 @@ $(document).ready(function() {
 		} else if ( $('input[name=practicefig]:checked').length > 1 && $('input[name=figuredisplay]').val() == 'netreturns' ) {
 			figsAcross = $('input[name=practicefig]:checked').length;
 		}
-		console.log($(window).width() / figsAcross);
 		if ( $( window ).width() / figsAcross < 910 ) {
 			$('.results img').each(function() {
 				$(this).css('width', 100/figsAcross - 1 + '%');
