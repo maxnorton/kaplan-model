@@ -67,8 +67,8 @@
 
 	</fieldset>
 
-	<h3>Table parameters</h3>
-	<label><input type="checkbox" name="tablegen" checked="checked" />Generate table (all options available, only generates one row)</label>
+	<h3 id="tableparameters">Table parameters</h3>
+	<label><input type="checkbox" name="tablegen" checked="checked" />Generate table</label>
 
 	<fieldset class="table management">
 		
@@ -480,46 +480,52 @@ $(document).ready(function() {
 				});
 			});
 
-			tableparams['inputs'] = inputs;
-			tableparams['outputs'] = outputs;
-			$('input[name$=table]:checked').each(function() {
-				var element = $(this).attr('value');
-				if ( $(this).attr('name') == 'outputtable' )
-					tableparams.outputs[element] = true;
-				else
-					tableparams.inputs[element] = true;
-			});
+			console.log(theFormDrivenOutputVarsArray.length);
+			var table = '';
+			if ( theFormDrivenOutputVarsArray.length != 0 && $('input[name=outputtable]:checked').length != 0 ) {
+				tableparams['inputs'] = inputs;
+				tableparams['outputs'] = outputs;
+				$('input[name$=table]:checked').each(function() {
+					var element = $(this).attr('value');
+					if ( $(this).attr('name') == 'outputtable' )
+						tableparams.outputs[element] = true;
+					else
+						tableparams.inputs[element] = true;
+				});
 
-			var tablelabels = '';
-			var tablerows = [];
+				var tablelabels = '';
+				var tablerows = [];
 
-			var the_input_keys = Object.keys(tableparams.inputs);
-			var the_output_keys = Object.keys(tableparams.outputs);
-			for (var j=0; j<theFormDrivenOutputVarsArray.length; j++) {
-				tablerows[j] = '<tr><td>' + theFormDrivenOutputVarsArray[j][0] + '</td><td>' + theFormDrivenOutputVarsArray[j][1] + '</td><td>' + theFormDrivenOutputVarsArray[j][2] + '</td><td>' + theFormDrivenOutputVarsArray[j][3] + '</td>';
-			}
-			var i=0;
-			for ( var param in tableparams.outputs ) {
-				var the_key = the_output_keys[i];
-				if ( tableparams.outputs[the_key] == true ) {
-					tablelabels += '<td>' + tableHeaders[4+i] + '</td>';
-					for (var j=0; j<theFormDrivenOutputVarsArray.length; j++) {
-						tablerows[j] += '<td>' + theFormDrivenOutputVarsArray[j][4+i] + '</td>';
-					}				
+				var the_input_keys = Object.keys(tableparams.inputs);
+				var the_output_keys = Object.keys(tableparams.outputs);
+				for (var j=0; j<theFormDrivenOutputVarsArray.length; j++) {
+					tablerows[j] = '<tr><td>' + theFormDrivenOutputVarsArray[j][0] + '</td><td>' + theFormDrivenOutputVarsArray[j][1] + '</td><td>' + theFormDrivenOutputVarsArray[j][2] + '</td><td>' + theFormDrivenOutputVarsArray[j][3] + '</td>';
 				}
-				i++;
+				var i=0;
+				for ( var param in tableparams.outputs ) {
+					var the_key = the_output_keys[i];
+					if ( tableparams.outputs[the_key] == true ) {
+						tablelabels += '<td>' + tableHeaders[4+i] + '</td>';
+						for (var j=0; j<theFormDrivenOutputVarsArray.length; j++) {
+							tablerows[j] += '<td>' + theFormDrivenOutputVarsArray[j][4+i] + '</td>';
+						}				
+					}
+					i++;
+				};
+				for (var j=0; j<theFormDrivenOutputVarsArray.length; j++) {
+					tablerows[j] += '</tr>';
+				}
+
+				tablelabels = '<tr><td>' + tableHeaders[0] + '</td><td>' + tableHeaders[1] + '</td><td>' + tableHeaders[2] + '</td><td>' + tableHeaders[3] + '</td>' + tablelabels + '</tr>';
+
+				table = '<h3>Output table</h3><table>' + tablelabels;
+				for (var row=0; row<tablerows.length; row++) {
+					table += tablerows[row];
+				}
+				table += '</table>';
+			} else {
+				table = '<p class="alert">The <em>Generate table</em> option is selected, but insufficient parameters were selected to prouce an output table. To generate a table, please return to the <a href="#" onclick="console.log(\'click\'); $(\'body\').stop().animate({scrollTop: $(\'#tableparameters\').offset().top - $(\'header\').height()}, \'500\', \'swing\'); return false;">table parameters form</a> and select at least one management practice, efficacy level, year of adoption, and output parameter.</p>';
 			};
-			for (var j=0; j<theFormDrivenOutputVarsArray.length; j++) {
-				tablerows[j] += '</tr>';
-			}
-
-			tablelabels = '<tr><td>' + tableHeaders[0] + '</td><td>' + tableHeaders[1] + '</td><td>' + tableHeaders[2] + '</td><td>' + tableHeaders[3] + '</td>' + tablelabels + '</tr>';
-
-			var table = '<h3>Output table</h3><table>' + tablelabels;
-			for (var row=0; row<tablerows.length; row++) {
-				table += tablerows[row];
-			}
-			table += '</table>';
 
 		/***** Generate assumptions table
 		------------------------------------ */

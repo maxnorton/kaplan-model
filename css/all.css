@@ -20,6 +20,9 @@ MISCELLANEOUS
 */
 /* FONT AND COLOR PALETTE: 
 ------------------------------ */
+.alert {
+  color: red; }
+
 /* RESETS AND OVERRIDES
 ------------------------------ */
 /*@import ();*/
