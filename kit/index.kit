@@ -220,7 +220,7 @@ $(document).ready(function() {
 				var fig = [];
 				for (var j=0; j<efficacyOrYearlength; j++) {
 					efficacyOrYearfig[j] = $('input[name=' + efficacyOrYearchoice + ']:checked:eq('+j+')').val();
-					fig[j] =  '<img src="images/figures/' + $('select[name=region]').val().toUpperCase() + '-' + 'Yield' + efficacyOrYearfig[j] + '.png" alt="Graphical result" />'
+					fig[j] =  '<img src="images/figures/' + $('select[name=region]').val().toUpperCase() + '-' + 'Yield' + efficacyOrYearfig[j] + '.png" style="width: 910px;" alt="Graphical result" />'
 					fullfig += fig[j];
 				}
 				break;
@@ -232,7 +232,7 @@ $(document).ready(function() {
 					practicefig[i] = $('input[name=practicefig]:checked:eq('+i+')').val();
 					for (var j=0; j<efficacyOrYearlength; j++) {
 						efficacyOrYearfig[j] = $('input[name=' + efficacyOrYearchoice + ']:checked:eq('+j+')').val();
-						fig[i*$('input[name=practicefig]:checked').length+j] =  '<img src="images/figures/' + $('select[name=region]').val().toUpperCase() + '-' + practicefig[i].toUpperCase() + efficacyOrYearfig[j] + '.png" alt="Graphical result" />'
+						fig[i*$('input[name=practicefig]:checked').length+j] =  '<img src="images/figures/' + $('select[name=region]').val().toUpperCase() + '-' + practicefig[i].toUpperCase() + efficacyOrYearfig[j] + '.png" style="width: 910px;" alt="Graphical result" />'
 						fullfig += fig[i*$('input[name=practicefig]:checked').length+j];
 					}
 				}
@@ -560,9 +560,12 @@ $(document).ready(function() {
 		} else if ( $('input[name=practicefig]:checked').length > 1 && $('input[name=figuredisplay]').val() == 'netreturns' ) {
 			figsAcross = $('input[name=practicefig]:checked').length;
 		}
-		$('.results img').each(function() {
-			$(this).css('width', 100/figsAcross - 1 + '%');
-		})
+		console.log($(window).width() / figsAcross);
+		if ( $( window ).width() / figsAcross < 910 ) {
+			$('.results img').each(function() {
+				$(this).css('width', 100/figsAcross - 1 + '%');
+			})
+		};
 		$(document).scrollTop( $('#results').offset().top - 150 );
 	});
 })
