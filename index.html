@@ -38,7 +38,6 @@
 <p>For inquiries about the page and economic analysis of trunk diseases in California winegrape vineyards, please contact <a href="&#109;&#97;&#105;&#108;&#x74;&#111;&#x3a;&#x6b;&#x61;&#112;&#x6c;&#x61;&#x6e;&#x6a;&#64;&#99;&#115;&#117;&#115;&#46;&#101;&#100;&#x75;">&#107;&#97;&#x70;&#x6c;&#x61;&#x6e;&#106;&#x40;&#x63;&#115;&#117;&#115;&#x2e;&#101;&#x64;&#x75;</a>. </p>
 
 <ul>
-<li><a href="#references">Jump to references</a></li>
 <li><a href="http://treeandvinetrunkdiseases.org">SCRI Trunk Disease Project Page</a></li>
 <li><a href="http://sustainablewinegrowing.org">California Sustainable Winegrowing Alliance</a></li>
 </ul>
@@ -64,12 +63,12 @@
 		<p class="glossary-link"><a href="variable-definitions.html">Glossary of variable definitions</a></p>
 
 		<h5>Display output as:</h5>
-			<label><input type="radio" name="figuredisplay" value="netreturns" checked />Net returns <span class="show-for-medium-up">(thousands of $ per acre)</span></label>
-			<label><input type="radio" name="figuredisplay" value="yield" />Yield <span class="show-for-medium-up">(tons per acre)</span></label>
+			<label><input type="radio" name="figuredisplay" value="netreturns" checked />Net returns <span class="show-for-medium-up">(thousands of $ per acre; aggregate output cumulatively)</span></label>
+			<label><input type="radio" name="figuredisplay" value="yield" />Yield <span class="show-for-medium-up">(tons per acre; aggregate output annually)</span></label>
 
-		<h5>Aggregate output:</h5>
+		<!--<h5>Aggregate output:</h5>
 			<label><input type="radio" name="aggregatefig" value="cumulatively" checked="checked" />Cumulatively</label>
-			<label><input type="radio" name="aggregatefig" value="annually" />Annually</label>
+			<label><input type="radio" name="aggregatefig" value="annually" />Annually</label>-->
 		
 		<h4>Specify management scenario</h4>
 
@@ -130,28 +129,7 @@
 
 <hr />
 
-<section id="references">
-<!DOCTYPE html>
-<html>
-<head>
-	<meta charset="utf-8"/>
-</head>
-<body>
-<h3 id="references:">References:</h3>
-
-<ul>
-<li><p>Amponsah, N.T., Jones, E., Ridgway, H.J., Jaspers, M.V., 2012. Evaluation of fungicides for the management of Botryosphaeria dieback diseases of grapevines. Pest Manag. Sci. 68, 676&#8211;683. </p></li>
-<li><p>Gramaje, D., Armengol, J., 2011. Fungal trunk pathogens in the grapevine propagation process: Potential inoculum sources, detection, identification, and management strategies. Plant Dis. 95, 1040&#8211;1055. </p></li>
-<li><p>Larignon, P., Dubos, B., 2000. Preliminary studies on the biology of Phaeoacremonium. Phytopathol. Medit. 39, 184&#8211;189. </p></li>
-<li><p>Petzoldt, C.H., Moller, W.J., Sall, M.A., 1981. Eutypa dieback of grapevine: Seasonal differences in infection and duration of susceptibility of pruning wounds. Phytopathology 71, 540&#8211;543. </p></li>
-<li><p>Rolshausen, P.E., Urbez-Torres, J.R., Rooney-Latham, S., Eskalen, A., Smith, R.J., Gubler, W.D., 2010. Evaluation of pruning wound susceptibility and protection against fungi associated with grapevine trunk diseases. Amer. J. Enol. Vitic. 61, 113&#8211;119. </p></li>
-<li><p>Urbez-Torres, J.R., Gubler, W.D., 2011. Susceptibility of grapevine pruning wounds to infection by Lasiodiplodia theobromae and Neofusicoccum parvum. Plant Pathol. 60, 261&#8211;270. </p></li>
-<li><p>Weber, E.A., Trouillas, F.P., Gubler, W.D., 2007. Double pruning of grapevines: a cultural practice to reduce infections by Eutypa lata. Amer. J. Enol. Vitic. 58, 61&#8211;66.</p></li>
-</ul>
-
-</body>
-</html>
-<p><a href="#page">&#8593; Top</a></p>
+<p><a href="#page" onclick="$('body').stop().animate({scrollTop: $('#page').offset().top - $('header').height()}, '500', 'swing');">&#8593; Top</a></p>
 </section>
 
 </section>
@@ -164,7 +142,7 @@ $(document).ready(function() {
 		/***** Toggle input options available to net returns vs yield
 		------------------------------------ */
 
-		$('input[name=figuredisplay]').change(function() {
+		/* $('input[name=figuredisplay]').change(function() {
 			if (this.value == 'netreturns') {
 				$('input[name=aggregatefig]').each(function() {
 					$(this).prop('disabled', false).prop('checked', false);
@@ -181,7 +159,7 @@ $(document).ready(function() {
 				$('input[name=aggregatefig][value=annually]').prop('checked', true).prop('disabled', true);
 				$('input[name=aggregatefig][value=cumulatively').prop('disabled', true);
 			}
-		});
+		}); */
 
 		/***** Toggle input options when gentable, genfigure are switched on/off
 		------------------------------------ */
@@ -591,7 +569,7 @@ $(document).ready(function() {
 		/***** Collate results
 		------------------------------------ */
 
-		var results = assumptionstable + '<p><a href="#page">Adjust parameters</a></p>';
+		var results = assumptionstable + '<p><a href="#page" onclick="$(\'body\').animate({scrollTop: $(\'#theform\').offset().top - $(\'header\').height()}, \'500\', \'swing\');">Adjust parameters</a></p>';
 		if (tablestate == true)
 			results = table + results;
 		if (figurestate == true)
@@ -611,7 +589,7 @@ $(document).ready(function() {
 				$(this).css('width', 100/figsAcross - 1 + '%');
 			})
 		};
-		$(document).scrollTop( $('#results').offset().top - 150 );
+		$('body').animate({scrollTop: $('#results').offset().top - $('header').height()}, '500', 'swing');
 	});
 })
 </script>

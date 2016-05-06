@@ -39,12 +39,12 @@
 		<p class="glossary-link"><a href="variable-definitions.html">Glossary of variable definitions</a></p>
 
 		<h5>Display output as:</h5>
-			<label><input type="radio" name="figuredisplay" value="netreturns" checked />Net returns <span class="show-for-medium-up">(thousands of $ per acre)</span></label>
-			<label><input type="radio" name="figuredisplay" value="yield" />Yield <span class="show-for-medium-up">(tons per acre)</span></label>
+			<label><input type="radio" name="figuredisplay" value="netreturns" checked />Net returns <span class="show-for-medium-up">(thousands of $ per acre; aggregate output cumulatively)</span></label>
+			<label><input type="radio" name="figuredisplay" value="yield" />Yield <span class="show-for-medium-up">(tons per acre; aggregate output annually)</span></label>
 
-		<h5>Aggregate output:</h5>
+		<!--<h5>Aggregate output:</h5>
 			<label><input type="radio" name="aggregatefig" value="cumulatively" checked="checked" />Cumulatively</label>
-			<label><input type="radio" name="aggregatefig" value="annually" />Annually</label>
+			<label><input type="radio" name="aggregatefig" value="annually" />Annually</label>-->
 		
 		<h4>Specify management scenario</h4>
 
@@ -105,9 +105,7 @@
 
 <hr />
 
-<section id="references">
-<!-- @import ../markdown/compiled/references.html -->
-<p><a href="#page">&#8593; Top</a></p>
+<p><a href="#page" onclick="$('body').stop().animate({scrollTop: $('#page').offset().top - $('header').height()}, '500', 'swing');">&#8593; Top</a></p>
 </section>
 
 </section>
@@ -120,7 +118,7 @@ $(document).ready(function() {
 		/***** Toggle input options available to net returns vs yield
 		------------------------------------ */
 
-		$('input[name=figuredisplay]').change(function() {
+		/* $('input[name=figuredisplay]').change(function() {
 			if (this.value == 'netreturns') {
 				$('input[name=aggregatefig]').each(function() {
 					$(this).prop('disabled', false).prop('checked', false);
@@ -137,7 +135,7 @@ $(document).ready(function() {
 				$('input[name=aggregatefig][value=annually]').prop('checked', true).prop('disabled', true);
 				$('input[name=aggregatefig][value=cumulatively').prop('disabled', true);
 			}
-		});
+		}); */
 
 		/***** Toggle input options when gentable, genfigure are switched on/off
 		------------------------------------ */
@@ -547,7 +545,7 @@ $(document).ready(function() {
 		/***** Collate results
 		------------------------------------ */
 
-		var results = assumptionstable + '<p><a href="#page">Adjust parameters</a></p>';
+		var results = assumptionstable + '<p><a href="#page" onclick="$(\'body\').animate({scrollTop: $(\'#theform\').offset().top - $(\'header\').height()}, \'500\', \'swing\');">Adjust parameters</a></p>';
 		if (tablestate == true)
 			results = table + results;
 		if (figurestate == true)
@@ -567,7 +565,7 @@ $(document).ready(function() {
 				$(this).css('width', 100/figsAcross - 1 + '%');
 			})
 		};
-		$(document).scrollTop( $('#results').offset().top - 150 );
+		$('body').animate({scrollTop: $('#results').offset().top - $('header').height()}, '500', 'swing');
 	});
 })
 </script>

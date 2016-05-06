@@ -8,6 +8,5 @@ In the following section of this page, you are prompted to select a winegrape gr
 
 For inquiries about the page and economic analysis of trunk diseases in California winegrape vineyards, please contact [kaplanj@csus.edu](mailto:kaplanj@csus.edu).  
 
-* [Jump to references](#references)  
 * [SCRI Trunk Disease Project Page](http://treeandvinetrunkdiseases.org)  
 * [California Sustainable Winegrowing Alliance](http://sustainablewinegrowing.org)
