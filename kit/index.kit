@@ -29,7 +29,7 @@
 		<option value="cc">Central Coast</option>
 	</select>
 
-	<h3>Figure parameters</h3>
+	<h3 id="figureparameters">Figure parameters</h3>
 	<label><input type="checkbox" name="figuregen" checked="checked" />Generate figure</label>
 
 	<fieldset class="figure">
@@ -208,29 +208,36 @@ $(document).ready(function() {
 				efficacyOrYearlength=$('input[name=yearfig]:checked').length;
 				break;			
 		};
-		switch ( $('input[name=figuredisplay]:checked').val() ) {
-			case 'yield':
-				var efficacyOrYearfig = [];
-				var fig = [];
-				for (var j=0; j<efficacyOrYearlength; j++) {
-					efficacyOrYearfig[j] = $('input[name=' + efficacyOrYearchoice + ']:checked:eq('+j+')').val();
-					fig[j] =  '<img src="images/figures/' + $('select[name=region]').val().toUpperCase() + '-' + 'Yield' + efficacyOrYearfig[j] + '.png" style="width: 910px;" alt="Graphical result" />'
-					fullfig += fig[j];
-				}
-				break;
-			case 'netreturns':
-				var efficacyOrYearfig = [];
-				var practicefig = [];
-				var fig = [];
-				for (var i=0; i<$('input[name=practicefig]:checked').length; i++) {
-					practicefig[i] = $('input[name=practicefig]:checked:eq('+i+')').val();
+
+		if (efficacyOrYearlength==0 || (efficacyOrYearchoice==0 && $('input[name=practicefig]:checked').length==0) ) {
+			fullfig = '<p class="alert">The <em>Generate figure</em> option is selected, but insufficient parameters were selected to produce a figure. To generate a figure, please return to the <a href="#" onclick="console.log(\'click\'); $(\'body\').stop().animate({scrollTop: $(\'#figureparameters\').offset().top - $(\'header\').height()}, \'500\', \'swing\'); return false;">figure parameters form</a> and select an efficacy level or a year of adoption, and for a net returns figure, at least one management practice.</p>';
+
+		} else {
+
+			switch ( $('input[name=figuredisplay]:checked').val() ) {
+				case 'yield':
+					var efficacyOrYearfig = [];
+					var fig = [];
 					for (var j=0; j<efficacyOrYearlength; j++) {
 						efficacyOrYearfig[j] = $('input[name=' + efficacyOrYearchoice + ']:checked:eq('+j+')').val();
-						fig[i*$('input[name=practicefig]:checked').length+j] =  '<img src="images/figures/' + $('select[name=region]').val().toUpperCase() + '-' + practicefig[i].toUpperCase() + efficacyOrYearfig[j] + '.png" style="width: 910px;" alt="Graphical result" />'
-						fullfig += fig[i*$('input[name=practicefig]:checked').length+j];
+						fig[j] =  '<img src="images/figures/' + $('select[name=region]').val().toUpperCase() + '-' + 'Yield' + efficacyOrYearfig[j] + '.png" style="width: 910px;" alt="Graphical result" />'
+						fullfig += fig[j];
 					}
-				}
-				break;
+					break;
+				case 'netreturns':
+					var efficacyOrYearfig = [];
+					var practicefig = [];
+					var fig = [];
+					for (var i=0; i<$('input[name=practicefig]:checked').length; i++) {
+						practicefig[i] = $('input[name=practicefig]:checked:eq('+i+')').val();
+						for (var j=0; j<efficacyOrYearlength; j++) {
+							efficacyOrYearfig[j] = $('input[name=' + efficacyOrYearchoice + ']:checked:eq('+j+')').val();
+							fig[i*$('input[name=practicefig]:checked').length+j] =  '<img src="images/figures/' + $('select[name=region]').val().toUpperCase() + '-' + practicefig[i].toUpperCase() + efficacyOrYearfig[j] + '.png" style="width: 910px;" alt="Graphical result" />'
+							fullfig += fig[i*$('input[name=practicefig]:checked').length+j];
+						}
+					}
+					break;
+			};
 		};
 
 		/***** Generate table
@@ -522,7 +529,7 @@ $(document).ready(function() {
 				}
 				table += '</table>';
 			} else {
-				table = '<p class="alert">The <em>Generate table</em> option is selected, but insufficient parameters were selected to prouce an output table. To generate a table, please return to the <a href="#" onclick="console.log(\'click\'); $(\'body\').stop().animate({scrollTop: $(\'#tableparameters\').offset().top - $(\'header\').height()}, \'500\', \'swing\'); return false;">table parameters form</a> and select at least one management practice, efficacy level, year of adoption, and output parameter.</p>';
+				table = '<p class="alert">The <em>Generate table</em> option is selected, but insufficient parameters were selected to produce an output table. To generate a table, please return to the <a href="#" onclick="console.log(\'click\'); $(\'body\').stop().animate({scrollTop: $(\'#tableparameters\').offset().top - $(\'header\').height()}, \'500\', \'swing\'); return false;">table parameters form</a> and select at least one management practice, efficacy level, year of adoption, and output parameter.</p>';
 			};
 
 		/***** Generate assumptions table
