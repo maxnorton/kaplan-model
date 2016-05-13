@@ -242,6 +242,7 @@ x.class-with-hyphens-separating-words {
 	
 	th {
 		font-weight: normal;
+		min-width: 8rem;
 	}
 	thead tr:first-of-type th:nth-of-type(2) {
 		border-bottom: 1px solid #999;
