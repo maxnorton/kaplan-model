@@ -558,14 +558,13 @@ $(document).ready(function() {
 		/***** Generate assumptions table
 		------------------------------------ */
 
-		var assumptionsHeaders = ['Region', 'Vineyard Lifespan', 'Discount Rate', 'Price', 'Cultivar', 'Additional Cost from Delayed Pruning per acre', 'Additional Cost from Double Pruning per acre', 'Additional Cost from Handpainting TopsinM per acre', 'Cultural Cost &#8211; Year 0 &#8211; Establishing Vineyard', 'Cultural Cost &#8211; Year 1 &#8211; Establishing Vineyard', 'Cultural Cost &#8211; Year 2 &#8211; Establishing Vineyard', 'Cultural Cost &#8211; Year 3+ &#8211; Established Vineyard'];
-		var assumptionsSonoma = ['Sonoma', '25 years', '3%', '$2,431', 'Cabernet Sauvignon', '0', '$335', '$59', '$27,583.54', '$4,330.57', '$5,342.09', '$6,468.06'];
-		var assumptionsNSJ = ['Northern San Joaquin', '25 years', '3%', '$690', 'Cabernet Sauvignon', '0', '$273', '$88.5', '$11,887.23', '$3,280.55', '$3,449.47', '$4,402.22'];
-		var assumptionsCC = ['Central Coast', '25 years', '3%', '$1,140', 'Cabernet Sauvignon', '0', '$359', '$72', '$11,887.23', '$3,280.55', '$3,449.47', '$4,402.22'];
-		var assumptionsLake = ['Lake', '25 years', '3%', '$750', 'Cabernet Sauvignon', '0', '$191', '$56', '$11,887.23', '$3,280.55', '$3,449.47', '$4,402.22'];
-		var assumptionsNapa = ['Napa', '25 years', '3%', '$300', 'Cabernet Sauvignon', '0', '$261', '$38', '$11,887.23', '$3,280.55', '$3,449.47', '$4,402.22'];
+		var assumptionsHeaders = ['REGION', 'Price', 'Cultivar', 'Additional Cost from Double Pruning per acre', 'Additional Cost from Handpainting TopsinM per acre', 'Cultural Cost - Year 0 - Establishing Vineyard', 'Cultural Cost - Year 1 - Establishing Vineyard', 'Cultural Cost - Year 2 - Establishing Vineyard', 'Cultural Cost - Year 3+ Established Vineyard'];
+		var assumptionsNapa = ['Napa', '$5,192', 'Cabernet Sauvignon', '478', '71', '$32,303', '$5,264', '$5,304', '$7,784'];
+		var assumptionsNSJ = ['Northern San Joaquin', '$650', 'Cabernet Sauvignon', '175', '45', '$12,213', '$3,370', '$1,004', '$3,505'];
+		var assumptionsCC = ['Central Coast', '$1,262', 'Cabernet Sauvignon', '243', '90', '$9,998', '$2,554', '$3,501', '$4,625'];
+		var assumptionsLake = ['Lake', '$1,623', 'Cabernet Sauvignon', '268', '117', '$7,301', '$6,942', '$3,252', '$3,404'];
+		var assumptionsSonoma = ['Sonoma', '$2,355', 'Cabernet Sauvignon', '335', '74', '$26,780', '$4,204', '$5,186', '$6,280'];		
 		var assumptionsArray = [{sonoma: assumptionsSonoma, nsj: assumptionsNSJ, cc: assumptionsCC, lake: assumptionsLake, napa: assumptionsNapa}];
-		
 		var assumptionstable = '<h3>Parameter Values Used in Calculations</h3><table class="assumptionstable">';
 		for (var i=0; i<assumptionsHeaders.length; i++) {
 			assumptionstable += '<tr><td>' + assumptionsHeaders[i] + '</td><td>' + assumptionsArray[0][$('select[name=region]').val()][i] + '</td></tr>';
