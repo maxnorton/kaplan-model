@@ -113,10 +113,10 @@
 
 		<h5>Choose output parameters:</h5>
 			<p><a href="variable-definitions.html">Glossary of variable definitions</a></p>
-			<label><input type="checkbox" name="outputtable" value="dcnr" />Discounted cumulative net returns</label><br />
-			<label><input type="checkbox" name="outputtable" value="aanr" />Annual average net returns</label><br />
+			<label><input type="checkbox" name="outputtable" value="adcnb" />Additional discounted cumulative net benefits (ADCNB)</label><br />
 			<label><input type="checkbox" name="outputtable" value="lpy" />Last profitable year</label><br />
-			<label><input type="checkbox" name="outputtable" value="bea" />Breakeven age</label><br />
+			<label><input type="checkbox" name="outputtable" value="aapo" />Age adoption pays off</label><br />
+			<label><input type="checkbox" name="outputtable" value="bep" />Breakeven probability</label><br />
 
 	</fieldset>
 
@@ -267,158 +267,157 @@ $(document).ready(function() {
 		------------------------------------ */
 
 			// Declare table data
-			var tableHeaders = ['Region', 'Practice', 'Efficacy', 'Year of adoption', 'DCNR', 'Annual average net returns', 'Last profitable year', 'Breakeven age'];
-
-			var ccDP25y3 = ['Central Coast', 'Delayed Pruning', '25.0', '3.0', '$12,841.00', '$513.64', '17','3'];
-			var ccDP25y5 = ['Central Coast', 'Delayed Pruning', '25.0', '5.0', '$10,417.00', '$416.68', '14','5'];
-			var ccDP25y10 = ['Central Coast', 'Delayed Pruning', '25.0', '10.0', '$4,444.00', '$177.76', '13','10'];
-			var ccDP50y3 = ['Central Coast', 'Delayed Pruning', '50.0', '3.0', '$31,524.00', '$1,260.96', '24','3'];
-			var ccDP50y5 = ['Central Coast', 'Delayed Pruning', '50.0', '5.0', '$26,659.00', '$1,066.36', '22','5'];
-			var ccDP50y10 = ['Central Coast', 'Delayed Pruning', '50.0', '10.0', '$12,156.00', '$486.24', '17','10'];
-			var ccDP75y3 = ['Central Coast', 'Delayed Pruning', '75.0', '3.0', '$42,690.00', '$1,707.60', '25','3'];
-			var ccDP75y5 = ['Central Coast', 'Delayed Pruning', '75.0', '5.0', '$40,531.00', '$1,621.24', '25','5'];
-			var ccDP75y10 = ['Central Coast', 'Delayed Pruning', '75.0', '10.0', '$24,712.00', '$988.48', '25','10'];
-			var ccDBP25y3 = ['Central Coast', 'Double Pruning', '25.0', '3.0', '$7,276.00', '$291.04', '16','12'];
-			var ccDBP25y5 = ['Central Coast', 'Double Pruning', '25.0', '5.0', '$5,500.00', '$220.00', '16','12'];
-			var ccDBP25y10 = ['Central Coast', 'Double Pruning', '25.0', '10.0', '$988.00', '$39.52', '14','13'];
-			var ccDBP50y3 = ['Central Coast', 'Double Pruning', '50.0', '3.0', '$25,959.00', '$1,038.36', '24','11'];
-			var ccDBP50y5 = ['Central Coast', 'Double Pruning', '50.0', '5.0', '$21,742.00', '$869.68', '21','11'];
-			var ccDBP50y10 = ['Central Coast', 'Double Pruning', '50.0', '10.0', '$8,700.00', '$348.00', '17','11'];
-			var ccDBP75y3 = ['Central Coast', 'Double Pruning', '75.0', '3.0', '$37,126.00', '$1,485.04', '25','10'];
-			var ccDBP75y5 = ['Central Coast', 'Double Pruning', '75.0', '5.0', '$35,614.00', '$1,424.56', '25','10'];
-			var ccDBP75y10 = ['Central Coast', 'Double Pruning', '75.0', '10.0', '$21,256.00', '$850.24', '25','10'];
-			var ccHP25y3 = ['Central Coast', 'Hand painted Topsin', '25.0', '3.0', '$11,725.00', '$469.00', '17','8'];
-			var ccHP25y5 = ['Central Coast', 'Hand painted Topsin', '25.0', '5.0', '$9,431.00', '$377.24', '16','8'];
-			var ccHP25y10 = ['Central Coast', 'Hand painted Topsin', '25.0', '10.0', '$3,751.00', '$150.04', '14','10'];
-			var ccHP50y3 = ['Central Coast', 'Hand painted Topsin', '50.0', '3.0', '$30,408.00', '$1,216.32', '24','7'];
-			var ccHP50y5 = ['Central Coast', 'Hand painted Topsin', '50.0', '5.0', '$25,673.00', '$1,026.92', '22','7'];
-			var ccHP50y10 = ['Central Coast', 'Hand painted Topsin', '50.0', '10.0', '$11,463.00', '$458.52', '17','10'];
-			var ccHP75y3 = ['Central Coast', 'Hand painted Topsin', '75.0', '3.0', '$41,574.00', '$1,662.96', '25','7'];
-			var ccHP75y5 = ['Central Coast', 'Hand painted Topsin', '75.0', '5.0', '$39,545.00', '$1,581.80', '25','7'];
-			var ccHP75y10 = ['Central Coast', 'Hand painted Topsin', '75.0', '10.0', '$24,019.00', '$960.76', '25','10'];
-			var sonomaDP25y3 = ['Sonoma', 'Delayed Pruning', '25.0', '3.0', '$24,303.00', '$972.12', '16','3'];
-			var sonomaDP25y5 = ['Sonoma', 'Delayed Pruning', '25.0', '5.0', '$19,706.00', '$788.24', '15','5'];
-			var sonomaDP25y10 = ['Sonoma', 'Delayed Pruning', '25.0', '10.0', '$8,406.00', '$336.24', '13','10'];
-			var sonomaDP50y3 = ['Sonoma', 'Delayed Pruning', '50.0', '3.0', '$59,655.00', '$2,386.20', '23','3'];
-			var sonomaDP50y5 = ['Sonoma', 'Delayed Pruning', '50.0', '5.0', '$50,432.00', '$2,017.28', '21','5'];
-			var sonomaDP50y10 = ['Sonoma', 'Delayed Pruning', '50.0', '10.0', '$22,996.00', '$919.84', '16','10'];
-			var sonomaDP75y3 = ['Sonoma', 'Delayed Pruning', '75.0', '3.0', '$80,786.00', '$3,231.44', '25','3'];
-			var sonomaDP75y5 = ['Sonoma', 'Delayed Pruning', '75.0', '5.0', '$76,674.00', '$3,066.96', '25','5'];
-			var sonomaDP75y10 = ['Sonoma', 'Delayed Pruning', '75.0', '10.0', '$46,748.00', '$1,869.92', '23','10'];
-			var sonomaDBP25y3 = ['Sonoma', 'Double Pruning', '25.0', '3.0', '$19,110.00', '$764.40', '15','10'];
-			var sonomaDBP25y5 = ['Sonoma', 'Double Pruning', '25.0', '5.0', '$15,118.00', '$604.72', '15','10'];
-			var sonomaDBP25y10 = ['Sonoma', 'Double Pruning', '25.0', '10.0', '$5,181.00', '$207.24', '13','11'];
-			var sonomaDBP50y3 = ['Sonoma', 'Double Pruning', '50.0', '3.0', '$54,462.00', '$2,178.48', '22','9'];
-			var sonomaDBP50y5 = ['Sonoma', 'Double Pruning', '50.0', '5.0', '$45,844.00', '$1,833.76', '20','9'];
-			var sonomaDBP50y10 = ['Sonoma', 'Double Pruning', '50.0', '10.0', '$19,771.00', '$790.84', '15','10'];
-			var sonomaDBP75y3 = ['Sonoma', 'Double Pruning', '75.0', '3.0', '$75,594.00', '$3,023.76', '25','9'];
-			var sonomaDBP75y5 = ['Sonoma', 'Double Pruning', '75.0', '5.0', '$72,086.00', '$2,883.44', '25','9'];
-			var sonomaDBP75y10 = ['Sonoma', 'Double Pruning', '75.0', '10.0', '$43,523.00', '$1,740.92', '22','10'];
-			var sonomaHP25y3 = ['Sonoma', 'Hand painted Topsin', '25.0', '3.0', '$23,388.00', '$935.52', '15','6'];
-			var sonomaHP25y5 = ['Sonoma', 'Hand painted Topsin', '25.0', '5.0', '$18,898.00', '$755.92', '15','6'];
-			var sonomaHP25y10 = ['Sonoma', 'Hand painted Topsin', '25.0', '10.0', '$7,838.00', '$313.52', '13','10'];
-			var sonomaHP50y3 = ['Sonoma', 'Hand painted Topsin', '50.0', '3.0', '$58,740.00', '$2,349.60', '22','6'];
-			var sonomaHP50y5 = ['Sonoma', 'Hand painted Topsin', '50.0', '5.0', '$49,624.00', '$1,984.96', '20','6'];
-			var sonomaHP50y10 = ['Sonoma', 'Hand painted Topsin', '50.0', '10.0', '$22,428.00', '$897.12', '15','10'];
-			var sonomaHP75y3 = ['Sonoma', 'Hand painted Topsin', '75.0', '3.0', '$79,872.00', '$3,194.88', '25','5'];
-			var sonomaHP75y5 = ['Sonoma', 'Hand painted Topsin', '75.0', '5.0', '$75,866.00', '$3,034.64', '25','5'];
-			var sonomaHP75y10 = ['Sonoma', 'Hand painted Topsin', '75.0', '10.0', '$46,180.00', '$1,847.20', '22','10'];
-			var lakeDP25y3 = ['Lake', 'Delayed Pruning', '25.0', '3.0', '$8,723.00', '$348.92', '15','3'];
-			var lakeDP25y5 = ['Lake', 'Delayed Pruning', '25.0', '5.0', '$7,077.00', '$283.08', '15','5'];
-			var lakeDP25y10 = ['Lake', 'Delayed Pruning', '25.0', '10.0', '$3,019.00', '$120.76', '13','10'];
-			var lakeDP50y3 = ['Lake', 'Delayed Pruning', '50.0', '3.0', '$21,416.00', '$856.64', '22','3'];
-			var lakeDP50y5 = ['Lake', 'Delayed Pruning', '50.0', '5.0', '$18,111.00', '$724.44', '20','5'];
-			var lakeDP50y10 = ['Lake', 'Delayed Pruning', '50.0', '10.0', '$8,258.00', '$330.32', '15','10'];
-			var lakeDP75y3 = ['Lake', 'Delayed Pruning', '75.0', '3.0', '$29,002.00', '$1,160.08', '25','3'];
-			var lakeDP75y5 = ['Lake', 'Delayed Pruning', '75.0', '5.0', '$27,535.00', '$1,101.40', '25','5'];
-			var lakeDP75y10 = ['Lake', 'Delayed Pruning', '75.0', '10.0', '$16,788.00', '$671.52', '22','10'];
-			var lakeDBP25y3 = ['Lake', 'Double Pruning', '25.0', '3.0', '$5,763.00', '$230.52', '15','11'];
-			var lakeDBP25y5 = ['Lake', 'Double Pruning', '25.0', '5.0', '$4,461.00', '$178.44', '14','11'];
-			var lakeDBP25y10 = ['Lake', 'Double Pruning', '25.0', '10.0', '$1,180.00', '$47.20', '13','12'];
-			var lakeDBP50y3 = ['Lake', 'Double Pruning', '50.0', '3.0', '$18,455.00', '$738.20', '22','10'];
-			var lakeDBP50y5 = ['Lake', 'Double Pruning', '50.0', '5.0', '$15,495.00', '$619.80', '20','10'];
-			var lakeDBP50y10 = ['Lake', 'Double Pruning', '50.0', '10.0', '$6,419.00', '$256.76', '15','11'];
-			var lakeDBP75y3 = ['Lake', 'Double Pruning', '75.0', '3.0', '$26,041.00', '$1,041.64', '25','10'];
-			var lakeDBP75y5 = ['Lake', 'Double Pruning', '75.0', '5.0', '$24,919.00', '$996.76', '25','10'];
-			var lakeDBP75y10 = ['Lake', 'Double Pruning', '75.0', '10.0', '$14,949.00', '$597.96', '21','10'];
-			var lakeHP25y3 = ['Lake', 'Hand painted Topsin', '25.0', '3.0', '$7,855.00', '$314.20', '15','9'];
-			var lakeHP25y5 = ['Lake', 'Hand painted Topsin', '25.0', '5.0', '$6,310.00', '$252.40', '15','9'];
-			var lakeHP25y10 = ['Lake', 'Hand painted Topsin', '25.0', '10.0', '$2,480.00', '$99.20', '13','10'];
-			var lakeHP50y3 = ['Lake', 'Hand painted Topsin', '50.0', '3.0', '$20,548.00', '$821.92', '22','8'];
-			var lakeHP50y5 = ['Lake', 'Hand painted Topsin', '50.0', '5.0', '$17,344.00', '$693.76', '20','8'];
-			var lakeHP50y10 = ['Lake', 'Hand painted Topsin', '50.0', '10.0', '$7,719.00', '$308.76', '15','10'];
-			var lakeHP75y3 = ['Lake', 'Hand painted Topsin', '75.0', '3.0', '$28,134.00', '$1,125.36', '25','7'];
-			var lakeHP75y5 = ['Lake', 'Hand painted Topsin', '75.0', '5.0', '$26,768.00', '$1,070.72', '25','7'];
-			var lakeHP75y10 = ['Lake', 'Hand painted Topsin', '75.0', '10.0', '$16,249.00', '$649.96', '22','10'];
-			var nsjDP25y3 = ['Northern San Joaquin', 'Delayed Pruning', '25.0', '3.0', '$13,797.00', '$551.88', '14','3'];
-			var nsjDP25y5 = ['Northern San Joaquin', 'Delayed Pruning', '25.0', '5.0', '$11,187.00', '$447.48', '14','5'];
-			var nsjDP25y10 = ['Northern San Joaquin', 'Delayed Pruning', '25.0', '10.0', '$4,772.00', '$190.88', '12','10'];
-			var nsjDP50y3 = ['Northern San Joaquin', 'Delayed Pruning', '50.0', '3.0', '$33,866.00', '$1,354.64', '21','3'];
-			var nsjDP50y5 = ['Northern San Joaquin', 'Delayed Pruning', '50.0', '5.0', '$28,629.00', '$1,145.16', '19','5'];
-			var nsjDP50y10 = ['Northern San Joaquin', 'Delayed Pruning', '50.0', '10.0', '$13,054.00', '$522.16', '14','10'];
-			var nsjDP75y3 = ['Northern San Joaquin', 'Delayed Pruning', '75.0', '3.0', '$45,863.00', '$1,834.52', '25','3'];
-			var nsjDP75y5 = ['Northern San Joaquin', 'Delayed Pruning', '75.0', '5.0', '$43,525.00', '$1,741.00', '25','5'];
-			var nsjDP75y10 = ['Northern San Joaquin', 'Delayed Pruning', '75.0', '10.0', '$26,538.00', '$1,061.52', '19','10'];
-			var nsjDBP25y3 = ['Northern San Joaquin', 'Double Pruning', '25.0', '3.0', '$9,566.00', '$382.64', '14','11'];
-			var nsjDBP25y5 = ['Northern San Joaquin', 'Double Pruning', '25.0', '5.0', '$7,448.00', '$297.92', '13','11'];
-			var nsjDBP25y10 = ['Northern San Joaquin', 'Double Pruning', '25.0', '10.0', '$2,144.00', '$85.76', '12','12'];
-			var nsjDBP50y3 = ['Northern San Joaquin', 'Double Pruning', '50.0', '3.0', '$29,635.00', '$1,185.40', '20','10'];
-			var nsjDBP50y5 = ['Northern San Joaquin', 'Double Pruning', '50.0', '5.0', '$24,890.00', '$995.60', '18','10'];
-			var nsjDBP50y10 = ['Northern San Joaquin', 'Double Pruning', '50.0', '10.0', '$10,426.00', '$417.04', '13','11'];
-			var nsjDBP75y3 = ['Northern San Joaquin', 'Double Pruning', '75.0', '3.0', '$41,632.00', '$1,665.28', '25','11'];
-			var nsjDBP75y5 = ['Northern San Joaquin', 'Double Pruning', '75.0', '5.0', '$39,786.00', '$1,591.44', '25','10'];
-			var nsjDBP75y10 = ['Northern San Joaquin', 'Double Pruning', '75.0', '10.0', '$23,909.00', '$956.36', '18','11'];
-			var nsjHP25y3 = ['Northern San Joaquin', 'Hand painted Topsin', '25.0', '3.0', '$12,425.00', '$497.00', '14','9'];
-			var nsjHP25y5 = ['Northern San Joaquin', 'Hand painted Topsin', '25.0', '5.0', '$9,974.00', '$398.96', '14','9'];
-			var nsjHP25y10 = ['Northern San Joaquin', 'Hand painted Topsin', '25.0', '10.0', '$3,920.00', '$156.80', '12','10'];
-			var nsjHP50y3 = ['Northern San Joaquin', 'Hand painted Topsin', '50.0', '3.0', '$32,495.00', '$1,299.80', '21','8'];
-			var nsjHP50y5 = ['Northern San Joaquin', 'Hand painted Topsin', '50.0', '5.0', '$27,417.00', '$1,096.68', '19','8'];
-			var nsjHP50y10 = ['Northern San Joaquin', 'Hand painted Topsin', '50.0', '10.0', '$12,202.00', '$488.08', '14','10'];
-			var nsjHP75y3 = ['Northern San Joaquin', 'Hand painted Topsin', '75.0', '3.0', '$44,491.00', '$1,779.64', '25','7'];
-			var nsjHP75y5 = ['Northern San Joaquin', 'Hand painted Topsin', '75.0', '5.0', '$42,313.00', '$1,692.52', '25','7'];
-			var nsjHP75y10 = ['Northern San Joaquin', 'Hand painted Topsin', '75.0', '10.0', '$25,686.00', '$1,027.44', '19','10'];
-			var napaDP25y3 = ['Napa', 'Delayed Pruning', '25.0', '3.0', '$7,198.00', '$287.92', '18','3'];
-			var napaDP25y5 = ['Napa', 'Delayed Pruning', '25.0', '5.0', '$5,836.00', '$233.44', '17','5'];
-			var napaDP25y10 = ['Napa', 'Delayed Pruning', '25.0', '10.0', '$2,490.00', '$99.60', '15','10'];
-			var napaDP50y3 = ['Napa', 'Delayed Pruning', '50.0', '3.0', '$17,669.00', '$706.76', '25','3'];
-			var napaDP50y5 = ['Napa', 'Delayed Pruning', '50.0', '5.0', '$14,937.00', '$597.48', '24','5'];
-			var napaDP50y10 = ['Napa', 'Delayed Pruning', '50.0', '10.0', '$6,811.00', '$272.44', '19','10'];
-			var napaDP75y3 = ['Napa', 'Delayed Pruning', '75.0', '3.0', '$23,928.00', '$957.12', '25','3'];
-			var napaDP75y5 = ['Napa', 'Delayed Pruning', '75.0', '5.0', '$22,709.00', '$908.36', '25','5'];
-			var napaDP75y10 = ['Napa', 'Delayed Pruning', '75.0', '10.0', '$13,846.00', '$553.84', '25','10'];
-			var napaDBP25y3 = ['Napa', 'Double Pruning', '25.0', '3.0', '$3,153.00', '$126.12', '17','13'];
-			var napaDBP25y5 = ['Napa', 'Double Pruning', '25.0', '5.0', '$2,262.00', '$90.48', '16','13'];
-			var napaDBP25y10 = ['Napa', 'Double Pruning', '25.0', '10.0', '$-23.00', '$-0.92', '14','14'];
-			var napaDBP50y3 = ['Napa', 'Double Pruning', '50.0', '3.0', '$13,623.00', '$544.92', '24','12'];
-			var napaDBP50y5 = ['Napa', 'Double Pruning', '50.0', '5.0', '$11,362.00', '$454.48', '22','11'];
-			var napaDBP50y10 = ['Napa', 'Double Pruning', '50.0', '10.0', '$4,298.00', '$171.92', '17','12'];
-			var napaDBP75y3 = ['Napa', 'Double Pruning', '75.0', '3.0', '$19,882.00', '$795.28', '25','12'];
-			var napaDBP75y5 = ['Napa', 'Double Pruning', '75.0', '5.0', '$19,134.00', '$765.36', '25','11'];
-			var napaDBP75y10 = ['Napa', 'Double Pruning', '75.0', '10.0', '$11,333.00', '$453.32', '25','10'];
-			var napaHP25y3 = ['Napa', 'Hand painted Topsin', '25.0', '3.0', '$6,609.00', '$264.36', '17','8'];
-			var napaHP25y5 = ['Napa', 'Hand painted Topsin', '25.0', '5.0', '$5,316.00', '$212.64', '17','8'];
-			var napaHP25y10 = ['Napa', 'Hand painted Topsin', '25.0', '10.0', '$2,124.00', '$84.96', '15','10'];
-			var napaHP50y3 = ['Napa', 'Hand painted Topsin', '50.0', '3.0', '$17,080.00', '$683.20', '25','7'];
-			var napaHP50y5 = ['Napa', 'Hand painted Topsin', '50.0', '5.0', '$14,416.00', '$576.64', '23','7'];
-			var napaHP50y10 = ['Napa', 'Hand painted Topsin', '50.0', '10.0', '$6,445.00', '$257.80', '18','10'];
-			var napaHP75y3 = ['Napa', 'Hand painted Topsin', '75.0', '3.0', '$23,339.00', '$933.56', '25','7'];
-			var napaHP75y5 = ['Napa', 'Hand painted Topsin', '75.0', '5.0', '$22,188.00', '$887.52', '25','7'];
-			var napaHP75y10 = ['Napa', 'Hand painted Topsin', '75.0', '10.0', '$13,480.00', '$539.20', '25','10'];
-
-			var ccDP25 = [ccDP25y3, ccDP25y5, ccDP25y10];
-			var ccDP50 = [ccDP50y3, ccDP50y5, ccDP50y10];
-			var ccDP75 = [ccDP75y3, ccDP75y5, ccDP75y10];
-			var ccHP25 = [ccHP25y3, ccHP25y5, ccHP25y10];
-			var ccHP50 = [ccHP50y3, ccHP50y5, ccHP50y10];
-			var ccHP75 = [ccHP75y3, ccHP75y5, ccHP75y10];
-			var ccDBP25 = [ccDBP25y3, ccDBP25y5, ccDBP25y10];
-			var ccDBP50 = [ccDBP50y3, ccDBP50y5, ccDBP50y10];
-			var ccDBP75 = [ccDBP75y3, ccDBP75y5, ccDBP75y10];
+			var tableHeaders = ['Region', 'Practice', 'Efficacy', 'Year of adoption', 'ADCNB', 'Last profitable year', 'Age adoption pays off', 'Breakeven probability'];
+			var napaDP25y3 = ['Napa', 'Delayed Pruning', '25.0', '3.0', '$46,720', '18', '3.0', '0.0'];
+			var napaDP25y5 = ['Napa', 'Delayed Pruning', '25.0', '5.0', '$37,880', '17', '5.0', '0.0'];
+			var napaDP25y10 = ['Napa', 'Delayed Pruning', '25.0', '10.0', '$16,159', '16', '10.0', '0.0'];
+			var napaDP50y3 = ['Napa', 'Delayed Pruning', '50.0', '3.0', '$114,680', '25', '3.0', '0.0'];
+			var napaDP50y5 = ['Napa', 'Delayed Pruning', '50.0', '5.0', '$96,944', '24', '5.0', '0.0'];
+			var napaDP50y10 = ['Napa', 'Delayed Pruning', '50.0', '10.0', '$44,205', '19', '10.0', '0.0'];
+			var napaDP75y3 = ['Napa', 'Delayed Pruning', '75.0', '3.0', '$155,303', '25', '3.0', '0.0'];
+			var napaDP75y5 = ['Napa', 'Delayed Pruning', '75.0', '5.0', '$147,388', '25', '5.0', '0.0'];
+			var napaDP75y10 = ['Napa', 'Delayed Pruning', '75.0', '10.0', '$89,863', '25', '10.0', '0.0'];
+			var napaDBP25y3 = ['Napa', 'Double Pruning', '25.0', '3.0', '$46,720', '18', '10', '0.159'];
+			var napaDBP25y5 = ['Napa', 'Double Pruning', '25.0', '5.0', '$37,880', '17', '9', '0.173'];
+			var napaDBP25y10 = ['Napa', 'Double Pruning', '25.0', '10.0', '$16,159', '15', '11', '0.285'];
+			var napaDBP50y3 = ['Napa', 'Double Pruning', '50.0', '3.0', '$114,680', '25', '9', '0.065'];
+			var napaDBP50y5 = ['Napa', 'Double Pruning', '50.0', '5.0', '$96,944', '24', '8', '0.068'];
+			var napaDBP50y10 = ['Napa', 'Double Pruning', '50.0', '10.0', '$44,205', '19', '10', '0.104'];
+			var napaDBP75y3 = ['Napa', 'Double Pruning', '75.0', '3.0', '$155,303', '25', '8', '0.048'];
+			var napaDBP75y5 = ['Napa', 'Double Pruning', '75.0', '5.0', '$147,388', '25', '8', '0.044'];
+			var napaDBP75y10 = ['Napa', 'Double Pruning', '75.0', '10.0', '$89,863', '25', '10', '0.051'];
+			var napaHP25y3 = ['Napa', 'Hand painted Topsin', '25.0', '3.0', '$45,614', '18', '6', '0.024'];
+			var napaHP25y5 = ['Napa', 'Hand painted Topsin', '25.0', '5.0', '$36,903', '17', '6', '0.026'];
+			var napaHP25y10 = ['Napa', 'Hand painted Topsin', '25.0', '10.0', '$15,472', '15', '10', '0.043'];
+			var napaHP50y3 = ['Napa', 'Hand painted Topsin', '50.0', '3.0', '$113,574', '25', '5', '0.01'];
+			var napaHP50y5 = ['Napa', 'Hand painted Topsin', '50.0', '5.0', '$95,967', '24', '5', '0.01'];
+			var napaHP50y10 = ['Napa', 'Hand painted Topsin', '50.0', '10.0', '$43,517', '19', '10', '0.016'];
+			var napaHP75y3 = ['Napa', 'Hand painted Topsin', '75.0', '3.0', '$154,197', '25', '4', '0.007'];
+			var napaHP75y5 = ['Napa', 'Hand painted Topsin', '75.0', '5.0', '$146,410', '25', '5', '0.007'];
+			var napaHP75y10 = ['Napa', 'Hand painted Topsin', '75.0', '10.0', '$89,175', '25', '10', '0.008'];
+			var nsjDP25y3 = ['Northern San Joaquin', 'Delayed Pruning', '25.0', '3.0', '$12,993', '15', '3.0', '0.0'];
+			var nsjDP25y5 = ['Northern San Joaquin', 'Delayed Pruning', '25.0', '5.0', '$10,534', '15', '5.0', '0.0'];
+			var nsjDP25y10 = ['Northern San Joaquin', 'Delayed Pruning', '25.0', '10.0', '$4,494', '13', '10.0', '0.0'];
+			var nsjDP50y3 = ['Northern San Joaquin', 'Delayed Pruning', '50.0', '3.0', '$31,892', '22', '3.0', '0.0'];
+			var nsjDP50y5 = ['Northern San Joaquin', 'Delayed Pruning', '50.0', '5.0', '$26,960', '20', '5.0', '0.0'];
+			var nsjDP50y10 = ['Northern San Joaquin', 'Delayed Pruning', '50.0', '10.0', '$12,293', '15', '10.0', '0.0'];
+			var nsjDP75y3 = ['Northern San Joaquin', 'Delayed Pruning', '75.0', '3.0', '$43,189', '25', '3.0', '0.0'];
+			var nsjDP75y5 = ['Northern San Joaquin', 'Delayed Pruning', '75.0', '5.0', '$40,988', '25', '5.0', '0.0'];
+			var nsjDP75y10 = ['Northern San Joaquin', 'Delayed Pruning', '75.0', '10.0', '$24,990', '22', '10.0', '0.0'];
+			var nsjDBP25y3 = ['Northern San Joaquin', 'Double Pruning', '25.0', '3.0', '$8,761', '15', '11', '0.326'];
+			var nsjDBP25y5 = ['Northern San Joaquin', 'Double Pruning', '25.0', '5.0', '$6,795', '14', '11', '0.355'];
+			var nsjDBP25y10 = ['Northern San Joaquin', 'Double Pruning', '25.0', '10.0', '$1,866', '13', '12', '0.585'];
+			var nsjDBP50y3 = ['Northern San Joaquin', 'Double Pruning', '50.0', '3.0', '$27,660', '22', '10', '0.133'];
+			var nsjDBP50y5 = ['Northern San Joaquin', 'Double Pruning', '50.0', '5.0', '$23,221', '20', '10', '0.139'];
+			var nsjDBP50y10 = ['Northern San Joaquin', 'Double Pruning', '50.0', '10.0', '$9,665', '15', '11', '0.214'];
+			var nsjDBP75y3 = ['Northern San Joaquin', 'Double Pruning', '75.0', '3.0', '$38,957', '25', '10', '0.098'];
+			var nsjDBP75y5 = ['Northern San Joaquin', 'Double Pruning', '75.0', '5.0', '$37,249', '25', '10', '0.091'];
+			var nsjDBP75y10 = ['Northern San Joaquin', 'Double Pruning', '75.0', '10.0', '$22,362', '21', '10', '0.105'];
+			var nsjHP25y3 = ['Northern San Joaquin', 'Hand painted Topsin', '25.0', '3.0', '$11,621', '15', '9', '0.106'];
+			var nsjHP25y5 = ['Northern San Joaquin', 'Hand painted Topsin', '25.0', '5.0', '$9,322', '15', '9', '0.115'];
+			var nsjHP25y10 = ['Northern San Joaquin', 'Hand painted Topsin', '25.0', '10.0', '$3,642', '13', '10', '0.19'];
+			var nsjHP50y3 = ['Northern San Joaquin', 'Hand painted Topsin', '50.0', '3.0', '$30,520', '22', '8', '0.043'];
+			var nsjHP50y5 = ['Northern San Joaquin', 'Hand painted Topsin', '50.0', '5.0', '$25,747', '20', '8', '0.045'];
+			var nsjHP50y10 = ['Northern San Joaquin', 'Hand painted Topsin', '50.0', '10.0', '$11,441', '15', '10', '0.069'];
+			var nsjHP75y3 = ['Northern San Joaquin', 'Hand painted Topsin', '75.0', '3.0', '$41,817', '25', '7', '0.032'];
+			var nsjHP75y5 = ['Northern San Joaquin', 'Hand painted Topsin', '75.0', '5.0', '$39,776', '25', '7', '0.03'];
+			var nsjHP75y10 = ['Northern San Joaquin', 'Hand painted Topsin', '75.0', '10.0', '$24,138', '22', '10', '0.034'];
+			var ccDP25y3 = ['Central Coast', 'Delayed Pruning', '25.0', '3.0', '$18,929', '16', '3.0', '0.0'];
+			var ccDP25y5 = ['Central Coast', 'Delayed Pruning', '25.0', '5.0', '$15,349', '15', '5.0', '0.0'];
+			var ccDP25y10 = ['Central Coast', 'Delayed Pruning', '25.0', '10.0', '$6,548', '14', '10.0', '0.0'];
+			var ccDP50y3 = ['Central Coast', 'Delayed Pruning', '50.0', '3.0', '$46,464', '23', '3.0', '0.0'];
+			var ccDP50y5 = ['Central Coast', 'Delayed Pruning', '50.0', '5.0', '$39,281', '21', '5.0', '0.0'];
+			var ccDP50y10 = ['Central Coast', 'Delayed Pruning', '50.0', '10.0', '$17,912', '16', '10.0', '0.0'];
+			var ccDP75y3 = ['Central Coast', 'Delayed Pruning', '75.0', '3.0', '$62,923', '25', '3.0', '0.0'];
+			var ccDP75y5 = ['Central Coast', 'Delayed Pruning', '75.0', '5.0', '$59,721', '25', '5.0', '0.0'];
+			var ccDP75y10 = ['Central Coast', 'Delayed Pruning', '75.0', '10.0', '$36,412', '24', '10.0', '0.0'];
+			var ccDBP25y3 = ['Central Coast', 'Double Pruning', '25.0', '3.0', '$13,143', '16', '11', '0.306'];
+			var ccDBP25y5 = ['Central Coast', 'Double Pruning', '25.0', '5.0', '$10,236', '15', '11', '0.333'];
+			var ccDBP25y10 = ['Central Coast', 'Double Pruning', '25.0', '10.0', '$2,954', '13', '12', '0.549'];
+			var ccDBP50y3 = ['Central Coast', 'Double Pruning', '50.0', '3.0', '$40,679', '23', '10', '0.125'];
+			var ccDBP50y5 = ['Central Coast', 'Double Pruning', '50.0', '5.0', '$34,169', '21', '10', '0.13'];
+			var ccDBP50y10 = ['Central Coast', 'Double Pruning', '50.0', '10.0', '$14,318', '16', '11', '0.201'];
+			var ccDBP75y3 = ['Central Coast', 'Double Pruning', '75.0', '3.0', '$57,137', '25', '10', '0.092'];
+			var ccDBP75y5 = ['Central Coast', 'Double Pruning', '75.0', '5.0', '$54,608', '25', '9', '0.086'];
+			var ccDBP75y10 = ['Central Coast', 'Double Pruning', '75.0', '10.0', '$32,818', '23', '10', '0.099'];
+			var ccHP25y3 = ['Central Coast', 'Hand painted Topsin', '25.0', '3.0', '$16,401', '16', '9', '0.134'];
+			var ccHP25y5 = ['Central Coast', 'Hand painted Topsin', '25.0', '5.0', '$13,116', '15', '9', '0.146'];
+			var ccHP25y10 = ['Central Coast', 'Hand painted Topsin', '25.0', '10.0', '$4,978', '13', '10', '0.24'];
+			var ccHP50y3 = ['Central Coast', 'Hand painted Topsin', '50.0', '3.0', '$43,937', '23', '8', '0.054'];
+			var ccHP50y5 = ['Central Coast', 'Hand painted Topsin', '50.0', '5.0', '$37,048', '21', '8', '0.057'];
+			var ccHP50y10 = ['Central Coast', 'Hand painted Topsin', '50.0', '10.0', '$16,342', '16', '10', '0.088'];
+			var ccHP75y3 = ['Central Coast', 'Hand painted Topsin', '75.0', '3.0', '$60,396', '25', '8', '0.04'];
+			var ccHP75y5 = ['Central Coast', 'Hand painted Topsin', '75.0', '5.0', '$57,487', '25', '8', '0.037'];
+			var ccHP75y10 = ['Central Coast', 'Hand painted Topsin', '75.0', '10.0', '$34,842', '23', '10', '0.043'];
+			var lakeDP25y3 = ['Lake', 'Delayed Pruning', '25.0', '3.0', '$12,993', '17', '3.0', '0.0'];
+			var lakeDP25y5 = ['Lake', 'Delayed Pruning', '25.0', '5.0', '$10,534', '16', '5.0', '0.0'];
+			var lakeDP25y10 = ['Lake', 'Delayed Pruning', '25.0', '10.0', '$4,494', '14', '10.0', '0.0'];
+			var lakeDP50y3 = ['Lake', 'Delayed Pruning', '50.0', '3.0', '$31,892', '24', '3.0', '0.0'];
+			var lakeDP50y5 = ['Lake', 'Delayed Pruning', '50.0', '5.0', '$26,960', '22', '5.0', '0.0'];
+			var lakeDP50y10 = ['Lake', 'Delayed Pruning', '50.0', '10.0', '$12,293', '17', '10.0', '0.0'];
+			var lakeDP75y3 = ['Lake', 'Delayed Pruning', '75.0', '3.0', '$43,189', '25', '3.0', '0.0'];
+			var lakeDP75y5 = ['Lake', 'Delayed Pruning', '75.0', '5.0', '$40,988', '25', '5.0', '0.0'];
+			var lakeDP75y10 = ['Lake', 'Delayed Pruning', '75.0', '10.0', '$24,990', '25', '10.0', '0.0'];
+			var lakeDBP25y3 = ['Lake', 'Double Pruning', '25.0', '3.0', '$8,761', '16', '10', '0.234'];
+			var lakeDBP25y5 = ['Lake', 'Double Pruning', '25.0', '5.0', '$6,795', '16', '10', '0.255'];
+			var lakeDBP25y10 = ['Lake', 'Double Pruning', '25.0', '10.0', '$1,866', '14', '11', '0.421'];
+			var lakeDBP50y3 = ['Lake', 'Double Pruning', '50.0', '3.0', '$27,660', '24', '10', '0.095'];
+			var lakeDBP50y5 = ['Lake', 'Double Pruning', '50.0', '5.0', '$23,221', '22', '9', '0.1'];
+			var lakeDBP50y10 = ['Lake', 'Double Pruning', '50.0', '10.0', '$9,665', '17', '10', '0.154'];
+			var lakeDBP75y3 = ['Lake', 'Double Pruning', '75.0', '3.0', '$38,957', '25', '9', '0.071'];
+			var lakeDBP75y5 = ['Lake', 'Double Pruning', '75.0', '5.0', '$37,249', '25', '9', '0.066'];
+			var lakeDBP75y10 = ['Lake', 'Double Pruning', '75.0', '10.0', '$22,362', '25', '10', '0.076'];
+			var lakeHP25y3 = ['Lake', 'Hand painted Topsin', '25.0', '3.0', '$11,621', '17', '7', '0.047'];
+			var lakeHP25y5 = ['Lake', 'Hand painted Topsin', '25.0', '5.0', '$9,322', '16', '7', '0.051'];
+			var lakeHP25y10 = ['Lake', 'Hand painted Topsin', '25.0', '10.0', '$3,642', '14', '10', '0.084'];
+			var lakeHP50y3 = ['Lake', 'Hand painted Topsin', '50.0', '3.0', '$30,520', '24', '6', '0.019'];
+			var lakeHP50y5 = ['Lake', 'Hand painted Topsin', '50.0', '5.0', '$25,747', '22', '6', '0.02'];
+			var lakeHP50y10 = ['Lake', 'Hand painted Topsin', '50.0', '10.0', '$11,441', '17', '10', '0.031'];
+			var lakeHP75y3 = ['Lake', 'Hand painted Topsin', '75.0', '3.0', '$41,817', '25', '6', '0.014'];
+			var lakeHP75y5 = ['Lake', 'Hand painted Topsin', '75.0', '5.0', '$39,776', '25', '6', '0.013'];
+			var lakeHP75y10 = ['Lake', 'Hand painted Topsin', '75.0', '10.0', '$24,138', '25', '10', '0.015'];
+			var sonomaDP25y3 = ['Sonoma', 'Delayed Pruning', '25.0', '3.0', '$23,539', '16', '3.0', '0.0'];
+			var sonomaDP25y5 = ['Sonoma', 'Delayed Pruning', '25.0', '5.0', '$19,087', '15', '5.0', '0.0'];
+			var sonomaDP25y10 = ['Sonoma', 'Delayed Pruning', '25.0', '10.0', '$8,142', '13', '10.0', '0.0'];
+			var sonomaDP50y3 = ['Sonoma', 'Delayed Pruning', '50.0', '3.0', '$57,781', '22', '3.0', '0.0'];
+			var sonomaDP50y5 = ['Sonoma', 'Delayed Pruning', '50.0', '5.0', '$48,848', '21', '5.0', '0.0'];
+			var sonomaDP50y10 = ['Sonoma', 'Delayed Pruning', '50.0', '10.0', '$22,274', '16', '10.0', '0.0'];
+			var sonomaDP75y3 = ['Sonoma', 'Delayed Pruning', '75.0', '3.0', '$78,248', '25', '3.0', '0.0'];
+			var sonomaDP75y5 = ['Sonoma', 'Delayed Pruning', '75.0', '5.0', '$74,265', '25', '5.0', '0.0'];
+			var sonomaDP75y10 = ['Sonoma', 'Delayed Pruning', '75.0', '10.0', '$45,280', '23', '10.0', '0.0'];
+			var sonomaDBP25y3 = ['Sonoma', 'Double Pruning', '25.0', '3.0', '$18,347', '15', '10', '0.221'];
+			var sonomaDBP25y5 = ['Sonoma', 'Double Pruning', '25.0', '5.0', '$14,499', '15', '10', '0.24'];
+			var sonomaDBP25y10 = ['Sonoma', 'Double Pruning', '25.0', '10.0', '$4,917', '13', '11', '0.396'];
+			var sonomaDBP50y3 = ['Sonoma', 'Double Pruning', '50.0', '3.0', '$52,588', '22', '9', '0.09'];
+			var sonomaDBP50y5 = ['Sonoma', 'Double Pruning', '50.0', '5.0', '$44,260', '20', '9', '0.094'];
+			var sonomaDBP50y10 = ['Sonoma', 'Double Pruning', '50.0', '10.0', '$19,049', '15', '10', '0.145'];
+			var sonomaDBP75y3 = ['Sonoma', 'Double Pruning', '75.0', '3.0', '$73,056', '25', '9', '0.066'];
+			var sonomaDBP75y5 = ['Sonoma', 'Double Pruning', '75.0', '5.0', '$69,677', '25', '9', '0.062'];
+			var sonomaDBP75y10 = ['Sonoma', 'Double Pruning', '75.0', '10.0', '$42,055', '22', '10', '0.071'];
+			var sonomaHP25y3 = ['Sonoma', 'Hand painted Topsin', '25.0', '3.0', '$22,388', '15', '7', '0.049'];
+			var sonomaHP25y5 = ['Sonoma', 'Hand painted Topsin', '25.0', '5.0', '$18,070', '15', '7', '0.053'];
+			var sonomaHP25y10 = ['Sonoma', 'Hand painted Topsin', '25.0', '10.0', '$7,427', '13', '10', '0.088'];
+			var sonomaHP50y3 = ['Sonoma', 'Hand painted Topsin', '50.0', '3.0', '$56,630', '22', '6', '0.02'];
+			var sonomaHP50y5 = ['Sonoma', 'Hand painted Topsin', '50.0', '5.0', '$47,831', '20', '6', '0.021'];
+			var sonomaHP50y10 = ['Sonoma', 'Hand painted Topsin', '50.0', '10.0', '$21,559', '15', '10', '0.032'];
+			var sonomaHP75y3 = ['Sonoma', 'Hand painted Topsin', '75.0', '3.0', '$77,097', '25', '6', '0.015'];
+			var sonomaHP75y5 = ['Sonoma', 'Hand painted Topsin', '75.0', '5.0', '$73,248', '25', '6', '0.014'];
+			var sonomaHP75y10 = ['Sonoma', 'Hand painted Topsin', '75.0', '10.0', '$44,565', '22', '10', '0.016'];
+																										
+			var ccDP25 = [ccDP25y3, ccDP25y5, ccDP25y10];									
+			var ccDP50 = [ccDP50y3, ccDP50y5, ccDP50y10];									
+			var ccDP75 = [ccDP75y3, ccDP75y5, ccDP75y10];									
+			var ccHP25 = [ccHP25y3, ccHP25y5, ccHP25y10];									
+			var ccHP50 = [ccHP50y3, ccHP50y5, ccHP50y10];					
+			var ccHP75 = [ccHP75y3, ccHP75y5, ccHP75y10];					
+			var ccDBP25 = [ccDBP25y3, ccDBP25y5, ccDBP25y10];					
+			var ccDBP50 = [ccDBP50y3, ccDBP50y5, ccDBP50y10];				
+			var ccDBP75 = [ccDBP75y3, ccDBP75y5, ccDBP75y10];				
 			var ccDP = [ccDP25, ccDP50, ccDP75];
 			var ccHP = [ccHP25, ccHP50, ccHP75];
 			var ccDBP = [ccDBP25, ccDBP50, ccDBP75];
 			var cc = [ccDP, ccHP, ccDBP];
-
+			
 			var sonomaDP25 = [sonomaDP25y3, sonomaDP25y5, sonomaDP25y10];
 			var sonomaDP50 = [sonomaDP50y3, sonomaDP50y5, sonomaDP50y10];
 			var sonomaDP75 = [sonomaDP75y3, sonomaDP75y5, sonomaDP75y10];
@@ -432,7 +431,7 @@ $(document).ready(function() {
 			var sonomaHP = [sonomaHP25, sonomaHP50, sonomaHP75];
 			var sonomaDBP = [sonomaDBP25, sonomaDBP50, sonomaDBP75];
 			var sonoma = [sonomaDP, sonomaHP, sonomaDBP];
-
+			
 			var lakeDP25 = [lakeDP25y3, lakeDP25y5, lakeDP25y10];
 			var lakeDP50 = [lakeDP50y3, lakeDP50y5, lakeDP50y10];
 			var lakeDP75 = [lakeDP75y3, lakeDP75y5, lakeDP75y10];
@@ -446,7 +445,7 @@ $(document).ready(function() {
 			var lakeHP = [lakeHP25, lakeHP50, lakeHP75];
 			var lakeDBP = [lakeDBP25, lakeDBP50, lakeDBP75];
 			var lake = [lakeDP, lakeHP, lakeDBP];
-
+			
 			var nsjDP25 = [nsjDP25y3, nsjDP25y5, nsjDP25y10];
 			var nsjDP50 = [nsjDP50y3, nsjDP50y5, nsjDP50y10];
 			var nsjDP75 = [nsjDP75y3, nsjDP75y5, nsjDP75y10];
@@ -460,7 +459,7 @@ $(document).ready(function() {
 			var nsjHP = [nsjHP25, nsjHP50, nsjHP75];
 			var nsjDBP = [nsjDBP25, nsjDBP50, nsjDBP75];
 			var nsj = [nsjDP, nsjHP, nsjDBP];
-
+			
 			var napaDP25 = [napaDP25y3, napaDP25y5, napaDP25y10];
 			var napaDP50 = [napaDP50y3, napaDP50y5, napaDP50y10];
 			var napaDP75 = [napaDP75y3, napaDP75y5, napaDP75y10];
@@ -474,7 +473,7 @@ $(document).ready(function() {
 			var napaHP = [napaHP25, napaHP50, napaHP75];
 			var napaDBP = [napaDBP25, napaDBP50, napaDBP75];
 			var napa = [napaDP, napaHP, napaDBP];
-
+			
 			var regions = [cc, sonoma, lake, nsj, napa];
 			// /table data declaration
 
@@ -487,7 +486,7 @@ $(document).ready(function() {
 				inputs[inputkeys[inputindex]] = false;
 			};
 			var outputkeys = [];
-			outputkeys = ['dcnr', 'aanr', 'lpy', 'bea'];
+			outputkeys = ['adcnb', 'lpy', 'aapo', 'bep'];
 			for (var outputindex in outputkeys) {
 				outputs[outputkeys[outputindex]] = false;
 			};
@@ -558,7 +557,7 @@ $(document).ready(function() {
 		/***** Generate assumptions table
 		------------------------------------ */
 
-		var assumptionsHeaders = ['REGION', 'Price', 'Cultivar', 'Additional Cost from Double Pruning per acre', 'Additional Cost from Handpainting TopsinM per acre', 'Cultural Cost - Year 0 - Establishing Vineyard', 'Cultural Cost - Year 1 - Establishing Vineyard', 'Cultural Cost - Year 2 - Establishing Vineyard', 'Cultural Cost - Year 3+ Established Vineyard'];
+		var assumptionsHeaders = ['Region', 'Price', 'Cultivar', 'Additional Cost from Double Pruning per acre', 'Additional Cost from Handpainting TopsinM per acre', 'Cultural Cost - Year 0 - Establishing Vineyard', 'Cultural Cost - Year 1 - Establishing Vineyard', 'Cultural Cost - Year 2 - Establishing Vineyard', 'Cultural Cost - Year 3+ Established Vineyard'];
 		var assumptionsNapa = ['Napa', '$5,192', 'Cabernet Sauvignon', '478', '71', '$32,303', '$5,264', '$5,304', '$7,784'];
 		var assumptionsNSJ = ['Northern San Joaquin', '$650', 'Cabernet Sauvignon', '175', '45', '$12,213', '$3,370', '$1,004', '$3,505'];
 		var assumptionsCC = ['Central Coast', '$1,262', 'Cabernet Sauvignon', '243', '90', '$9,998', '$2,554', '$3,501', '$4,625'];
