@@ -15,6 +15,7 @@ Discounted Cumulative Net Benefits (NB) per acre for healthy and infected-untrea
 |                                  | **Healthy vineyard** | **Infected-untreated vineyard** |
   -------------------------------- | :------------------: | :-----------------------------: |
 **Region (Crush District number)** | *NB per acre*                                         ||
+|                                                                                         |||
 Napa (4)                           | $203,982             | $42,271                         |
 Northern San Joaquin (11)          | $33,019              | -$11,957                        |
 Central Coast (8)                  | $59,372              | -$6,144                         |
@@ -29,6 +30,7 @@ Last year infected-untreated vineyard generates positive annual net returns by r
 
 | **Region (Crush District number)** | **Age** |
   ---------------------------------- |   :-:   |
+|                                             ||
   Napa (4)                           |   14    |
   Northern San Joaquin (11)          |   12    |
   Central Coast (8)                  |   12    |
@@ -43,8 +45,10 @@ As a reference point here are the discounted cumulative net returns for a treate
 
 Cumulative discounted net returns for Topsin and Double Pruning adopted at different vineyard ages in a healthy vineyard (in 2013 dollars) by region (crush district number).  
 
-|                                                 | year 3   | year 5   | year 10  |
+|                                                 | Year 3   | Year 5   | Year 10  |
  ------------------------------------------------ | :------: | :------: | :------: |
+**Region (Crush District number)** |                                             |||
+|                                                                               ||||
 **Napa (4)**                                                                    ||||		
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Hand painted Topsin | $202,876 | $203,005 | $203,295 |
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Double Pruning      | $196,573 | $197,435 | $199,380 |
