@@ -19,5 +19,14 @@
 
 </section>
 
+<script type="text/javascript">
+$(document).ready(function() {
+	if (window.location.hash) {
+		var hash = window.location.hash;
+		$('body').animate({scrollTop: $(hash).offset().top - $('header').height()}, '500', 'swing');
+	}
+});
+</script>
+
 </body>
 </html>

@@ -36,6 +36,8 @@
 
 <p><strong>Cumulative Discounted Net Returns:</strong> The cumulative net returns (returns &minus; costs) per acre over 25 years for a healthy vineyard, an untreated infected vineyard, and infected vineyards where action is taken. Current and future dollar amounts are in 2013 dollars and are discounted to 2013 using a 3% discount rate. </p>
 
+<p><a name="tablevars" id="tablevars"></a></p>
+
 <h2 id="tablevariables">Table variables</h2>
 
 <p><strong>Additional Discounted Cumulative Net Benefits (ADCNB):</strong> The difference in cumulative net returns (returns - costs) per acre over 25 years between an infected vineyards where action is taken healthy vineyard and an untreated infected vineyard. Current and future dollar amounts are in 2013 dollars and are discounted to 2013 using a 3% discount rate. </p>
@@ -270,6 +272,15 @@
 	<p><a href="index.html">Back to decision tool</a></p>
 
 </section>
+
+<script type="text/javascript">
+$(document).ready(function() {
+	if (window.location.hash) {
+		var hash = window.location.hash;
+		$('body').animate({scrollTop: $(hash).offset().top - $('header').height()}, '500', 'swing');
+	}
+});
+</script>
 
 </body>
 </html>

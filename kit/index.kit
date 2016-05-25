@@ -36,11 +36,11 @@
 
 		<h4>Specify figure options</h5>
 
-		<p class="glossary-link"><a href="variable-definitions.html">Glossary of variable definitions</a></p>
+		<p class="glossary-link"><a href="variable-definitions.html">Variable definitions</a></p>
 
 		<h5>Display output as:</h5>
-			<label><input type="radio" name="figuredisplay" value="netreturns" checked />Net returns <span class="show-for-medium-up">(thousands of $ per acre; aggregate output cumulatively)</span></label>
-			<label><input type="radio" name="figuredisplay" value="yield" />Yield <span class="show-for-medium-up">(tons per acre; aggregate output annually)</span></label>
+			<label><input type="radio" name="figuredisplay" value="netreturns" checked />Cumulative discounted net returns <span class="show-for-medium-up">(thousands of $ per acre)</span></label>
+			<label><input type="radio" name="figuredisplay" value="yield" />Annual yield <span class="show-for-medium-up">(tons per acre)</span></label>
 
 		<!--<h5>Aggregate output:</h5>
 			<label><input type="radio" name="aggregatefig" value="cumulatively" checked="checked" />Cumulatively</label>
@@ -89,7 +89,7 @@
 			<label><input type="checkbox" name="adoptiontable" value="10" />Year 10</label>
 
 		<h5>Choose output parameters:</h5>
-			<p><a href="variable-definitions.html">Glossary of variable definitions</a></p>
+			<p><a href="variable-definitions.html#tablevars">Variable definitions</a></p>
 			<label><input type="checkbox" name="outputtable" value="adcnb" />Additional discounted cumulative net benefits (ADCNB)</label><br />
 			<label><input type="checkbox" name="outputtable" value="lpy" />Last profitable year</label><br />
 			<label><input type="checkbox" name="outputtable" value="aapo" />Age adoption pays off</label><br />
@@ -534,12 +534,12 @@ $(document).ready(function() {
 		/***** Generate assumptions table
 		------------------------------------ */
 
-		var assumptionsHeaders = ['Region', 'Price', 'Cultivar', 'Additional Cost from Double Pruning per acre', 'Additional Cost from Handpainting TopsinM per acre', 'Cultural Cost &#8211; Year 0 &#8211; Establishing Vineyard', 'Cultural Cost &#8211; Year 1 &#8211; Establishing Vineyard', 'Cultural Cost &#8211; Year 2 &#8211; Establishing Vineyard', 'Cultural Cost &#8211; Year 3+ Established Vineyard'];
-		var assumptionsNapa = ['Napa', '$5,192', 'Cabernet Sauvignon', '478', '71', '$32,303', '$5,264', '$5,304', '$7,784'];
-		var assumptionsNSJ = ['Northern San Joaquin', '$650', 'Cabernet Sauvignon', '175', '45', '$12,213', '$3,370', '$1,004', '$3,505'];
-		var assumptionsCC = ['Central Coast', '$1,262', 'Cabernet Sauvignon', '243', '90', '$9,998', '$2,554', '$3,501', '$4,625'];
-		var assumptionsLake = ['Lake', '$1,623', 'Cabernet Sauvignon', '268', '117', '$7,301', '$6,942', '$3,252', '$3,404'];
-		var assumptionsSonoma = ['Sonoma', '$2,355', 'Cabernet Sauvignon', '335', '74', '$26,780', '$4,204', '$5,186', '$6,280'];		
+		var assumptionsHeaders = ['Region', 'Price', 'Discount Rate', 'Cultivar', 'Additional Cost from Double Pruning per acre', 'Additional Cost from Handpainting TopsinM per acre', 'Cultural Cost &#8211; Year 0 &#8211; Establishing Vineyard', 'Cultural Cost &#8211; Year 1 &#8211; Establishing Vineyard', 'Cultural Cost &#8211; Year 2 &#8211; Establishing Vineyard', 'Cultural Cost &#8211; Year 3+ Established Vineyard'];
+		var assumptionsNapa = ['Napa', '$5,192', '3%', 'Cabernet Sauvignon', '478', '71', '$32,303', '$5,264', '$5,304', '$7,784'];
+		var assumptionsNSJ = ['Northern San Joaquin', '3%', '$650', 'Cabernet Sauvignon', '175', '45', '$12,213', '$3,370', '$1,004', '$3,505'];
+		var assumptionsCC = ['Central Coast', '$1,262', '3%', 'Cabernet Sauvignon', '243', '90', '$9,998', '$2,554', '$3,501', '$4,625'];
+		var assumptionsLake = ['Lake', '$1,623', '3%', 'Cabernet Sauvignon', '268', '117', '$7,301', '$6,942', '$3,252', '$3,404'];
+		var assumptionsSonoma = ['Sonoma', '$2,355', '3%', 'Cabernet Sauvignon', '335', '74', '$26,780', '$4,204', '$5,186', '$6,280'];		
 		var assumptionsArray = [{sonoma: assumptionsSonoma, nsj: assumptionsNSJ, cc: assumptionsCC, lake: assumptionsLake, napa: assumptionsNapa}];
 		var assumptionstable = '<h3>Parameter Values Used in Calculations</h3><table class="assumptionstable">';
 		for (var i=0; i<assumptionsHeaders.length; i++) {

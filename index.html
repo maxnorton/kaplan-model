@@ -35,6 +35,8 @@
 
 <p>In the following section of this page, you are prompted to select a winegrape growing region, figures of annually and cumulative net returns and yields, and tables containing annually average and cumulatively economic indicators taken from our economic analysis. You will also be prompted to select the preventative practices, disease control efficacy rates, and vineyard age when a preventative practice is first adopted. You will also find links to description of the preventative practices and disease control efficacy rates, definitions of the variables displayed in the figures and tables, and the form for you to enter your own data. All figure and table displays list the underlying region-specific assumptions used in the economic analysis.</p>
 
+<p>We derive results when preventative practices are adopted in years 3, 5, or 10. These ages were selected to evaluate conditions when vines are fully trained onto the trellis system and winter pruning begins (3 years old), when vines reach maturity (5 years old), and when trunk disease symptoms typically appear in vineyards (10 years old). </p>
+
 <p>For inquiries about the page and economic analysis of trunk diseases in California winegrape vineyards, please contact <a href="&#109;&#97;&#105;&#108;&#x74;&#111;&#x3a;&#x6b;&#x61;&#112;&#x6c;&#x61;&#x6e;&#x6a;&#64;&#99;&#115;&#117;&#115;&#46;&#101;&#100;&#x75;">&#107;&#97;&#x70;&#x6c;&#x61;&#x6e;&#106;&#x40;&#x63;&#115;&#117;&#115;&#x2e;&#101;&#x64;&#x75;</a>. </p>
 
 <ul>
@@ -59,11 +61,11 @@
 
 		<h4>Specify figure options</h5>
 
-		<p class="glossary-link"><a href="variable-definitions.html">Glossary of variable definitions</a></p>
+		<p class="glossary-link"><a href="variable-definitions.html">Variable definitions</a></p>
 
 		<h5>Display output as:</h5>
-			<label><input type="radio" name="figuredisplay" value="netreturns" checked />Net returns <span class="show-for-medium-up">(thousands of $ per acre; aggregate output cumulatively)</span></label>
-			<label><input type="radio" name="figuredisplay" value="yield" />Yield <span class="show-for-medium-up">(tons per acre; aggregate output annually)</span></label>
+			<label><input type="radio" name="figuredisplay" value="netreturns" checked />Cumulative discounted net returns <span class="show-for-medium-up">(thousands of $ per acre)</span></label>
+			<label><input type="radio" name="figuredisplay" value="yield" />Annual yield <span class="show-for-medium-up">(tons per acre)</span></label>
 
 		<!--<h5>Aggregate output:</h5>
 			<label><input type="radio" name="aggregatefig" value="cumulatively" checked="checked" />Cumulatively</label>
@@ -112,7 +114,7 @@
 			<label><input type="checkbox" name="adoptiontable" value="10" />Year 10</label>
 
 		<h5>Choose output parameters:</h5>
-			<p><a href="variable-definitions.html">Glossary of variable definitions</a></p>
+			<p><a href="variable-definitions.html#tablevars">Variable definitions</a></p>
 			<label><input type="checkbox" name="outputtable" value="adcnb" />Additional discounted cumulative net benefits (ADCNB)</label><br />
 			<label><input type="checkbox" name="outputtable" value="lpy" />Last profitable year</label><br />
 			<label><input type="checkbox" name="outputtable" value="aapo" />Age adoption pays off</label><br />
@@ -557,12 +559,12 @@ $(document).ready(function() {
 		/***** Generate assumptions table
 		------------------------------------ */
 
-		var assumptionsHeaders = ['Region', 'Price', 'Cultivar', 'Additional Cost from Double Pruning per acre', 'Additional Cost from Handpainting TopsinM per acre', 'Cultural Cost &#8211; Year 0 &#8211; Establishing Vineyard', 'Cultural Cost &#8211; Year 1 &#8211; Establishing Vineyard', 'Cultural Cost &#8211; Year 2 &#8211; Establishing Vineyard', 'Cultural Cost &#8211; Year 3+ Established Vineyard'];
-		var assumptionsNapa = ['Napa', '$5,192', 'Cabernet Sauvignon', '478', '71', '$32,303', '$5,264', '$5,304', '$7,784'];
-		var assumptionsNSJ = ['Northern San Joaquin', '$650', 'Cabernet Sauvignon', '175', '45', '$12,213', '$3,370', '$1,004', '$3,505'];
-		var assumptionsCC = ['Central Coast', '$1,262', 'Cabernet Sauvignon', '243', '90', '$9,998', '$2,554', '$3,501', '$4,625'];
-		var assumptionsLake = ['Lake', '$1,623', 'Cabernet Sauvignon', '268', '117', '$7,301', '$6,942', '$3,252', '$3,404'];
-		var assumptionsSonoma = ['Sonoma', '$2,355', 'Cabernet Sauvignon', '335', '74', '$26,780', '$4,204', '$5,186', '$6,280'];		
+		var assumptionsHeaders = ['Region', 'Price', 'Discount Rate', 'Cultivar', 'Additional Cost from Double Pruning per acre', 'Additional Cost from Handpainting TopsinM per acre', 'Cultural Cost &#8211; Year 0 &#8211; Establishing Vineyard', 'Cultural Cost &#8211; Year 1 &#8211; Establishing Vineyard', 'Cultural Cost &#8211; Year 2 &#8211; Establishing Vineyard', 'Cultural Cost &#8211; Year 3+ Established Vineyard'];
+		var assumptionsNapa = ['Napa', '$5,192', '3%', 'Cabernet Sauvignon', '478', '71', '$32,303', '$5,264', '$5,304', '$7,784'];
+		var assumptionsNSJ = ['Northern San Joaquin', '3%', '$650', 'Cabernet Sauvignon', '175', '45', '$12,213', '$3,370', '$1,004', '$3,505'];
+		var assumptionsCC = ['Central Coast', '$1,262', '3%', 'Cabernet Sauvignon', '243', '90', '$9,998', '$2,554', '$3,501', '$4,625'];
+		var assumptionsLake = ['Lake', '$1,623', '3%', 'Cabernet Sauvignon', '268', '117', '$7,301', '$6,942', '$3,252', '$3,404'];
+		var assumptionsSonoma = ['Sonoma', '$2,355', '3%', 'Cabernet Sauvignon', '335', '74', '$26,780', '$4,204', '$5,186', '$6,280'];		
 		var assumptionsArray = [{sonoma: assumptionsSonoma, nsj: assumptionsNSJ, cc: assumptionsCC, lake: assumptionsLake, napa: assumptionsNapa}];
 		var assumptionstable = '<h3>Parameter Values Used in Calculations</h3><table class="assumptionstable">';
 		for (var i=0; i<assumptionsHeaders.length; i++) {
