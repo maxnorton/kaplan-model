@@ -11,8 +11,6 @@
 
 As a reference point, here are the discounted cumulative net benefits for a healthy and an untreated infected vineyard.  
 
-Discounted Cumulative Net Benefits (NB) per acre for healthy and infected-untreated vineyards over a 25-year lifespan (in 2013 dollars), by region.  
-
 |                                  | **Healthy vineyard** | **Infected-untreated vineyard** |
   -------------------------------- | :------------------: | :-----------------------------: |
 **Region (Crush District number)** | *NB per acre*                                         ||
@@ -26,8 +24,6 @@ Sonoma (3)                         |$49,496               | -$31,975            
 **Last profitable year:** The last year an infected vineyard generates positive annual net returns (returns - costs). This year is the same for discounted and nominal net returns.  
 
 As a reference point, here are the last year an untreated infected vineyard generates positive annual net returns.  
-
-Last year infected-untreated vineyard generates positive annual net returns by region.  
 
 | **Region (Crush District number)** | **Age** |
   ---------------------------------- |   :-:   |
@@ -43,8 +39,6 @@ Last year infected-untreated vineyard generates positive annual net returns by r
 **Breakeven probability:**  The probability of infection where expected discounted cumulative net returns from treating a vineyard equals the expected discounted cumulative net returns from not treating a vineyard. If you perceive a probability of infection less than this probability, then not treating the vineyard generates greater discounted cumulative net returns than a treated vineyard, and vice versa.  
 
 As a reference point here are the discounted cumulative net returns for a treated healthy vineyard.  
-
-Cumulative discounted net returns for Topsin and Double Pruning adopted at different vineyard ages in a healthy vineyard (in 2013 dollars) by region (crush district number).  
 
 |                                                 | Year 3   | Year 5   | Year 10  |
  ------------------------------------------------ | :------: | :------: | :------: |
