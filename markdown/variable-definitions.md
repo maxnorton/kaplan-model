@@ -1,13 +1,13 @@
-#Variable Definitions
+#Variable definitions
 
 ##Figure variables
 
-**Cumulative Discounted Net Returns:** The cumulative net returns (returns &minus; costs) per acre over 25 years for a healthy vineyard, an untreated infected vineyard, and infected vineyards where action is taken. Current and future dollar amounts are in 2013 dollars and are discounted to 2013 using a 3% discount rate. 
+**Cumulative discounted net returns:** The cumulative net returns (returns &minus; costs) per acre over 25 years for a healthy vineyard, an untreated infected vineyard, and infected vineyards where action is taken. Current and future dollar amounts are in 2013 dollars and are discounted to 2013 using a 3% discount rate. 
 
 <a name="tablevars" id="tablevars"></a>
 ##Table variables
 
-**Additional Discounted Cumulative Net Benefits (ADCNB):** The difference in cumulative net returns (returns - costs) per acre over 25 years between an infected vineyards where action is taken healthy vineyard and an untreated infected vineyard. Current and future dollar amounts are in 2013 dollars and are discounted to 2013 using a 3% discount rate.  
+**Additional discounted cumulative net benefits (ADCNB):** The difference in cumulative net returns (returns - costs) per acre over 25 years between an infected vineyards where action is taken healthy vineyard and an untreated infected vineyard. Current and future dollar amounts are in 2013 dollars and are discounted to 2013 using a 3% discount rate.  
 
 As a reference point, here are the discounted cumulative net benefits for a healthy and an untreated infected vineyard.  
 
@@ -23,7 +23,7 @@ Central Coast (8)                  | $59,372              | -$6,144             
 Lake (2)                           | $40,375              | -$4,601                         |
 Sonoma (3)                         |$49,496               | -$31,975                        |
 
-**Last Profitable Year:** The last year an infected vineyard generates positive annual net returns (returns - costs). This year is the same for discounted and nominal net returns.  
+**Last profitable year:** The last year an infected vineyard generates positive annual net returns (returns - costs). This year is the same for discounted and nominal net returns.  
 
 As a reference point, here are the last year an untreated infected vineyard generates positive annual net returns.  
 
@@ -38,9 +38,9 @@ Last year infected-untreated vineyard generates positive annual net returns by r
   Lake (2)                           |   13    |
   Sonoma (3)                         |   12    |
 
-**Age Adoption Pays Off:** The age when discounted cumulative net returns (returns – costs) for a treated infected vineyard exceed those from an untreated infected vineyard.  
+**Age adoption pays off:** The age when discounted cumulative net returns (returns – costs) for a treated infected vineyard exceed those from an untreated infected vineyard.  
 
-**Breakeven Probability:**  The probability of infection where expected discounted cumulative net returns from treating a vineyard equals the expected discounted cumulative net returns from not treating a vineyard. If you perceive a probability of infection less than this probability, then not treating the vineyard generates greater discounted cumulative net returns than a treated vineyard, and vice versa.  
+**Breakeven probability:**  The probability of infection where expected discounted cumulative net returns from treating a vineyard equals the expected discounted cumulative net returns from not treating a vineyard. If you perceive a probability of infection less than this probability, then not treating the vineyard generates greater discounted cumulative net returns than a treated vineyard, and vice versa.  
 
 As a reference point here are the discounted cumulative net returns for a treated healthy vineyard.  
 

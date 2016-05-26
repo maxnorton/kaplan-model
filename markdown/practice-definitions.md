@@ -1,4 +1,4 @@
-#Practice Definitions
+#Practice definitions
 
 **Delayed pruning:** Prune late in the dormant season (February or later, before budbreak) by hand, when both pathogen inoculum and wound susceptibility are lower, hence minimizing the risk of infection compared to December and January. 
 
