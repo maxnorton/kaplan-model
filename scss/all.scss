@@ -72,6 +72,15 @@ h1.images img:nth-of-type(1) {
 /* LINKS AND TYPE
 ------------------------------ */
 
+h1.title a {
+	color: white;
+	text-decoration: none;
+
+	&:hover {
+		text-decoration: underline;
+	}
+}
+
 
 /* MAIN LAYOUT
 ------------------------------ */
