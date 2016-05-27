@@ -202,7 +202,8 @@ x.class-with-hyphens-separating-words {
   border-collapse: collapse;
   border-top: 2px solid #000;
   font-family: sans-serif;
-  font-size: 0.85em; }
+  font-size: 0.85em;
+  max-width: 100%; }
   .efficacy-info table th,
   .variable-definitions table th {
     font-weight: normal;
