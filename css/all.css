@@ -62,7 +62,7 @@ h1.title a {
 .glossary-link {
   color: black;
   display: block;
-  font-size: 0.9em;
+  x-font-size: 0.9em;
   padding: 0; }
   .glossary-inline i,
   .glossary-link i {
@@ -72,7 +72,8 @@ h1.title a {
   display: none;
   padding-left: 2em; }
 
-.glossary-link:hover {
+.glossary-link:hover,
+.glossary-link a:hover {
   color: green; }
 
 /* MAIN LAYOUT
@@ -141,6 +142,13 @@ fieldset, .results {
   fieldset img, .results img {
     max-width: 100%; }
 
+fieldset ul {
+  list-style-type: none;
+  margin-bottom: 3em; }
+  fieldset ul li {
+    margin-top: 1em;
+    margin-bottom: 1em; }
+
 /* Smartphones (landscape) and down ----------- */
 @media only screen and (max-width: 767px) {
   .results img {
@@ -184,7 +192,9 @@ x.class-with-hyphens-separating-words {
 .variable-definitions table {
   border-bottom: 2px solid #000;
   border-collapse: collapse;
-  border-top: 2px solid #000; }
+  border-top: 2px solid #000;
+  font-family: sans-serif;
+  font-size: 0.85em; }
   .efficacy-info table th,
   .variable-definitions table th {
     font-weight: normal;
