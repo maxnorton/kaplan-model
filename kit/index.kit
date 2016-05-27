@@ -55,17 +55,21 @@
 		<p class="glossary-link"><a href="practice-definitions.html">Practice definitions</a></p>
 
 		<h5>Select (a) or (b).</h5>
-		<h5><label><input type="radio" name="efficacyOrYearfig" value="efficacy" /> (a) Indicate anticipated efficacy:</label></h5>
-			<label><input type="checkbox" name="efficacyfig" value="25" />25%</label>
-			<label><input type="checkbox" name="efficacyfig" value="50" />50%</label>
-			<label><input type="checkbox" name="efficacyfig" value="75" />75%</label>
-		<p class="glossary-link"><a href="efficacy-information.html">Disease control efficacy definition and reference estimates</a></p>
+		<section class="efficacyfig-wrap">
+			<h5><label for="efficacyOrYearfig"><input type="radio" name="efficacyOrYearfig" value="efficacy" /> (a) Indicate anticipated efficacy:</label></h5>
+				<label><input type="checkbox" name="efficacyfig" value="25" />25%</label>
+				<label><input type="checkbox" name="efficacyfig" value="50" />50%</label>
+				<label><input type="checkbox" name="efficacyfig" value="75" />75%</label>
+			<p class="glossary-link"><a href="efficacy-information.html">Disease control efficacy definition and reference estimates</a></p>
+		</section>
 
-		<h5><label><input type="radio" name="efficacyOrYearfig" value="year" /> (b) Indicate first year of treatment:</label></h5>
-			<label><input type="checkbox" name="yearfig" value="Year3" />Year 3</label>
-			<label><input type="checkbox" name="yearfig" value="Year5" />Year 5</label>
-			<label><input type="checkbox" name="yearfig" value="Year10" />Year 10</label>
-		<p class="glossary-link"><a href="#" class="glossary-inline-link">Age of adoption information</a><br /><span class="glossary-inline">We derive results when preventative practices are adopted in years 3, 5, or 10 to evaluate conditions when vines are fully trained onto the trellis system and winter pruning begins (3 years old), when vines reach maturity (5 years old), and when trunk disease symptoms typically appear in vineyards (10 years old). These years were selected following grower interviews and discussions with viticulture farm advisor to reflect key stages in a vineyards lifespan.</span></p>
+		<section class="yearfig-wrap">
+			<h5><label for="efficacyOrYearfig"><input type="radio" name="efficacyOrYearfig" value="year" /> (b) Indicate first year of treatment:</label></h5>
+				<label><input type="checkbox" name="yearfig" value="Year3" />Year 3</label>
+				<label><input type="checkbox" name="yearfig" value="Year5" />Year 5</label>
+				<label><input type="checkbox" name="yearfig" value="Year10" />Year 10</label>
+			<p class="glossary-link"><a href="#" class="glossary-inline-link">Age of adoption information</a><br /><span class="glossary-inline">We derive results when preventative practices are adopted in years 3, 5, or 10 to evaluate conditions when vines are fully trained onto the trellis system and winter pruning begins (3 years old), when vines reach maturity (5 years old), and when trunk disease symptoms typically appear in vineyards (10 years old). These years were selected following grower interviews and discussions with viticulture farm advisor to reflect key stages in a vineyards lifespan.</span></p>
+		</section>
 
 	</fieldset>
 
@@ -159,12 +163,16 @@ $(document).ready(function() {
 			figurestate = $(this).prop('checked');
 			$('fieldset.figure').each(function() {
 				$(this).prop('disabled', !figurestate);
+				var textColor = (figurestate) ? '#000000' : '#999999';
+				$(this).add($(this).find('a')).add($(this).find('i')).add($(this).find('.glossary-inline')).add($(this).find('label[for=efficacyOrYearfig]')).add('.' + efficacyOrYearchoice + '-wrap').css('color', textColor);
 			});
 		});
 		$('input[name=tablegen]').change(function() {
 			tablestate = $(this).prop('checked');
 			$('fieldset.table').each(function() {
 				$(this).prop('disabled', !tablestate);
+				var textColor = (tablestate) ? '#000000' : '#999999';
+				$(this).add($(this).find('a')).add($(this).find('i')).add($(this).find('.glossary-inline')).css('color', textColor);
 			});
 		});
 
@@ -182,6 +190,9 @@ $(document).ready(function() {
 				default:
 					efficacyOrYeardisabledvar = 'efficacyfig';
 			}
+			console.log(efficacyOrYeardisabledvar + '-wrap');
+			$('.' + efficacyOrYearchoice + '-wrap').add('.' + efficacyOrYearchoice + '-wrap a').add('.' + efficacyOrYearchoice + '-wrap i').css('color', '#000000');
+			$('.' + efficacyOrYeardisabledvar + '-wrap').add('.' + efficacyOrYeardisabledvar + '-wrap a').add('.' + efficacyOrYeardisabledvar + '-wrap i').css('color', '#999999');
 			$('input[name=' + efficacyOrYearchoice + ']').each(function() {
 				$(this).prop('disabled', false);
 			});

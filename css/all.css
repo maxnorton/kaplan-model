@@ -211,5 +211,8 @@ x-input,
 x-select {
   display: block; }
 
+label[for=efficacyOrYearfig] {
+  color: #000000; }
+
 /* MISCELLANEOUS
 ------------------------------ */
