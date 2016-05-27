@@ -72,6 +72,10 @@ h1.images img:nth-of-type(1) {
 /* LINKS AND TYPE
 ------------------------------ */
 
+h1, h2, h3 {
+	font-family: sans-serif;
+}
+
 h1.title a {
 	color: white;
 	text-decoration: none;
@@ -80,6 +84,29 @@ h1.title a {
 		text-decoration: underline;
 	}
 }
+
+.glossary-link {
+	border: 1px solid black;
+	color: black;
+	display: inline-block;
+	font-family: sans-serif;
+	font-size: 0.85em;
+	max-width: 400px;
+	padding-right: 10px;
+	text-decoration: none;
+
+	i {
+		background-color: black;
+		color: white;
+		margin-right: 10px;
+		padding: 5px 9px 5px 5px;
+	}
+}
+
+.glossary-link:hover {
+	text-decoration: underline;
+}
+
 
 
 /* MAIN LAYOUT
