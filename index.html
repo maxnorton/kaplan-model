@@ -631,12 +631,12 @@ $(document).ready(function() {
 		/***** Collate results
 		------------------------------------ */
 
-		var results = '<hr /><h2>Results</h2><p class="landscape-alert" style="font-style: italic;">On mobile devices, we recommend viewing your results in landscape mode.</p><p class="print-link"><a href="javascript:window.print()">Print these results.</a></p><p class="figure-wrap">';
+		var results = '<hr /><h2>Results</h2><p class="landscape-alert" style="font-style: italic;">On mobile devices, we recommend viewing your results in landscape mode.</p><p class="print-link"><a href="javascript:window.print()"><i class="fa fa-print" aria-hidden="true"></i> Print these results.</a></p><p class="figure-wrap">';
 		if (figurestate == true)
 			results += fullfig;
 		if (tablestate == true)
 			results += table;
-		results += assumptionstable + '<p class="print-link"><a href="javascript:window.print()">Print these results.</a></p><p class="adjust-link"><a href="#page" onclick="$(\'body\').animate({scrollTop: $(\'#theform\').offset().top - $(\'header\').height()}, \'500\', \'swing\');">Adjust parameters</a></p>';
+		results += assumptionstable + '<p class="print-link"><a href="javascript:window.print()"><i class="fa fa-print" aria-hidden="true"></i> Print these results.</a></p><p class="adjust-link"><a href="#page" onclick="$(\'body\').animate({scrollTop: $(\'#theform\').offset().top - $(\'header\').height()}, \'500\', \'swing\');">Adjust parameters</a></p>';
 		$('.results').html(results); // Write results to page
 
 		/***** Style figure output width and jump to top of figs
