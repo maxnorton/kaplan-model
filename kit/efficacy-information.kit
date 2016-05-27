@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <title>Disease control efficacy rates | Canker disease management options decision tool</title>
 <meta name=viewport content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 <link rel="stylesheet" type="text/css" href="css/all.css" />
 <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
 <script src="js/jquery.swipebox.js"></script>
@@ -21,6 +22,8 @@
 		<!-- @import ../markdown/compiled/efficacy-information-table.html -->
 	</section>
 
+	<a href="images/efficacy-table01.png" class="swipebox hide-for-tablets"><i class="fa fa-search-plus" aria-hidden="true"></i> View fullscreen</a>  
+
 	<section id="references">
 	<!-- @import ../markdown/compiled/references.html -->
 	</section>
@@ -30,6 +33,14 @@
 </section>
 
 <script type="text/javascript">
+
+$(document).ready(function() {
+	if ($(window).width() < 1023) {
+		$('.table-style').html('<a href="images/efficacy-table01.png" class="swipebox"><i class="fa fa-table" aria-hidden="true"></i> Open reference table');
+		$('.hide-for-tablets').css('display', 'none');
+	}
+})
+
 ;( function( $ ) {
 
 	$( '.swipebox' ).swipebox();

@@ -5,6 +5,7 @@
 <title>Variable definitions | Canker disease management options decision tool</title>
 <meta name=viewport content="width=device-width, initial-scale=1">
 <link rel="stylesheet" type="text/css" href="css/all.css" />
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
 <script src="js/jquery.swipebox.js"></script>
 <link rel="stylesheet" href="css/swipebox.css">
@@ -27,6 +28,15 @@ $(document).ready(function() {
 		var hash = window.location.hash;
 		$('body,html').stop(true,true).animate({scrollTop: $(hash).offset().top - $('header').height()}, '500', 'swing');
 	};
+	if ($(window).width() < 1023) {
+		$('table:nth-of-type(3)').html('<a href="images/variable-table03.png" class="swipebox"><i class="fa fa-table" aria-hidden="true"></i> Open reference table').css('border', '0 none');
+		$('.hide-for-tablets').css('display', 'none');
+	}
+	if ($(window).width() < 768) {
+		$('table:nth-of-type(1)').html('<a href="images/variable-table01.png" class="swipebox"><i class="fa fa-table" aria-hidden="true"></i> Open reference table').css('border', '0 none');
+		$('table:nth-of-type(2)').html('<a href="images/variable-table02.png" class="swipebox"><i class="fa fa-table" aria-hidden="true"></i> Open reference table').css('border', '0 none');
+		$('.hide-for-phones').css('display', 'none');
+	}
 });
 
 ;( function( $ ) {

@@ -47,6 +47,17 @@
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
 		},
+	"\/images\/efficacy-table01.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 120642,
+		"inputAbbreviatedPath": "\/images\/efficacy-table01.png",
+		"outputAbbreviatedPath": "\/images\/efficacy-table01.png",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
 	"\/images\/figures\/CC-DBP25.png": {
 		"fileType": 32768,
 		"ignore": 0,
@@ -1484,6 +1495,39 @@
 		"initialSize": 11288,
 		"inputAbbreviatedPath": "\/images\/header-photo-right.jpg",
 		"outputAbbreviatedPath": "\/images\/header-photo-right.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/images\/variable-table01.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 46604,
+		"inputAbbreviatedPath": "\/images\/variable-table01.png",
+		"outputAbbreviatedPath": "\/images\/variable-table01.png",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/images\/variable-table02.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 28048,
+		"inputAbbreviatedPath": "\/images\/variable-table02.png",
+		"outputAbbreviatedPath": "\/images\/variable-table02.png",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/images\/variable-table03.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 78186,
+		"inputAbbreviatedPath": "\/images\/variable-table03.png",
+		"outputAbbreviatedPath": "\/images\/variable-table03.png",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0

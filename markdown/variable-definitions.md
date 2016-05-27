@@ -9,7 +9,7 @@
 
 **Additional discounted cumulative net benefits (ADCNB):** The difference in cumulative net returns (returns - costs) per acre over 25 years between an infected vineyards where action is taken healthy vineyard and an untreated infected vineyard. Current and future dollar amounts are in 2013 dollars and are discounted to 2013 using a 3% discount rate.  
 
-As a reference point, here are the discounted cumulative net benefits for a healthy and an untreated infected vineyard.  
+As a reference point, here are the discounted cumulative net benefits for a healthy and an untreated infected vineyard. 
 
 |                                  | **Healthy vineyard** | **Infected-untreated vineyard** |
   -------------------------------- | :------------------: | :-----------------------------: |
@@ -21,9 +21,11 @@ Central Coast (8)                  | $59,372              | -$6,144             
 Lake (2)                           | $40,375              | -$4,601                         |
 Sonoma (3)                         |$49,496               | -$31,975                        |
 
+<a href="images/variable-table01.png" class="swipebox hide-for-phones"><i class="fa fa-search-plus" aria-hidden="true"></i> View fullscreen</a>  
+
 **Last profitable year:** The last year an infected vineyard generates positive annual net returns (returns - costs). This year is the same for discounted and nominal net returns.  
 
-As a reference point, here are the last year an untreated infected vineyard generates positive annual net returns.  
+As a reference point, here are the last year an untreated infected vineyard generates positive annual net returns. 
 
 | **Region (Crush District number)** | **Age** |
   :--------------------------------- |   :-:   |
@@ -33,6 +35,8 @@ As a reference point, here are the last year an untreated infected vineyard gene
   Central Coast (8)                  |   12    |
   Lake (2)                           |   13    |
   Sonoma (3)                         |   12    |
+
+<a href="images/variable-table02.png" class="swipebox hide-for-phones"><i class="fa fa-search-plus" aria-hidden="true"></i> View fullscreen</a>  
 
 **Age adoption pays off:** The age when discounted cumulative net returns (returns – costs) for a treated infected vineyard exceed those from an untreated infected vineyard.  
 
@@ -64,3 +68,4 @@ As a reference point here are the discounted cumulative net returns for a treate
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Topsin              | $48,345  | $48,479  | $48,781  |
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Double Pruning      | $44,304  | $44,908  | $46,271  |
 
+<a href="images/variable-table03.png" class="swipebox hide-for-tablets"><i class="fa fa-search-plus" aria-hidden="true"></i> View fullscreen</a>  

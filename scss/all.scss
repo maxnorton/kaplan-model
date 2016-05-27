@@ -72,6 +72,15 @@ h1.images img:nth-of-type(1) {
 /* LINKS AND TYPE
 ------------------------------ */
 
+a i {
+	color: black;
+}
+
+a:hover i,
+a:hover {
+	color: green;
+}
+
 h1, h2, h3 {
 	font-family: sans-serif;
 }

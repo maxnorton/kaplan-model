@@ -23,4 +23,4 @@ Eutypa dieback                                              |                   
 <sup>c</sup> When pruning Cabernet Sauvignon and Chardonnay in March versus December, in 2007 and 2008 (Urbez-Torres and Gubler, 2011).  
 <sup>d</sup> When pruning Cabernet Sauvignon in March versus January, in 1997 and 1998 (Larignon and Dubos, 2000).  
 <sup>e</sup> When pruning Grenache in March versus December (Petzoldt et al., 1981).  
-<sup>f</sup> When pruning Chardonnay and Merlot in February versus December, in 2001 and 2002 (Weber et al., 2007).
+<sup>f</sup> When pruning Chardonnay and Merlot in February versus December, in 2001 and 2002 (Weber et al., 2007).  
