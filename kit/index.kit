@@ -150,7 +150,7 @@
 
 <hr />
 
-<p class="top-link"><a href="#page" onclick="$('body').stop().animate({scrollTop: $('#page').offset().top - $('header').height()}, '500', 'swing');">&#8593; Top</a></p>
+<p class="top-link"><a href="#page" onclick="$('body,html').stop(true,true).animate({scrollTop: $('#page').offset().top - $('header').height()}, '500', 'swing');">&#8593; Top</a></p>
 
 </section>
 
@@ -266,7 +266,7 @@ $(document).ready(function() {
 		};
 
 		if (efficacyOrYearlength==0 || (efficacyOrYearchoice==0 && $('input[name=practicefig]:checked').length==0) ) {
-			fullfig = '<p class="alert">The <em>Generate figure</em> option is selected, but insufficient parameters were selected to produce a figure. To generate a figure, please return to the <a href="#" onclick="$(\'body\').stop().animate({scrollTop: $(\'#figureparameters\').offset().top - $(\'header\').height()}, \'500\', \'swing\'); return false;">figure parameters form</a> and select an efficacy level or a year of adoption, and for a net returns figure, at least one management practice.</p>';
+			fullfig = '<p class="alert">The <em>Generate figure</em> option is selected, but insufficient parameters were selected to produce a figure. To generate a figure, please return to the <a href="#" onclick="$(\'body,html\').stop(true,true).animate({scrollTop: $(\'#figureparameters\').offset().top - $(\'header\').height()}, \'500\', \'swing\'); return false;">figure parameters form</a> and select an efficacy level or a year of adoption, and for a net returns figure, at least one management practice.</p>';
 
 		} else {
 
@@ -586,7 +586,7 @@ $(document).ready(function() {
 				}
 				table += '</table></section>';
 			} else {
-				table = '<p class="alert">The <em>Generate table</em> option is selected, but insufficient parameters were selected to produce an output table. To generate a table, please return to the <a href="#" onclick="$(\'body\').stop().animate({scrollTop: $(\'#tableparameters\').offset().top - $(\'header\').height()}, \'500\', \'swing\'); return false;">table parameters form</a> and select at least one management practice, efficacy level, year of adoption, and output parameter.</p>';
+				table = '<p class="alert">The <em>Generate table</em> option is selected, but insufficient parameters were selected to produce an output table. To generate a table, please return to the <a href="#" onclick="$(\'body,html\').stop(true,true).animate({scrollTop: $(\'#tableparameters\').offset().top - $(\'header\').height()}, \'500\', \'swing\'); return false;">table parameters form</a> and select at least one management practice, efficacy level, year of adoption, and output parameter.</p>';
 			};
 
 		/***** Generate assumptions table
@@ -613,7 +613,7 @@ $(document).ready(function() {
 			results += fullfig;
 		if (tablestate == true)
 			results += table;
-		results += assumptionstable + '<p class="print-link"><a href="javascript:window.print()"><i class="fa fa-print" aria-hidden="true"></i> Print these results.</a></p><p class="adjust-link"><a href="#page" onclick="$(\'body\').animate({scrollTop: $(\'#theform\').offset().top - $(\'header\').height()}, \'500\', \'swing\');">Adjust parameters</a></p>';
+		results += assumptionstable + '<p class="print-link"><a href="javascript:window.print()"><i class="fa fa-print" aria-hidden="true"></i> Print these results.</a></p><p class="adjust-link"><a href="#page" onclick="$(\'body,html\').stop(true,true).animate({scrollTop: $(\'#theform\').offset().top - $(\'header\').height()}, \'500\', \'swing\');">Adjust parameters</a></p>';
 		$('.results').html(results); // Write results to page
 
 		/***** Style figure output width and jump to top of figs
@@ -629,7 +629,7 @@ $(document).ready(function() {
 				$(this).css('width', 100/figsAcross - 1 + '%');
 			})
 		};
-		$('body').animate({scrollTop: $('#results').offset().top - $('header').height()}, '500', 'swing');
+		$('body,html').stop(true,true).animate({scrollTop: $('#results').offset().top - $('header').height()}, '500', 'swing');
 	});
 });
 
