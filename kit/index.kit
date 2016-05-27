@@ -67,26 +67,26 @@
 		<h4>Select (a) or (b).</h4>
 
 		<section class="efficacyfig-wrap">
-			<h4><label for="efficacyOrYearfig"><input type="radio" name="efficacyOrYearfig" value="efficacy" /> (a) Indicate anticipated efficacy:</label></h4>
+			<h4><label for="efficacyOrYearfig"><input type="radio" name="efficacyOrYearfig" value="efficacy" /> (a) Indicate anticipated disease control efficacy:</label></h4>
 			<ul>
 				<li>
 					<label><input type="checkbox" name="efficacyfig" value="25" />25%</label>
 					<label><input type="checkbox" name="efficacyfig" value="50" />50%</label>
 					<label><input type="checkbox" name="efficacyfig" value="75" />75%</label>
 				</li>
-				<li class="glossary-link"><a href="efficacy-information.html">Disease control efficacy definition and reference estimates</a></li>
+				<li class="glossary-link"><a href="efficacy-information.html">Disease control efficacy rate information</a></li>
 			</ul>
 		</section>
 
 		<section class="yearfig-wrap">
-		<h4><label for="efficacyOrYearfig"><input type="radio" name="efficacyOrYearfig" value="year" /> (b) Indicate first year of treatment:</label></h4>
+		<h4><label for="efficacyOrYearfig"><input type="radio" name="efficacyOrYearfig" value="year" /> (b) Indicate year of practice adoption:</label></h4>
 		<ul>
 			<li>
 				<label><input type="checkbox" name="yearfig" value="Year3" />Year 3</label>
 				<label><input type="checkbox" name="yearfig" value="Year5" />Year 5</label>
 				<label><input type="checkbox" name="yearfig" value="Year10" />Year 10</label>
 			</li>
-			<li class="glossary-link"><a href="#" class="glossary-inline-link">Age of adoption information</a><br /><span class="glossary-inline">We derive results when preventative practices are adopted in years 3, 5, or 10 to evaluate conditions when vines are fully trained onto the trellis system and winter pruning begins (3 years old), when vines reach maturity (5 years old), and when trunk disease symptoms typically appear in vineyards (10 years old). These years were selected following grower interviews and discussions with viticulture farm advisor to reflect key stages in a vineyards lifespan.</span></li>
+			<li class="glossary-link"><a href="#" class="glossary-inline-link">Age of adoption information</a><br /><span class="glossary-inline">We derive results when preventative practices are adopted in years 3, 5, or 10 to evaluate conditions when vines are fully trained onto the trellis system and winter pruning begins (3 years old), when vines reach maturity (5 years old), and when trunk disease symptoms typically appear in vineyards (10 years old). These years were selected following grower interviews and discussions with viticulture farm advisors to reflect key stages in a vineyard&#8217;s lifespan.</span></li>
 		</ul>
 		</section>
 
@@ -109,13 +109,13 @@
 				<li class="glossary-link"><a href="practice-definitions.html">Practice definitions</a></li>
 			</ul>
 
-		<h4>Select anticipated efficacy (select multiple to compare):</h4>
+		<h4>Select anticipated disease control efficacy (select multiple to compare):</h4>
 			<ul>
 				<li>
 					<label><input type="checkbox" name="efficacytable" value="25" checked="checked" />25%</label>
 					<label><input type="checkbox" name="efficacytable" value="50" />50%</label>
 					<label><input type="checkbox" name="efficacytable" value="75" />75%</label>
-				<li class="glossary-link"><a href="efficacy-information.html">Disease control efficacy definition and reference estimates</a></li>
+				<li class="glossary-link"><a href="efficacy-information.html">Disease control efficacy rate information</a></li>
 			</ul>
 
 		<h4>Select year of practice adoption (select multiple to compare):</h4>
@@ -125,13 +125,13 @@
 					<label><input type="checkbox" name="adoptiontable" value="5" />Year 5</label>
 					<label><input type="checkbox" name="adoptiontable" value="10" />Year 10</label>
 				</li>
-				<li class="glossary-link"><a href="#" class="glossary-inline-link">Age of adoption information</a><br /><span class="glossary-inline">We derive results when preventative practices are adopted in years 3, 5, or 10 to evaluate conditions when vines are fully trained onto the trellis system and winter pruning begins (3 years old), when vines reach maturity (5 years old), and when trunk disease symptoms typically appear in vineyards (10 years old). These years were selected following grower interviews and discussions with viticulture farm advisor to reflect key stages in a vineyards lifespan.</span></li>
+				<li class="glossary-link"><a href="#" class="glossary-inline-link">Age of adoption information</a><br /><span class="glossary-inline">We derive results when preventative practices are adopted in years 3, 5, or 10 to evaluate conditions when vines are fully trained onto the trellis system and winter pruning begins (3 years old), when vines reach maturity (5 years old), and when trunk disease symptoms typically appear in vineyards (10 years old). These years were selected following grower interviews and discussions with viticulture farm advisors to reflect key stages in a vineyard&#8217;s lifespan.</span></li>
 			</ul>
 
 		<h4>Choose output parameters:</h4>
 			<ul>
 				<li>
-					<label><input type="checkbox" name="outputtable" value="adcnb" />Additional discounted cumulative net benefits (ADCNB)</label>
+					<label><input type="checkbox" name="outputtable" value="acdnb" />Additional cumulative discounted net benefits (ACDNB)</label>
 					<label><input type="checkbox" name="outputtable" value="lpy" />Last profitable year</label>
 					<label><input type="checkbox" name="outputtable" value="aapo" />Age adoption pays off</label>
 					<label><input type="checkbox" name="outputtable" value="bep" />Breakeven probability</label>
@@ -304,7 +304,7 @@ $(document).ready(function() {
 		------------------------------------ */
 
 			// Declare table data
-			var tableHeaders = ['Region', 'Practice', 'Efficacy', 'Year of adoption', 'ADCNB', 'Last profitable year', 'Age adoption pays off', 'Breakeven probability'];
+			var tableHeaders = ['Region', 'Practice', 'Efficacy', 'Year of adoption', 'ACDNB', 'Last profitable year', 'Age adoption pays off', 'Breakeven probability'];
 			var napaDP25y3 = ['Napa', 'Delayed Pruning', '25.0', '3.0', '$46,720', '18', '3.0', '0.0'];
 			var napaDP25y5 = ['Napa', 'Delayed Pruning', '25.0', '5.0', '$37,880', '17', '5.0', '0.0'];
 			var napaDP25y10 = ['Napa', 'Delayed Pruning', '25.0', '10.0', '$16,159', '16', '10.0', '0.0'];
@@ -523,7 +523,7 @@ $(document).ready(function() {
 				inputs[inputkeys[inputindex]] = false;
 			};
 			var outputkeys = [];
-			outputkeys = ['adcnb', 'lpy', 'aapo', 'bep'];
+			outputkeys = ['acdnb', 'lpy', 'aapo', 'bep'];
 			for (var outputindex in outputkeys) {
 				outputs[outputkeys[outputindex]] = false;
 			};
