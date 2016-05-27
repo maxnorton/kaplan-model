@@ -26,7 +26,7 @@ Sonoma (3)                         |$49,496               | -$31,975            
 As a reference point, here are the last year an untreated infected vineyard generates positive annual net returns.  
 
 | **Region (Crush District number)** | **Age** |
-  ---------------------------------- |   :-:   |
+  :--------------------------------- |   :-:   |
 |                                             ||
   Napa (4)                           |   14    |
   Northern San Joaquin (11)          |   12    |
