@@ -1,0 +1,27 @@
+.adjust-link,
+hr,
+.instructions,
+.landscape-alert,
+.print-link,
+#theform,
+.top-link {
+  display: none; }
+
+.content-wrap {
+  padding-top: 20px; }
+
+header {
+  border-bottom: 0;
+  position: static;
+  text-align: center; }
+
+@page {
+  margin: 25mm; }
+.results table tr:nth-of-type(even),
+.results table tr:nth-of-type(odd) {
+  background-color: white;
+  border-bottom: 1px solid #ccc; }
+
+.assumptions-wrap,
+.table-wrap {
+  page-break-inside: avoid; }
