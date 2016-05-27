@@ -49,11 +49,32 @@ h1.images img:nth-of-type(1) {
     font-size: 2em; } }
 /* LINKS AND TYPE
 ------------------------------ */
+h1, h2, h3 {
+  font-family: sans-serif; }
+
 h1.title a {
   color: white;
   text-decoration: none; }
   h1.title a:hover {
     text-decoration: underline; }
+
+.glossary-inline,
+.glossary-link {
+  color: black;
+  display: block;
+  x-font-size: 0.9em;
+  padding: 0; }
+  .glossary-inline i,
+  .glossary-link i {
+    padding-right: 1em; }
+
+.glossary-inline {
+  display: none;
+  padding-left: 2em; }
+
+.glossary-link:hover,
+.glossary-link a:hover {
+  color: green; }
 
 /* MAIN LAYOUT
 ------------------------------ */
@@ -121,6 +142,13 @@ fieldset, .results {
   fieldset img, .results img {
     max-width: 100%; }
 
+fieldset ul {
+  list-style-type: none;
+  margin-bottom: 3em; }
+  fieldset ul li {
+    margin-top: 1em;
+    margin-bottom: 1em; }
+
 /* Smartphones (landscape) and down ----------- */
 @media only screen and (max-width: 767px) {
   .results img {
@@ -164,7 +192,9 @@ x.class-with-hyphens-separating-words {
 .variable-definitions table {
   border-bottom: 2px solid #000;
   border-collapse: collapse;
-  border-top: 2px solid #000; }
+  border-top: 2px solid #000;
+  font-family: sans-serif;
+  font-size: 0.85em; }
   .efficacy-info table th,
   .variable-definitions table th {
     font-weight: normal;
@@ -190,6 +220,9 @@ x.class-with-hyphens-separating-words {
 x-input,
 x-select {
   display: block; }
+
+label[for=efficacyOrYearfig] {
+  color: #000000; }
 
 /* MISCELLANEOUS
 ------------------------------ */
