@@ -68,6 +68,10 @@ h1.title a {
   .glossary-link i {
     padding-right: 1em; }
 
+.glossary-link a {
+  color: black;
+  cursor: pointer; }
+
 .glossary-inline {
   display: none;
   padding-left: 2em; }
@@ -217,8 +221,7 @@ x.class-with-hyphens-separating-words {
 
 /* FORM ELEMENTS
 ------------------------------ */
-x-input,
-x-select {
+label {
   display: block; }
 
 label[for=efficacyOrYearfig] {
