@@ -65,7 +65,7 @@
 			<label><input type="checkbox" name="yearfig" value="Year3" />Year 3</label>
 			<label><input type="checkbox" name="yearfig" value="Year5" />Year 5</label>
 			<label><input type="checkbox" name="yearfig" value="Year10" />Year 10</label>
-		<p>We derive results when preventative practices are adopted in years 3, 5, or 10 to evaluate conditions when vines are fully trained onto the trellis system and winter pruning begins (3 years old), when vines reach maturity (5 years old), and when trunk disease symptoms typically appear in vineyards (10 years old). These years were selected following grower interviews and discussions with viticulture farm advisor to reflect key stages in a vineyards lifespan.</p>
+		<p class="glossary-link"><a href="#" class="glossary-inline-link">Age of adoption information</a><br /><span class="glossary-inline">We derive results when preventative practices are adopted in years 3, 5, or 10 to evaluate conditions when vines are fully trained onto the trellis system and winter pruning begins (3 years old), when vines reach maturity (5 years old), and when trunk disease symptoms typically appear in vineyards (10 years old). These years were selected following grower interviews and discussions with viticulture farm advisor to reflect key stages in a vineyards lifespan.</span></p>
 
 	</fieldset>
 
@@ -91,7 +91,7 @@
 			<label><input type="checkbox" name="adoptiontable" value="10" />Year 10</label>
 
 		<h5>Choose output parameters:</h5>
-			<p><a href="variable-definitions.html#tablevars">Variable definitions</a></p>
+			<p class="glossary-link"><a href="variable-definitions.html#tablevars">Variable definitions</a></p>
 			<label><input type="checkbox" name="outputtable" value="adcnb" />Additional discounted cumulative net benefits (ADCNB)</label><br />
 			<label><input type="checkbox" name="outputtable" value="lpy" />Last profitable year</label><br />
 			<label><input type="checkbox" name="outputtable" value="aapo" />Age adoption pays off</label><br />
@@ -113,7 +113,11 @@
 
 <script type="text/javascript">
 $(document).ready(function() {
-	$('.glossary-link').prepend('<i class="fa fa-question"></i>');
+	$('.glossary-link').prepend('<i class="fa fa-question-circle"></i>');
+	$('.glossary-inline-link').click( function(event) {
+		event.preventDefault();
+		$(this).stop().siblings('.glossary-inline').toggle('fast');
+	});
 
 	/***** FORM TOGGLE OPTIONS
 	------------------------------------ */

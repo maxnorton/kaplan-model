@@ -58,23 +58,24 @@ h1.title a {
   h1.title a:hover {
     text-decoration: underline; }
 
+.glossary-inline,
 .glossary-link {
-  border: 1px solid black;
   color: black;
-  display: inline-block;
-  font-family: sans-serif;
-  font-size: 0.85em;
-  max-width: 400px;
-  padding-right: 10px;
-  text-decoration: none; }
+  display: block;
+  font-size: 0.9em;
+  padding: 0 1em 0.5em 4em;
+  position: relative; }
+  .glossary-inline i,
   .glossary-link i {
-    background-color: black;
-    color: white;
-    margin-right: 10px;
-    padding: 5px 9px 5px 5px; }
+    position: absolute;
+    left: 2em; }
+
+.glossary-inline {
+  display: none;
+  padding: 0; }
 
 .glossary-link:hover {
-  text-decoration: underline; }
+  color: green; }
 
 /* MAIN LAYOUT
 ------------------------------ */
