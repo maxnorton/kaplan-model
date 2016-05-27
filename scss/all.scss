@@ -90,18 +90,16 @@ h1.title a {
 	color: black;
 	display: block;
 	font-size: 0.9em;
-	padding: 0 1em 0.5em 4em;
-	position: relative;
+	padding: 0;
 
 	i {
-		position: absolute;
-		left: 2em;
+		padding-right: 1em;
 	}
 }
 
 .glossary-inline {
 	display: none;
-	padding: 0;
+	padding-left: 2em;
 }
 
 .glossary-link:hover {
