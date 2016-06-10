@@ -148,6 +148,11 @@ function applySubmitFunction(genstates) {
 				table = '<p class="alert">The <em>Generate table</em> option is selected, but insufficient parameters were selected to produce an output table. To generate a table, please return to the <a href="#" onclick="$(\'body,html\').stop(true,true).animate({scrollTop: $(\'#tableparameters\').offset().top - $(\'header\').height()}, \'500\', \'swing\'); return false;">table parameters form</a> and select at least one management practice, efficacy level, year of adoption, and output parameter.</p>';
 			};
 
+			/***** Add variable definitions section
+			---------------------------------------- */
+
+			var varDefs = '<section class="varDefs-printable"><h3 id="variabledefinitions">Variable definitions</h3><p><strong>Cumulative discounted net returns:</strong> The cumulative net returns (returns &minus; costs) per acre over 25 years for a healthy vineyard, an untreated infected vineyard, and infected vineyards where action is taken. Current and future dollar amounts are in 2013 dollars and are discounted to 2013 using a 3% discount rate. </p><p><a id="tablevars"></a></p><p><strong>Additional cumulative discounted net benefits (ACDNB):</strong> The difference in cumulative net returns (returns - costs) per acre over 25 years between an infected vineyard where action is taken and an untreated infected vineyard. Current and future dollar amounts are in 2013 dollars and are discounted to 2013 using a 3% discount rate. </p><p><strong>Last profitable year:</strong> The last year an infected vineyard generates positive annual net returns (returns - costs). This year is the same for discounted and nominal net returns. </p><p><strong>Age adoption pays off:</strong> The age when cumulative discounted net returns (returns – costs) for a treated infected vineyard exceed those from an untreated infected vineyard. </p><p><strong>Infection probability threshold:</strong> The probability of infection where expected cumulative discounted net returns from treating a vineyard equals the expected cumulative discounted net returns from not treating a vineyard. If you perceive a probability of infection less than this probability, then not treating the vineyard generates greater cumulative discounted net returns than a treated vineyard, and vice versa. </p></section>';
+
 			/***** Generate assumptions table
 			------------------------------------ */
 
@@ -172,6 +177,8 @@ function applySubmitFunction(genstates) {
 				results += fullfig;
 			if (genstates['tablestate'] == true)
 				results += table;
+			if (figurestate == true || tablestate == true)
+				results += varDefs;
 			results += assumptionstable + '<p class="print-link"><a href="javascript:window.print()"><i class="fa fa-print" aria-hidden="true"></i> Print these results.</a></p><p class="adjust-link"><a href="#page" onclick="$(\'body,html\').stop(true,true).animate({scrollTop: $(\'#theform\').offset().top - $(\'header\').height()}, \'500\', \'swing\');">Adjust parameters</a></p>';
 			$('.results').html(results); // Write results to page
 
