@@ -13,7 +13,7 @@ function applySubmitFunction(genstates) {
 			case 'efficacyfig':
 				efficacyOrYearlength=$('input[name=efficacyfig]:checked').length;
 				break;
-			default:
+			case 'yearfig':
 				efficacyOrYearlength=$('input[name=yearfig]:checked').length;
 				break;			
 		};
