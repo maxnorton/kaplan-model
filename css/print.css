@@ -28,3 +28,6 @@ header {
 
 .figure-wrap img {
   width: 100% !important; }
+
+.varDefs-printable {
+  display: block; }
