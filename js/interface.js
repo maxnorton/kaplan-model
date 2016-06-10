@@ -69,7 +69,7 @@ function toggleFormOptions() {
 				case 'efficacyfig':
 					efficacyOrYeardisabledvar = 'yearfig';
 					break;
-				default:
+				case 'yearfig':
 					efficacyOrYeardisabledvar = 'efficacyfig';
 			}
 			$('.' + efficacyOrYearchoice + '-wrap').add('.' + efficacyOrYearchoice + '-wrap a').add('.' + efficacyOrYearchoice + '-wrap i').css('color', '');
@@ -94,4 +94,14 @@ function toggleFormOptions() {
 				$('input[name=efficacyOrYearfig][value=year]').attr('checked', true).change();
 			}
 		});	
+
+		/***** Toggle select practice checkboxes when choosing between net returns and yield for figure
+		------------------------------------ */
+
+		$('input[name=figuredisplay]').change(function() {
+			if ( $(this).val()=='yield' )
+				$('.select-practice-wrap').css('color', '#999999');
+			if ( $(this).val()=='netreturns' )
+				$('.select-practice-wrap').css('color', '');
+		});
 }
