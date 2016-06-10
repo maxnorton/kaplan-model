@@ -9,6 +9,7 @@
 <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
 <script src="js/jquery.swipebox.js"></script>
 <link rel="stylesheet" href="css/swipebox.css">
+<script type="text/javascript" src = "js/interface.js"></script>
 </head>
 
 <body>
@@ -17,11 +18,11 @@
 	<div class="header-wrap">
 		<h1 class="title"><a href="index.html">Trunk disease management options decision tool</a></h1>
 		<h1 class="images">
-			<img src="images/header-photo-center.jpg" alt="Photo: Esca" />
-			<img src="images/header-photo-right.jpg" alt="Photo: Eutypa dieback" />
-			<img src="images/header-photo-extended01.jpg" alt="Photo: Phomopsis dieback" />
-			<img src="images/header-photo-extended02.jpg" alt="Photo: Eutypa dieback" />
-			<img src="images/header-photo-extended03.jpg" alt="Photo: Bot dieback" />
+			<img src="img/header-photo-center.jpg" alt="Photo: Esca" />
+			<img src="img/header-photo-right.jpg" alt="Photo: Eutypa dieback" />
+			<img src="img/header-photo-extended01.jpg" alt="Photo: Phomopsis dieback" />
+			<img src="img/header-photo-extended02.jpg" alt="Photo: Eutypa dieback" />
+			<img src="img/header-photo-extended03.jpg" alt="Photo: Bot dieback" />
 		</h1>
 	</div>
 </header>
@@ -92,7 +93,7 @@
 </tbody>
 </table>
 
-<p><a href="images/variable-table01.png" class="swipebox hide-for-phones"><i class="fa fa-search-plus" aria-hidden="true"></i> View fullscreen</a> </p>
+<p><a href="img/variable-table01.png" class="swipebox hide-for-phones"><i class="fa fa-search-plus" aria-hidden="true"></i> View fullscreen</a> </p>
 
 <p><strong>Last profitable year:</strong> The last year an infected vineyard generates positive annual net returns (returns - costs). This year is the same for discounted and nominal net returns. </p>
 
@@ -138,11 +139,11 @@
 </tbody>
 </table>
 
-<p><a href="images/variable-table02.png" class="swipebox hide-for-phones"><i class="fa fa-search-plus" aria-hidden="true"></i> View fullscreen</a> </p>
+<p><a href="img/variable-table02.png" class="swipebox hide-for-phones"><i class="fa fa-search-plus" aria-hidden="true"></i> View fullscreen</a> </p>
 
 <p><strong>Age adoption pays off:</strong> The age when cumulative discounted net returns (returns – costs) for a treated infected vineyard exceed those from an untreated infected vineyard. </p>
 
-<p><strong>Breakeven probability:</strong> The probability of infection where expected cumulative discounted net returns from treating a vineyard equals the expected cumulative discounted net returns from not treating a vineyard. If you perceive a probability of infection less than this probability, then not treating the vineyard generates greater cumulative discounted net returns than a treated vineyard, and vice versa. </p>
+<p><strong>Infection probability threshold:</strong> The probability of infection where expected cumulative discounted net returns from treating a vineyard equals the expected cumulative discounted net returns from not treating a vineyard. If you perceive a probability of infection less than this probability, then not treating the vineyard generates greater cumulative discounted net returns than a treated vineyard, and vice versa. </p>
 
 <p>As a reference point here are the cumulative discounted net returns for a treated healthy vineyard. </p>
 
@@ -261,7 +262,7 @@
 </tbody>
 </table>
 
-<p><a href="images/variable-table03.png" class="swipebox hide-for-tablets"><i class="fa fa-search-plus" aria-hidden="true"></i> View fullscreen</a> </p>
+<p><a href="img/variable-table03.png" class="swipebox hide-for-tablets"><i class="fa fa-search-plus" aria-hidden="true"></i> View fullscreen</a> </p>
 
 	<p><a href="index.html">Back to decision tool</a></p>
 
@@ -269,26 +270,10 @@
 
 <script type="text/javascript">
 $(document).ready(function() {
-	if (window.location.hash) {
-		var hash = window.location.hash;
-		$('body,html').stop(true,true).animate({scrollTop: $(hash).offset().top - $('header').height()}, '500', 'swing');
-	};
-	if ($(window).width() < 1023) {
-		$('table:nth-of-type(3)').html('<a href="images/variable-table03.png" class="swipebox"><i class="fa fa-table" aria-hidden="true"></i> Open reference table').css('border', '0 none');
-		$('.hide-for-tablets').css('display', 'none');
-	}
-	if ($(window).width() < 768) {
-		$('table:nth-of-type(1)').html('<a href="images/variable-table01.png" class="swipebox"><i class="fa fa-table" aria-hidden="true"></i> Open reference table').css('border', '0 none');
-		$('table:nth-of-type(2)').html('<a href="images/variable-table02.png" class="swipebox"><i class="fa fa-table" aria-hidden="true"></i> Open reference table').css('border', '0 none');
-		$('.hide-for-phones').css('display', 'none');
-	}
-});
-
-;( function( $ ) {
-
+	mobileSubstitutions();
+	scrollToHash();
 	$( '.swipebox' ).swipebox();
-
-	} )( jQuery );
+});
 </script>
 
 </body>

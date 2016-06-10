@@ -9,6 +9,7 @@
 <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
 <script src="js/jquery.swipebox.js"></script>
 <link rel="stylesheet" href="css/swipebox.css">
+<script type="text/javascript" src = "js/interface.js"></script>
 </head>
 
 <body>
@@ -17,11 +18,11 @@
 	<div class="header-wrap">
 		<h1 class="title"><a href="index.html">Trunk disease management options decision tool</a></h1>
 		<h1 class="images">
-			<img src="images/header-photo-center.jpg" alt="Photo: Esca" />
-			<img src="images/header-photo-right.jpg" alt="Photo: Eutypa dieback" />
-			<img src="images/header-photo-extended01.jpg" alt="Photo: Phomopsis dieback" />
-			<img src="images/header-photo-extended02.jpg" alt="Photo: Eutypa dieback" />
-			<img src="images/header-photo-extended03.jpg" alt="Photo: Bot dieback" />
+			<img src="img/header-photo-center.jpg" alt="Photo: Esca" />
+			<img src="img/header-photo-right.jpg" alt="Photo: Eutypa dieback" />
+			<img src="img/header-photo-extended01.jpg" alt="Photo: Phomopsis dieback" />
+			<img src="img/header-photo-extended02.jpg" alt="Photo: Eutypa dieback" />
+			<img src="img/header-photo-extended03.jpg" alt="Photo: Bot dieback" />
 		</h1>
 	</div>
 </header>
@@ -140,7 +141,7 @@
 </html>
 	</section>
 
-	<a href="images/efficacy-table01.png" class="swipebox hide-for-tablets"><i class="fa fa-search-plus" aria-hidden="true"></i> View fullscreen</a>  
+	<a href="img/efficacy-table01.png" class="swipebox hide-for-tablets"><i class="fa fa-search-plus" aria-hidden="true"></i> View fullscreen</a>  
 
 	<section id="references">
 	<h3 id="references:">References:</h3>
@@ -163,17 +164,9 @@
 <script type="text/javascript">
 
 $(document).ready(function() {
-	if ($(window).width() < 1023) {
-		$('.table-style').html('<a href="images/efficacy-table01.png" class="swipebox"><i class="fa fa-table" aria-hidden="true"></i> Open reference table');
-		$('.hide-for-tablets').css('display', 'none');
-	}
-})
-
-;( function( $ ) {
-
+	mobileSubstitutions();
 	$( '.swipebox' ).swipebox();
-
-	} )( jQuery );
+});
 </script>
 </body>
 </html>

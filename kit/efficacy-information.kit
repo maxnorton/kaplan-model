@@ -9,6 +9,7 @@
 <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
 <script src="js/jquery.swipebox.js"></script>
 <link rel="stylesheet" href="css/swipebox.css">
+<script type="text/javascript" src = "js/interface.js"></script>
 </head>
 
 <body>
@@ -22,7 +23,7 @@
 		<!-- @import ../markdown/compiled/efficacy-information-table.html -->
 	</section>
 
-	<a href="images/efficacy-table01.png" class="swipebox hide-for-tablets"><i class="fa fa-search-plus" aria-hidden="true"></i> View fullscreen</a>  
+	<a href="img/efficacy-table01.png" class="swipebox hide-for-tablets"><i class="fa fa-search-plus" aria-hidden="true"></i> View fullscreen</a>  
 
 	<section id="references">
 	<!-- @import ../markdown/compiled/references.html -->
@@ -35,17 +36,9 @@
 <script type="text/javascript">
 
 $(document).ready(function() {
-	if ($(window).width() < 1023) {
-		$('.table-style').html('<a href="images/efficacy-table01.png" class="swipebox"><i class="fa fa-table" aria-hidden="true"></i> Open reference table');
-		$('.hide-for-tablets').css('display', 'none');
-	}
-})
-
-;( function( $ ) {
-
+	mobileSubstitutions();
 	$( '.swipebox' ).swipebox();
-
-	} )( jQuery );
+});
 </script>
 </body>
 </html>

@@ -21,7 +21,7 @@ Central Coast (8)                  | $59,372              | -$6,144             
 Lake (2)                           | $40,375              | -$4,601                         |
 Sonoma (3)                         |$49,496               | -$31,975                        |
 
-<a href="images/variable-table01.png" class="swipebox hide-for-phones"><i class="fa fa-search-plus" aria-hidden="true"></i> View fullscreen</a>  
+<a href="img/variable-table01.png" class="swipebox hide-for-phones"><i class="fa fa-search-plus" aria-hidden="true"></i> View fullscreen</a>  
 
 **Last profitable year:** The last year an infected vineyard generates positive annual net returns (returns - costs). This year is the same for discounted and nominal net returns.  
 
@@ -36,11 +36,11 @@ As a reference point, here are the last years an untreated infected vineyard gen
   Lake (2)                           |   13    |
   Sonoma (3)                         |   12    |
 
-<a href="images/variable-table02.png" class="swipebox hide-for-phones"><i class="fa fa-search-plus" aria-hidden="true"></i> View fullscreen</a>  
+<a href="img/variable-table02.png" class="swipebox hide-for-phones"><i class="fa fa-search-plus" aria-hidden="true"></i> View fullscreen</a>  
 
 **Age adoption pays off:** The age when cumulative discounted net returns (returns – costs) for a treated infected vineyard exceed those from an untreated infected vineyard.  
 
-**Breakeven probability:**  The probability of infection where expected cumulative discounted net returns from treating a vineyard equals the expected cumulative discounted net returns from not treating a vineyard. If you perceive a probability of infection less than this probability, then not treating the vineyard generates greater cumulative discounted net returns than a treated vineyard, and vice versa.  
+**Infection probability threshold:**  The probability of infection where expected cumulative discounted net returns from treating a vineyard equals the expected cumulative discounted net returns from not treating a vineyard. If you perceive a probability of infection less than this probability, then not treating the vineyard generates greater cumulative discounted net returns than a treated vineyard, and vice versa.  
 
 As a reference point here are the cumulative discounted net returns for a treated healthy vineyard.  
 
@@ -68,4 +68,4 @@ As a reference point here are the cumulative discounted net returns for a treate
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Topsin              | $48,345  | $48,479  | $48,781  |
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Double Pruning      | $44,304  | $44,908  | $46,271  |
 
-<a href="images/variable-table03.png" class="swipebox hide-for-tablets"><i class="fa fa-search-plus" aria-hidden="true"></i> View fullscreen</a>  
+<a href="img/variable-table03.png" class="swipebox hide-for-tablets"><i class="fa fa-search-plus" aria-hidden="true"></i> View fullscreen</a>  

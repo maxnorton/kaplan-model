@@ -69,7 +69,6 @@ h1.title a {
 .glossary-link {
   color: black;
   display: block;
-  x-font-size: 0.9em;
   padding: 0; }
   .glossary-inline i,
   .glossary-link i {
@@ -157,6 +156,9 @@ fieldset, .results {
   fieldset img, .results img {
     max-width: 100%; }
 
+.results {
+  margin-left: 8px; }
+
 fieldset ul {
   list-style-type: none;
   margin-bottom: 3em; }
@@ -172,37 +174,36 @@ fieldset ul {
 @media only screen and (max-width: 1023px) {
   .results img {
     min-width: 50% !important; } }
-/* $logo */
-x.class-with-hyphens-separating-words {
-  property: rule;
-  x-property: disabled;
-  property: testing;
-  /* alphabetize properties, comment when necessary */ }
-  x.class-with-hyphens-separating-words .sub-selector {
-    property: rule; }
-
 /* SECONDARY LAYOUT
 ------------------------------ */
-.results table {
+.results table,
+table.form {
   border: 1px solid #ccc;
-  border-spacing: 0; }
-  .results table td {
+  border-spacing: 0;
+  margin-bottom: 10px; }
+  .results table td,
+  table.form td {
     height: 1.5em;
     padding: .5em;
     text-align: center; }
-  .results table td:first-of-type {
+  .results table th:first-of-type,
+  .results table td:first-of-type,
+  table.form th:first-of-type,
+  table.form td:first-of-type {
     text-align: left; }
-  .results table tr:first-of-type {
-    font-weight: bold; }
-    .results table tr:first-of-type td {
-      border-bottom: 1px solid #ccc; }
-  .results table tr:nth-of-type(even) {
+  .results table th,
+  table.form th {
+    border-bottom: 1px solid #ccc;
+    background-color: #eee; }
+  .results table tr:nth-of-type(even),
+  table.form tr:nth-of-type(even) {
     background-color: #eee; }
 
 .assumptionstable tr td:first-of-type {
   font-weight: bold;
   border-right: 1px solid #ccc; }
 
+.custom-instructions table,
 .efficacy-info table,
 .variable-definitions table {
   border-bottom: 2px solid #000;
@@ -211,13 +212,23 @@ x.class-with-hyphens-separating-words {
   font-family: sans-serif;
   font-size: 0.85em;
   max-width: 100%; }
+  .custom-instructions table th,
   .efficacy-info table th,
   .variable-definitions table th {
     font-weight: normal;
     min-width: 12rem; }
+  .custom-instructions table td:first-of-type,
   .efficacy-info table td:first-of-type,
   .variable-definitions table td:first-of-type {
     min-width: 16rem; }
+
+.custom-instructions th {
+  border-bottom: 1px solid #999; }
+
+.efficacy-info table thead tr:first-of-type th:nth-of-type(2) {
+  border-bottom: 1px solid #999; }
+.efficacy-info table thead tr:nth-of-type(3) th:nth-of-type(2) {
+  border-top: 1px solid #000; }
 
 .variable-definitions table:not(:nth-of-type(2)) th:not(:first-of-type) {
   border-bottom: 1px solid #999; }
@@ -225,11 +236,6 @@ x.class-with-hyphens-separating-words {
   border-bottom: 1px solid #000; }
 .variable-definitions table:nth-of-type(2) th {
   border-bottom: 1px solid #000; }
-
-.efficacy-info table thead tr:first-of-type th:nth-of-type(2) {
-  border-bottom: 1px solid #999; }
-.efficacy-info table thead tr:nth-of-type(3) th:nth-of-type(2) {
-  border-top: 1px solid #000; }
 
 /* FORM ELEMENTS
 ------------------------------ */

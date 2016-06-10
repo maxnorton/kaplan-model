@@ -1,0 +1,189 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Trunk disease management options decision tool</title>
+<meta name=viewport content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+<link rel="stylesheet" type="text/css" href="css/all.css" />
+<link rel="stylesheet" href="css/print.css" type="text/css" media="print" />
+<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+<script src="js/jquery.swipebox.js"></script>
+<link rel="stylesheet" href="css/swipebox.css">
+<script src="https://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+<script src="js/interface.js" type="text/javascript"></script>
+<script src="js/table.js" type="text/javascript"></script>
+</head>
+
+<body id="page">
+
+<header>
+	<div class="header-wrap">
+		<h1 class="title"><a href="index.html">Trunk disease management options decision tool</a></h1>
+		<h1 class="images">
+			<img src="img/header-photo-center.jpg" alt="Photo: Esca" />
+			<img src="img/header-photo-right.jpg" alt="Photo: Eutypa dieback" />
+			<img src="img/header-photo-extended01.jpg" alt="Photo: Phomopsis dieback" />
+			<img src="img/header-photo-extended02.jpg" alt="Photo: Eutypa dieback" />
+			<img src="img/header-photo-extended03.jpg" alt="Photo: Bot dieback" />
+		</h1>
+	</div>
+</header>
+
+<section class="content-wrap">
+
+<fieldset class="custom-instructions">
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+</head>
+<body>
+<h2 id="intructions">Intructions</h2>
+
+<p>The table below shows the default settings for the price per ton for Cabernet Sauvignon grapes, annual additional cost of double pruning per acre, annual cultural cost per acre for selected vineyard ages, and yield per acre for a Northern San Joaquin vineyard, unless another region was selected above. All regions depict Cabernet Sauvignon production and double pruning following from our economic analysis of trunk disease.</p>
+
+<table>
+<colgroup>
+<col style="text-align:left;"/>
+<col style="text-align:center;"/>
+</colgroup>
+
+<thead>
+<tr>
+	<th style="text-align:left;" colspan="2"><strong>Additional Annual Cost per acre for Handpainting TopsinM</strong></th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+	<td style="text-align:left;" colspan="2"></td>
+</tr>
+<tr>
+	<td style="text-align:left;">Napa (4)</td>
+	<td style="text-align:center;">$71</td>
+</tr>
+<tr>
+	<td style="text-align:left;">Northern San Joaquin (11)</td>
+	<td style="text-align:center;">$45</td>
+</tr>
+<tr>
+	<td style="text-align:left;">Central Coast (8)</td>
+	<td style="text-align:center;">$90</td>
+</tr>
+<tr>
+	<td style="text-align:left;">Lake (2)</td>
+	<td style="text-align:center;">$117</td>
+</tr>
+<tr>
+	<td style="text-align:left;">Sonoma (3)</td>
+	<td style="text-align:center;">$74</td>
+</tr>
+</tbody>
+</table>
+
+<p><a href="img/custom-instructions-table01.png" class="swipebox hide-for-phones"><i class="fa fa-search-plus" aria-hidden="true"></i> View fullscreen</a> </p>
+
+<p>Change to another regions to see the default settings from the economic analysis here or enter your own numbers in the table below and hit submit to generate results based on our economic analysis of early adoption of trunk disease preventative practices in winegrape vineyards. </p>
+
+<p><a href="index.html">Return to front page</a> </p>
+
+</body>
+</html>
+</fieldset>
+
+<table class="form" id="form">
+	<thead><th colspan="2"><h3>Set parameters</h3></th></thead>
+	<tr>
+		<td><label for="price">Price per ton ($)</label></td>
+		<td><input type="text" name="price" id="price" value="650" /></td>
+	</tr>
+	<tr>
+		<td><label for="discount">Discount rate (%)</label></td>
+		<td><input type="text" name="discount" id="discount" value="3" /></td>
+	</tr>
+	<tr>
+		<td><label for="pc">Additional annual cost per acre of preventative practice ($)</label></td>
+		<td><input type="text" name="pc" id="pc" value="175" /></td>
+	</tr>
+	<tr>
+		<td><label for="cost0">Annual cultural cost per acre &#8211; Year 0 &#8211; Establishing Vineyard ($)</label></td>
+		<td><input type="text" name="cost0" id="cost0" value="12213" /></td>
+	</tr>
+	<tr>
+		<td><label for="cost1">Annual cultural cost per acre &#8211; Year 1 &#8211; Establishing Vineyard ($)</label></td>
+		<td><input type="text" name="cost1" id="cost1" value="3370" /></td>
+	</tr>
+	<tr>
+		<td><label for="cost2">Annual cultural cost per acre &#8211; Year 2 &#8211; Establishing Vineyard ($)</label></td>
+		<td><input type="text" name="cost2" id="cost2" value="1004" /></td>
+	</tr>
+	<tr>
+		<td><label for="cost3">Annual cultural cost per acre &#8211; Year 3+ &#8211; Established Vineyard ($)</label></td>
+		<td><input type="text" name="cost3" id="cost3" value="3505" /></td>
+	</tr>
+	<tr>
+		<td><label for="yield0">Annual yield per acre (Tons) &#8211; Year 0</label></td>
+		<td><input type="text" name="yield0" id="yield0" value="0" /></td>
+	</tr>
+	<tr>
+		<td><label for="yield1">Annual yield per acre (Tons) &#8211; Year 1</label></td>
+		<td><input type="text" name="yield1" id="yield1" value="0" /></td>
+	</tr>
+	<tr>
+		<td><label for="yield2">Annual yield per acre (Tons) &#8211; Year 2</label></td>
+		<td><input type="text" name="yield2" id="yield2" value="5" /></td>
+	</tr>
+	<tr>
+		<td><label for="yield3">Annual yield per acre (Tons) &#8211; Year 3</label></td>
+		<td><input type="text" name="yield3" id="yield3" value="10" /></td>
+	</tr>
+	<tr>
+		<td><label for="yield4">Annual yield per acre (Tons) &#8211; Year 4</label></td>
+		<td><input type="text" name="yield4" id="yield4" value="10" /></td>
+	</tr>
+	<tr>
+		<td><label for="yield5">Annual yield per acre (Tons) &#8211; Year 5+</label></td>
+		<td><input type="text" name="yield5" id="yield5" value="10" /></td>
+	</tr>
+</table>
+
+	<button id="submit">Display returns to this scenario</button>
+
+</section>
+
+<section id="results" class="results"></section>
+
+<hr />
+
+<p class="top-link"><a href="#page" onclick="$('body,html').stop(true,true).animate({scrollTop: $('#page').offset().top - $('header').height()}, '500', 'swing');">&#8593; Top</a></p>
+
+</section>
+
+<script type="text/javascript">
+	$(document).ready(function() {
+		$('#submit').click(function() {
+			the_table(	$('input#discount').val(),
+						$('input#cost0').val(),
+						$('input#cost1').val(),
+						$('input#cost2').val(),
+						$('input#cost3').val(),
+						$('input#pc').val(),
+						$('input#price').val(),
+						$('input#yield0').val(),
+						$('input#yield1').val(),
+						$('input#yield2').val(),
+						$('input#yield3').val(),
+						$('input#yield4').val(),
+						$('input#yield5').val()
+				);
+		});
+
+		mobileSubstitutions();
+		$( '.swipebox' ).swipebox();
+	
+	});
+</script>
+
+</body>
+</html>
