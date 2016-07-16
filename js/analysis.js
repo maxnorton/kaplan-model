@@ -17,9 +17,9 @@ function applySubmitFunction(genstates) {
 				efficacyOrYearlength=$('input[name=yearfig]:checked').length;
 				break;			
 		};
+		console.log(efficacyOrYearlength);
 
-
-		if (efficacyOrYearlength==0 || ( $('input[name=figuredisplay]:checked').val()=='netreturns' && $('input[name=practicefig]:checked').length==0) ) {
+		if ( ( $('input[name=figuregen]:checked').length != 0 && efficacyOrYearlength==0 ) || ( $('input[name=figuregen]:checked').length != 0 && $('input[name=practicefig]:checked').length==0 && $('input[name=figuredisplay]:checked').val()=='netreturns') ) {
 			fullfig = '<p class="alert">The <em>Generate figure</em> option is selected, but insufficient parameters were selected to produce a figure. To generate a figure, please return to the <a href="#" onclick="$(\'body,html\').stop(true,true).animate({scrollTop: $(\'#figureparameters\').offset().top - $(\'header\').height()}, \'500\', \'swing\'); return false;">figure parameters form</a> and select an efficacy level or a year of adoption, and for a net returns figure, at least one management practice.</p>';
 
 		} else {
@@ -30,6 +30,8 @@ function applySubmitFunction(genstates) {
 					var fig = [];
 					for (var j=0; j<efficacyOrYearlength; j++) {
 						efficacyOrYearfig[j] = $('input[name=' + efficacyOrYearchoice + ']:checked:eq('+j+')').val();
+						console.log('input[name=' + efficacyOrYearchoice + ']:checked:eq('+j+')');
+						console.log($('input[name=' + efficacyOrYearchoice + ']:checked:eq('+j+')').val());
 						fig[j] =  '<a href="img/figures/' + $('select[name=region]').val().toUpperCase() + '-' + 'Yield' + efficacyOrYearfig[j] + '.png" class="swipebox"><img src="img/figures/' + $('select[name=region]').val().toUpperCase() + '-' + 'Yield' + efficacyOrYearfig[j] + '.png" style="width: 910px;" alt="Graphical result" /></a>'
 						fullfig += fig[j];
 					}
